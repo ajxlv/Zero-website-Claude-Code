@@ -86,7 +86,7 @@ const max = sbti.baseline;
       </div>
       <div class="rows">
         {lcaStages.map((s, i) => (
-          <div class="lr" data-row={i} style={i === 0 ? '' : 'opacity:.45'}>
+          <div class:list={['lr', { dim: i !== 0 }]} data-row={i}>
             <span class="ll">{s.l}</span>
             <div class="lbar"><div style={`width:${Math.round((s.v / 1.84) * 100)}%;background:${s.c}`}></div></div>
             <span class="lv">{s.v.toFixed(2)}</span>
@@ -182,7 +182,11 @@ const max = sbti.baseline;
   .stg button{border:1px solid var(--line);border-radius:999px;padding:8px 14px;background:transparent;color:var(--ink);font:600 14px var(--font-body);cursor:pointer}
   .stg button[aria-pressed='true']{background:var(--deep);color:var(--deepInk)}
   .rows{display:flex;flex-direction:column;gap:12px}
-  .lr{display:flex;align-items:center;gap:12px;transition:opacity .25s}
+  .lr{display:flex;align-items:center;gap:12px}
+  /* Design dimmed the whole row to 45% (fails AA); dim only the bar so labels stay readable */
+  .lr .lbar{transition:opacity .25s}
+  .lr.dim .lbar{opacity:.45}
+  .lr:not(.dim) .ll{color:var(--deep);font-weight:600}
   .ll{width:110px;flex:none;font-size:14px;color:var(--ink2)}
   .lbar{flex:1;height:22px;border-radius:999px;background:var(--bg)}
   .lbar div{height:100%;border-radius:999px}
@@ -239,7 +243,7 @@ const max = sbti.baseline;
     const rows = [...root.querySelectorAll<HTMLElement>('[data-row]')];
     btns.forEach((b, i) => b.addEventListener('click', () => {
       btns.forEach((x, j) => x.setAttribute('aria-pressed', String(i === j)));
-      rows.forEach((r, j) => (r.style.opacity = i === j ? '1' : '.45'));
+      rows.forEach((r, j) => r.classList.toggle('dim', i !== j));
       root.querySelector('[data-note]')!.textContent = notes[i];
     }));
   });

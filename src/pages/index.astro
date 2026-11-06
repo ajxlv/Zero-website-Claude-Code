@@ -685,28 +685,36 @@ const services = [
     .hero-art{min-height:480px}
   }
   @media (max-width:700px){
-    .srcs{grid-template-columns:repeat(2,1fr);gap:10px;position:static;margin-top:150px}
-    .flowbox{height:auto;padding-bottom:0}
-    .flowbox>svg{height:150px;bottom:auto}
-    .zhub{top:0}
+    /* Data flow: hub then wrapped chips; connector curves hidden */
+    .flowbox{height:auto;display:flex;flex-direction:column;align-items:center;gap:24px}
+    .flowbox>svg{display:none}
+    .zhub{position:static;transform:none}
+    .srcs{position:static;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
     .f1{left:2%;top:6%;min-width:0;padding:16px 18px}
     .fv{font-size:32px}
     .f2{right:2%;top:36%}
     .f3{left:6%;width:64%}
     .stat .n{font-size:44px}
-    .loop{aspect-ratio:auto;min-height:400px}
-    .cn{font-size:14px;padding:10px 14px}
-    .cmid span:first-child{font-size:22px!important}
+    /* LCA loop: hub then a 2-col grid of stages */
+    .loop{aspect-ratio:auto;max-width:none;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .loop>svg{display:none}
+    .hub{position:static;transform:none;grid-column:1/-1;justify-self:center;margin-bottom:8px}
+    .stage{position:static;transform:none}
+    /* Process cycle: smaller two-line labels so they stay inside the ring */
+    .cn{white-space:normal;text-align:center;max-width:96px;line-height:1.2;font-size:13px;padding:8px 10px}
+    .cmid{width:44%}
+    .cmid span:first-child{font-size:17px!important;line-height:1.15}
+    .cmid span:last-child{font-size:12px!important}
     .evstats{grid-template-columns:1fr 1fr}
     .svc-art{min-height:440px}
     .roadmap{width:72%}
     .rtag{font-size:12px;padding:6px 10px}
     .tphoto{flex-basis:100%;height:160px}
+    /* Tangle: knots become a plain stack */
     .problem{padding:24px}
-    .tangle{height:540px}
-    .knot{max-width:80%}
-    .knot:nth-of-type(odd){left:2%!important}
-    .knot:nth-of-type(even){left:14%!important}
+    .tangle{height:auto;display:flex;flex-direction:column;gap:12px}
+    .tangle>svg{display:none}
+    .knot{position:static!important;transform:none!important;max-width:none}
   }
 </style>
 

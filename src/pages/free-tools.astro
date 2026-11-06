@@ -52,13 +52,13 @@ import { esgQuestions } from '../config/esg';
         <span style="font-size:14px;color:var(--ink2)" data-progress role="status">0 of 6 answered</span>
       </div>
       <div class="ep">
-        <div data-asking style="display:flex;flex-direction:column;gap:20px;flex:1">
+        <div data-asking class="pane">
           <span class="qc" data-qcat></span>
           <h3 class="qt" data-qtext tabindex="-1"></h3>
           <div class="opts" data-opts></div>
           <div style="margin-top:auto"><button type="button" class="back" data-back>← Back</button></div>
         </div>
-        <div data-done hidden style="display:flex;flex-direction:column;gap:20px;flex:1">
+        <div data-done hidden class="pane">
           <span class="qc">Your result</span>
           <div class="res">
             <div class="ring" data-ring><div class="ringin"><span class="rs" data-score></span><span style="font-size:12px;color:var(--ink2)">of 100</span></div></div>
@@ -112,6 +112,8 @@ import { esgQuestions } from '../config/esg';
   .dots span.done{background:var(--deep)}
   .dots span.cur{background:var(--terra)}
   .ep{flex:1.4 1 460px;background:var(--surface);border-radius:36px;padding:36px;min-height:420px;display:flex;flex-direction:column;gap:20px}
+  .pane{display:flex;flex-direction:column;gap:20px;flex:1}
+  .pane[hidden]{display:none}
   .qc{font-size:13px;font-weight:600;color:var(--moss)}
   .qt{font-size:28px;line-height:1.2;letter-spacing:-.02em;color:var(--deep)}
   .opts{display:flex;flex-direction:column;gap:10px}

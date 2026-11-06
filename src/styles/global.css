@@ -20,6 +20,8 @@ button,input,select,textarea{font:inherit}
 h1,h2,h3,h4,p{margin:0}
 h1,h2,h3,h4{font-family:var(--font-display);font-weight:600}
 
+[hidden]{display:none!important}
+
 /* Accessibility */
 :focus-visible{outline:3px solid var(--moss);outline-offset:3px;border-radius:6px}
 .on-dark :focus-visible,.dark :focus-visible{outline-color:var(--leaf-light)}
