@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 180">
+            <path d="M0 30 C80 40 120 60 200 90 S340 160 400 172 L400 180 L0 180 Z" fill="#E8F5DC"></path>
+            <path d="M0 30 C80 40 120 60 200 90 S340 160 400 172" fill="none" stroke="#3D7A22" stroke-width="3" stroke-linecap="round"></path>
+            <circle cx="200" cy="90" r="6" fill="#3D7A22"></circle>
+            <text x="210" y="84" fontFamily="Figtree" fontSize="13" fill="#1F3A14">2030 · −42%</text>
+            <text x="320" y="150" fontFamily="Figtree" fontSize="13" fill="#1F3A14">2050 · net zero</text>
+          </svg>

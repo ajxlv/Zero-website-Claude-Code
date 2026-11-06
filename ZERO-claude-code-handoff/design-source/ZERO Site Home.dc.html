@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+:root{--bg:#F6FAF1;--surface:#FFFFFF;--ink:#1F3A14;--ink2:#5A6B55;--moss:#3D7A22;--deep:#1F3A14;--deepInk:#E8F5DC;--deepInk2:#C5DDB3;--sage:#E8F5DC;--leaf:#78B840;--terra:#3D7A22;--terrah:#2F6119;--sky:#EEF7E6;--line:#D3E6C1;--soil:#0E2414;--s1:#1F5C2E;--s2:#78B840;--s3:#D9763A;--acc:#3D7A22;--tex:none;--night:#0E2414;--night2:#163A1C;--nightInk:#E8F5DC;--nightInk2:#A9C29A;--nightLine:rgba(166,217,122,.16)}
+body{margin:0;background:var(--bg);font-family:'Figtree',system-ui,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+a{color:var(--moss);text-decoration:none}
+a:hover{color:var(--terra)}
+*{box-sizing:border-box}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes sway{0%,100%{transform:rotate(-1.5deg)}50%{transform:rotate(1.5deg)}}
+@keyframes flow{to{stroke-dashoffset:-40}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div style="background-color:var(--bg);background-image:var(--tex);color:var(--ink);min-height:100vh">
+
+<dc-import name="ZERO Site Header" active="" hint-size="100%,80px"></dc-import>
+
+<main id="top">
+<section data-screen-label="01 Hero" style="max-width:1280px;margin:0 auto;padding:56px 32px 88px;display:flex;flex-wrap:wrap;gap:48px;align-items:center">
+  <div style="flex:1 1 420px;display:flex;flex-direction:column;gap:26px">
+    <span style="align-self:flex-start;display:flex;align-items:center;gap:10px;background:var(--sage);color:var(--deep);border-radius:999px;padding:8px 16px 8px 10px;font-size:14px;font-weight:600"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14z"></path><path d="M5 19c3-4 6-7 10-9"></path></svg>Sustainability Simplified · since 2020</span>
+    <h1 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(50px,5.6vw,80px);line-height:1;letter-spacing:-.035em;color:var(--deep);text-wrap:balance">Turn sustainability into a competitive <span style="color:var(--terra)">advantage.</span></h1>
+    <p style="margin:0;font-size:20px;line-height:31px;color:var(--ink2);max-width:520px;text-wrap:pretty">Measure, reduce and report carbon emissions with ease — from the air above your plant to the roots of your supply chain.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px">
+      <a href="ZERO%20Site%20Contact.dc.html" style="height:56px;padding:0 28px;border-radius:999px;background:var(--terra);color:#FFFFFF;font:600 16px 'Figtree',sans-serif;display:flex;align-items:center" style-hover="background:var(--terrah);color:#FFFFFF">Book a demo</a>
+      <a href="ZERO%20Site%20Free%20Tools.dc.html" style="height:56px;padding:0 28px;border:1.5px solid var(--deep);border-radius:999px;background:transparent;color:var(--deep);font:600 16px 'Figtree',sans-serif;display:flex;align-items:center" style-hover="background:var(--deep);color:var(--deepInk)">Try the free carbon calculator</a>
+    </div>
+    <span style="font-size:14px;color:var(--ink2);display:flex;align-items:center;gap:10px"><span style="display:flex"><span style="width:28px;height:28px;border-radius:50%;background:var(--leaf);border:2px solid var(--bg)"></span><span style="width:28px;height:28px;border-radius:50%;background:var(--moss);border:2px solid var(--bg);margin-left:-8px"></span><span style="width:28px;height:28px;border-radius:50%;background:var(--s3);border:2px solid var(--bg);margin-left:-8px"></span></span>Trusted across 10+ domains in 3+ countries</span>
+  </div>
+  <div style="flex:1 1 460px;position:relative;min-height:540px">
+    <div style="position:absolute;inset:0;border-radius:46% 54% 42% 58% / 52% 44% 56% 48%;background:radial-gradient(120% 90% at 30% 20%,#78B840 0%,#3D7A22 55%,#1F3A14 100%);overflow:hidden">
+      <svg viewBox="0 0 500 540" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%;opacity:.35;transform-origin:50% 100%;animation:sway 9s ease-in-out infinite" fill="none" stroke="#E8F5DC" strokeLinecap="round">
+        <path d="M250 560 C248 420 252 300 250 40" strokeWidth="2.2"></path>
+        <path d="M250 460 C200 420 150 400 80 400" strokeWidth="1.4"></path><path d="M250 460 C300 420 350 400 420 396" strokeWidth="1.4"></path>
+        <path d="M250 360 C200 320 150 290 90 280" strokeWidth="1.2"></path><path d="M250 350 C300 310 360 280 420 270" strokeWidth="1.2"></path>
+        <path d="M250 250 C210 220 170 190 130 160" strokeWidth="1"></path><path d="M250 240 C290 210 330 180 380 150" strokeWidth="1"></path>
+        <path d="M250 150 C230 120 210 100 190 70" strokeWidth=".8"></path><path d="M250 140 C270 110 290 90 320 60" strokeWidth=".8"></path>
+        <path d="M150 400 C140 380 130 370 110 360" strokeWidth=".7"></path><path d="M350 400 C360 380 375 370 395 362" strokeWidth=".7"></path>
+      </svg>
+    </div>
+    <div style="position:absolute;left:6%;top:12%;background:var(--surface);border-radius:24px;padding:22px 24px;box-shadow:0 24px 48px -24px rgba(31,58,20,.45);display:flex;flex-direction:column;gap:6px;min-width:230px">
+      <span style="font-size:13px;color:var(--ink2);font-weight:500">Yearly carbon footprint</span>
+      <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:42px;font-weight:600;letter-spacing:-.02em;color:var(--deep)">144.3 <span style="font-size:16px;color:var(--ink2);font-weight:500">tCO₂e</span></span>
+      <span style="align-self:flex-start;background:var(--sage);color:var(--deep);border-radius:999px;padding:4px 10px;font-size:13px;font-weight:600">Sample dashboard · 2024</span>
+    </div>
+    <div style="position:absolute;right:4%;top:40%;background:var(--surface);border-radius:24px;padding:20px;box-shadow:0 24px 48px -24px rgba(31,58,20,.45);display:flex;gap:16px;align-items:center">
+      <svg viewBox="0 0 120 120" width="104" height="104"><circle cx="60" cy="60" r="44" fill="none" stroke="var(--s1)" strokeWidth="16" strokeDasharray="53.8 276.5" transform="rotate(-90 60 60)" strokeLinecap="round"></circle><circle cx="60" cy="60" r="44" fill="none" stroke="var(--s2)" strokeWidth="16" strokeDasharray="96.1 276.5" strokeDashoffset="-57.8" transform="rotate(-90 60 60)" strokeLinecap="round"></circle><circle cx="60" cy="60" r="44" fill="none" stroke="var(--s3)" strokeWidth="16" strokeDasharray="114.6 276.5" strokeDashoffset="-157.9" transform="rotate(-90 60 60)" strokeLinecap="round"></circle></svg>
+      <div style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--ink)">
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:10px;height:10px;border-radius:50%;background:var(--s1)"></span>Scope 1 · 20.9%</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:10px;height:10px;border-radius:50%;background:var(--s2)"></span>Scope 2 · 36.2%</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:10px;height:10px;border-radius:50%;background:var(--s3)"></span>Scope 3 · 42.9%</span>
+      </div>
+    </div>
+    <div style="position:absolute;left:14%;bottom:8%;width:min(320px,70%);background:var(--surface);border-radius:20px;overflow:hidden;box-shadow:0 24px 48px -24px rgba(31,58,20,.45)">
+      <img src="assets/dash-sbti.png" alt="ZERO dashboard: emission reduction targets based on SBTi" style="display:block;width:100%;height:auto">
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="02 Clients" style="background:var(--night);color:var(--nightInk);padding:88px 0 96px;margin-bottom:112px">
+  <div style="max-width:1280px;margin:0 auto 48px;padding:0 32px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px">
+    <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(34px,3.6vw,48px);line-height:1.05;letter-spacing:-.03em;max-width:620px">Clients we have served.</h2>
+    <span style="font-size:17px;color:var(--nightInk2)">Trusted by leading companies across domains.</span>
+  </div>
+  <div style="overflow:hidden;padding:20px 0;border-top:1px solid var(--nightLine);border-bottom:1px solid var(--nightLine);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)">
+    <div style="display:flex;gap:72px;align-items:center;width:max-content;animation:marquee 40s linear infinite;padding-right:72px">
+      <sc-for list="{{ marquee }}" as="lg" hint-placeholder-count="10">
+        <img src="{{ lg.src }}" alt="{{ lg.name }}" style="height:{{ lg.h }};width:auto;flex:none;opacity:.82">
+      </sc-for>
+    </div>
+  </div>
+  <div style="max-width:1280px;margin:48px auto 0;padding:0 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+    <div style="border:1px solid var(--nightLine);background:rgba(166,217,122,.04);border-radius:32px;padding:28px 32px;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:60px;font-weight:600;letter-spacing:-.03em;color:var(--leaf)">10+</span><span style="font-size:16px;color:var(--nightInk2)">Domains served</span></div>
+    <div style="border:1px solid var(--nightLine);background:rgba(166,217,122,.04);border-radius:32px;padding:28px 32px;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:60px;font-weight:600;letter-spacing:-.03em;color:var(--nightInk)">15+</span><span style="font-size:16px;color:var(--nightInk2)">Years of experience</span></div>
+    <div style="border:1px solid var(--nightLine);background:rgba(166,217,122,.04);border-radius:32px;padding:28px 32px;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:60px;font-weight:600;letter-spacing:-.03em;color:var(--nightInk)">3+</span><span style="font-size:16px;color:var(--nightInk2)">Countries served</span></div>
+    <div style="background:var(--leaf);color:var(--night);border-radius:32px;padding:28px 32px;display:flex;flex-direction:column;gap:4px"><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:60px;font-weight:600;letter-spacing:-.03em">2020</span><span style="font-size:16px">Founded</span></div>
+  </div>
+</section>
+
+<section data-screen-label="03 Problem" style="max-width:1280px;margin:0 auto;padding:0 32px 120px">
+  <div style="background:var(--surface);border-radius:48px;padding:64px;display:flex;flex-wrap:wrap;gap:48px;align-items:center;border:1px solid var(--line)">
+    <div style="flex:1 1 340px;display:flex;flex-direction:column;gap:20px">
+      <span style="font-size:14px;font-weight:600;color:var(--terra);letter-spacing:.02em">The tangle</span>
+      <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(38px,4vw,52px);line-height:1.05;letter-spacing:-.03em;color:var(--deep);text-wrap:balance">Right now, your carbon data grows in every direction.</h2>
+      <p style="margin:0;font-size:18px;line-height:28px;color:var(--ink2)">Measuring carbon shouldn’t mean untangling it by hand every year.</p>
+    </div>
+    <div style="flex:1.3 1 420px;position:relative;height:400px">
+      <svg viewBox="0 0 560 400" style="position:absolute;inset:0;width:100%;height:100%" fill="none" stroke="var(--moss)" strokeLinecap="round" opacity=".55">
+        <path d="M40 80 C160 20 220 240 300 160 S420 40 520 120 S380 340 260 300 S80 380 60 260 S200 120 340 220 S500 300 520 360" strokeWidth="1.6"></path>
+        <path d="M30 200 C120 120 200 320 290 230 S460 120 530 230 S340 390 220 340 S60 150 160 90 S400 60 480 40" strokeWidth="1.3"></path>
+        <path d="M80 360 C140 260 260 360 320 280 S300 80 200 120 S60 60 120 30 S340 20 400 100 S540 200 470 300" strokeWidth="1"></path>
+      </svg>
+      <sc-for list="{{ knots }}" as="k" hint-placeholder-count="4">
+        <div style="position:absolute;left:{{ k.x }};top:{{ k.y }};background:var(--bg);border:1.5px solid var(--deep);border-radius:20px;padding:14px 18px;max-width:220px;transform:rotate({{ k.r }});box-shadow:0 16px 32px -20px rgba(31,58,20,.5)">
+          <span style="display:block;font-weight:600;font-size:16px;color:var(--deep)">{{ k.t }}</span>
+          <span style="display:block;font-size:14px;line-height:20px;color:var(--ink2);margin-top:4px">{{ k.d }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+<section id="story" data-screen-label="04 Sky to soil" style="background:linear-gradient(180deg,var(--sky) 0%,var(--bg) 600px);position:relative">
+  <div style="max-width:1280px;margin:0 auto;padding:120px 32px 0;display:flex;gap:48px">
+    <aside style="flex:0 0 180px;position:relative">
+      <div style="position:sticky;top:140px;display:flex;flex-direction:column;gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:20px">
+        <span style="font-size:12px;font-weight:600;color:var(--ink2);letter-spacing:.04em">SKY TO SOIL</span>
+        <sc-for list="{{ rail }}" as="rl" hint-placeholder-count="4">
+          <span style="display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:{{ rl.col }}"><span style="height:10px;width:{{ rl.w }};border-radius:6px;background:{{ rl.dot }};transition:all .3s"></span>{{ rl.t }}</span>
+        </sc-for>
+      </div>
+    </aside>
+    <div style="flex:1;min-width:0;display:flex;flex-direction:column">
+      <div style="display:flex;flex-direction:column;gap:16px;max-width:720px;margin-bottom:72px">
+        <span style="font-size:14px;font-weight:600;color:var(--terra)">How ZERO sees your business</span>
+        <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(40px,4.4vw,60px);line-height:1.02;letter-spacing:-.035em;color:var(--deep);text-wrap:balance">From the air above your plant to the roots of your supply chain.</h2>
+      </div>
+
+      <div ref="{{ r0 }}" style="display:flex;flex-wrap:wrap;gap:40px;align-items:center;padding-bottom:120px">
+        <div style="flex:1 1 300px;display:flex;flex-direction:column;gap:14px">
+          <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:600;color:var(--moss)">01 · Atmosphere</span>
+          <h3 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:38px;line-height:1.08;letter-spacing:-.025em;color:var(--deep)">See every tonne you release.</h3>
+          <p style="margin:0;font-size:17px;line-height:27px;color:var(--ink2)">ZERO turns activity data into one live footprint in tCO₂e, updated as data arrives.</p>
+        </div>
+        <div style="flex:1 1 360px;background:var(--surface);border-radius:36px;padding:32px;box-shadow:0 30px 60px -36px rgba(31,58,20,.4);display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-weight:600">Monthly emissions</span><span style="background:var(--sage);color:var(--deep);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:600">↓ 21% this year</span></div>
+          <div style="height:170px;display:flex;align-items:flex-end;gap:8px">
+            <sc-for list="{{ trend }}" as="tr" hint-placeholder-count="12"><div style="flex:1;height:{{ tr.h }};border-radius:999px;background:linear-gradient(180deg,var(--leaf),var(--moss))"></div></sc-for>
+          </div>
+          <div style="display:flex;gap:8px;font-size:12px;color:var(--ink2)"><sc-for list="{{ trend }}" as="tr" hint-placeholder-count="12"><span style="flex:1;text-align:center">{{ tr.m }}</span></sc-for></div>
+        </div>
+      </div>
+
+      <div ref="{{ r1 }}" style="display:flex;flex-wrap:wrap;gap:40px;align-items:center;padding-bottom:120px">
+        <div style="flex:1 1 300px;display:flex;flex-direction:column;gap:14px">
+          <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:600;color:var(--moss)">02 · Operations · Scope 1 &amp; 2</span>
+          <h3 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:38px;line-height:1.08;letter-spacing:-.025em;color:var(--deep)">What you burn and what you buy.</h3>
+          <p style="margin:0;font-size:17px;line-height:27px;color:var(--ink2)">Boilers, generators, fleet and purchased electricity — collected automatically from meters, fuel cards and utility bills.</p>
+        </div>
+        <div style="flex:1 1 360px;display:flex;gap:16px;flex-wrap:wrap">
+          <div style="flex:1 1 160px;background:var(--surface);border-radius:32px;padding:28px;display:flex;flex-direction:column;gap:10px;box-shadow:0 30px 60px -36px rgba(31,58,20,.4)">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="var(--deep)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M18 5c-5 7-8 11-8 16a8 8 0 0016 0c0-5-3-9-8-16z"></path><path d="M15 23c0 2 1.5 3.5 3.5 3.5"></path></svg>
+            <span style="font-size:14px;color:var(--ink2)">Scope 1 · direct</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:36px;font-weight:600;color:var(--deep)">30.2 <span style="font-size:14px;font-weight:500;color:var(--ink2)">tCO₂e</span></span>
+          </div>
+          <div style="flex:1 1 160px;background:var(--surface);border-radius:32px;padding:28px;display:flex;flex-direction:column;gap:10px;box-shadow:0 30px 60px -36px rgba(31,58,20,.4)">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="var(--deep)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M20 4L9 20h9l-2 12 11-16h-9z"></path></svg>
+            <span style="font-size:14px;color:var(--ink2)">Scope 2 · energy</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:36px;font-weight:600;color:var(--deep)">52.2 <span style="font-size:14px;font-weight:500;color:var(--ink2)">tCO₂e</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div style="height:220px;border-image:linear-gradient(180deg,transparent,var(--soil)) fill 0//0 100vmax"></div>
+      <div style="display:flex;flex-direction:column;border-image:conic-gradient(var(--soil) 0 0) fill 0//0 100vmax">
+      <div ref="{{ r2 }}" style="display:flex;flex-wrap:wrap;gap:40px;align-items:center;padding-bottom:120px">
+        <div style="flex:1 1 300px;display:flex;flex-direction:column;gap:14px">
+          <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:600;color:#E8F5DC">03 · Roots · Scope 3</span>
+          <h3 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:38px;line-height:1.08;letter-spacing:-.025em;color:#FFFFFF">Your supply chain is where most carbon hides.</h3>
+          <p style="margin:0;font-size:17px;line-height:27px;color:#E8F5DC">Purchased goods, freight, travel and product end-of-life. ZERO maps every supplier and fills gaps with the best available data.</p>
+        </div>
+        <div style="flex:1 1 360px;position:relative;height:300px;border-radius:36px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);overflow:hidden">
+          <svg viewBox="0 0 400 300" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%" fill="none" stroke="#5E9A3A" strokeLinecap="round">
+            <path d="M200 0 C200 60 190 90 120 130 S40 200 30 290" strokeWidth="2" strokeDasharray="6 6" style="animation:flow 3s linear infinite"></path>
+            <path d="M200 0 C205 70 220 100 290 140 S370 210 380 290" strokeWidth="2" strokeDasharray="6 6" style="animation:flow 3s linear infinite"></path>
+            <path d="M200 0 C200 100 200 180 200 290" strokeWidth="2.4"></path>
+            <path d="M120 130 C110 170 90 200 100 260" strokeWidth="1.2"></path><path d="M290 140 C300 180 320 210 300 260" strokeWidth="1.2"></path>
+            <path d="M200 160 C170 190 150 220 150 280" strokeWidth="1"></path><path d="M200 170 C230 200 250 230 250 280" strokeWidth="1"></path>
+          </svg>
+          <span style="position:absolute;left:4%;bottom:10%;background:#FFFFFF;color:#1F3A14;border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600">Purchased goods · 38.4 t</span>
+          <span style="position:absolute;right:4%;bottom:24%;background:#FFFFFF;color:#1F3A14;border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600">Freight · 14.1 t</span>
+          <span style="position:absolute;left:34%;bottom:4%;background:var(--s3);color:#0E2414;border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600">61.9 tCO₂e · 43%</span>
+        </div>
+      </div>
+
+      <div ref="{{ r3 }}" style="display:flex;flex-wrap:wrap;gap:40px;align-items:center;padding-bottom:140px">
+        <div style="flex:1 1 300px;display:flex;flex-direction:column;gap:14px">
+          <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:600;color:var(--leaf)">04 · New growth · Decarbonize</span>
+          <h3 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:38px;line-height:1.08;letter-spacing:-.025em;color:#FFFFFF">Then grow something better.</h3>
+          <p style="margin:0;font-size:17px;line-height:27px;color:#E8F5DC">Set science-based targets, model reduction levers and watch the pathway bend toward net zero.</p>
+        </div>
+        <div style="flex:1 1 360px;background:#FFFFFF;border-radius:36px;padding:28px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;justify-content:space-between;color:#1F3A14;font-weight:600"><span>Reduction pathway</span><span style="font-size:13px;color:#5A6B55;font-weight:500">Illustrative</span></div>
+          <svg viewBox="0 0 400 180" style="width:100%;height:auto">
+            <path d="M0 30 C80 40 120 60 200 90 S340 160 400 172 L400 180 L0 180 Z" fill="#E8F5DC"></path>
+            <path d="M0 30 C80 40 120 60 200 90 S340 160 400 172" fill="none" stroke="#3D7A22" strokeWidth="3" strokeLinecap="round"></path>
+            <circle cx="200" cy="90" r="6" fill="#3D7A22"></circle>
+            <text x="210" y="84" fontFamily="Figtree" fontSize="13" fill="#1F3A14">2030 · −42%</text>
+            <text x="320" y="150" fontFamily="Figtree" fontSize="13" fill="#1F3A14">2050 · net zero</text>
+          </svg>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="05 Platform" style="background:var(--soil);padding:0 32px 120px">
+  <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:24px">
+    <div style="display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:end;padding-bottom:24px">
+      <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(38px,4vw,54px);line-height:1.04;letter-spacing:-.03em;color:#FFFFFF;max-width:640px">Three tools, one living system.</h2>
+      <span style="font-size:17px;color:#E8F5DC;max-width:380px">Carbon Accounting, ESG Reporting and Product LCA share one data foundation.</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:24px">
+      <div style="flex:1.4 1 480px;background:#FFFFFF;color:#1F3A14;border-radius:40px;padding:40px;display:flex;flex-direction:column;gap:20px">
+        <span style="align-self:flex-start;background:#E8F5DC;border-radius:999px;padding:6px 14px;font-size:13px;font-weight:600;color:#1F3A14">Carbon Accounting</span>
+        <h3 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:34px;line-height:1.1;letter-spacing:-.02em">Scope 1, 2 and 3, gathered for you.</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:8px"><span style="border:1px solid #D3E6C1;border-radius:999px;padding:8px 14px;font-size:14px;white-space:nowrap">Automated data collection</span><span style="border:1px solid #D3E6C1;border-radius:999px;padding:8px 14px;font-size:14px;white-space:nowrap">Real-time dashboards</span><span style="border:1px solid #D3E6C1;border-radius:999px;padding:8px 14px;font-size:14px;white-space:nowrap">Every site, one view</span></div>
+        <div style="margin-top:auto;border-radius:24px;overflow:hidden;background:#E8F5DC;padding:20px 20px 0"><div style="aspect-ratio:16/9;position:relative;border-radius:14px 14px 0 0;overflow:hidden;box-shadow:0 20px 40px -24px rgba(31,58,20,.5)"><img src="assets/dash-carbon.png" alt="ZERO Carbon Accounting dashboard" style="display:block;width:100%;height:100%;object-fit:cover;object-position:top left"></div></div>
+      </div>
+      <div style="flex:1 1 380px;background:#FFFFFF;color:#1F3A14;border-radius:40px;padding:40px;display:flex;flex-direction:column;gap:20px">
+        <span style="align-self:flex-start;background:#E8F5DC;border-radius:999px;padding:6px 14px;font-size:13px;font-weight:600;color:#1F3A14">ESG Reporting</span>
+        <h3 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:34px;line-height:1.1;letter-spacing:-.02em">Pick a framework. Watch it fill in.</h3>
+        <div style="display:flex;gap:6px;background:#E8F5DC;border-radius:999px;padding:5px;align-self:flex-start">
+          <sc-for list="{{ tabs }}" as="tb" hint-placeholder-count="4"><button onClick="{{ tb.go }}" style="border:none;border-radius:999px;padding:8px 16px;background:{{ tb.bg }};color:{{ tb.col }};font:600 14px 'Figtree',sans-serif;cursor:pointer;transition:background .2s">{{ tb.k }}</button></sc-for>
+        </div>
+        <div style="background:#1F3A14;color:#F6FAF1;border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;justify-content:space-between;gap:12px"><div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:600;line-height:1.15">{{ rep.title }}</span><span style="font-size:13px;color:#C5DDB3">{{ rep.sub }}</span></div><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:28px;font-weight:600;color:#A6D97A">{{ rep.pct }}</span></div>
+          <div style="height:8px;border-radius:999px;background:rgba(232,245,220,.15)"><div style="height:100%;width:{{ rep.pct }};border-radius:999px;background:#A6D97A;transition:width .5s"></div></div>
+          <sc-for list="{{ rep.rows }}" as="rw" hint-placeholder-count="3"><span style="display:flex;justify-content:space-between;font-size:14px;border-top:1px solid rgba(232,245,220,.15);padding-top:10px"><span>{{ rw }}</span><span style="color:#A6D97A">✓ traced</span></span></sc-for>
+        </div>
+        <span style="font-size:14px;color:#5A6B55">GRI, SASB, TCFD, CSRD, CDP and BRSR · audit-ready trail on every figure</span>
+      </div>
+    </div>
+    <div style="background:#FFFFFF;color:#1F3A14;border-radius:40px;padding:40px;display:flex;flex-wrap:wrap;gap:40px;align-items:center">
+      <div style="flex:1 1 320px;display:flex;flex-direction:column;gap:18px">
+        <span style="align-self:flex-start;background:#E8F5DC;border-radius:999px;padding:6px 14px;font-size:13px;font-weight:600;color:#1F3A14">Product Life Cycle Analysis</span>
+        <h3 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:34px;line-height:1.1;letter-spacing:-.02em">The whole life of a product, cradle to grave.</h3>
+        <p style="margin:0;font-size:17px;line-height:27px;color:#5A6B55">ISO 14040/44 models for every SKU, ready for an Environmental Product Declaration.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px"><span style="border:1px solid #D3E6C1;border-radius:999px;padding:8px 14px;font-size:14px;white-space:nowrap">Cradle-to-grave</span><span style="border:1px solid #D3E6C1;border-radius:999px;padding:8px 14px;font-size:14px;white-space:nowrap">ISO 14040/44</span><span style="border:1px solid #D3E6C1;border-radius:999px;padding:8px 14px;font-size:14px;white-space:nowrap">EPD-ready</span></div>
+      </div>
+      <div style="flex:1 1 380px;position:relative;aspect-ratio:1.25;max-width:520px">
+        <svg viewBox="0 0 400 320" style="position:absolute;inset:0;width:100%;height:100%"><ellipse cx="200" cy="160" rx="150" ry="118" fill="none" stroke="#A6D97A" strokeWidth="2" strokeDasharray="4 8" style="animation:flow 4s linear infinite"></ellipse></svg>
+        <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:150px;height:150px;border-radius:50%;background:#1F3A14;color:#F6FAF1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center"><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:34px;font-weight:600">3.27</span><span style="font-size:12px;color:#C5DDB3">kgCO₂e per bag</span></div>
+        <sc-for list="{{ lca }}" as="lc" hint-placeholder-count="5">
+          <div style="position:absolute;left:{{ lc.x }};top:{{ lc.y }};transform:translate(-50%,0);background:#FFFFFF;border:1.5px solid #1F3A14;border-radius:18px;padding:8px 14px;text-align:center;white-space:nowrap"><span style="display:block;font-size:13px;color:#5A6B55">{{ lc.l }}</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:18px">{{ lc.v }}</span></div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="06 Data connections" style="max-width:1280px;margin:0 auto;padding:120px 32px">
+  <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;margin-bottom:24px">
+    <span style="font-size:14px;font-weight:600;color:var(--terra)">Data that flows by itself</span>
+    <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(36px,4vw,52px);line-height:1.05;letter-spacing:-.03em;color:var(--deep);max-width:760px">Your systems feed ZERO like roots feed a tree.</h2>
+    <p style="margin:0;font-size:18px;line-height:28px;color:var(--ink2);max-width:560px">AI-powered data ingestion from multiple business systems and formats. No manual uploads.</p>
+  </div>
+  <div style="position:relative;height:360px">
+    <svg viewBox="0 0 1200 360" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%" fill="none" stroke="var(--moss)" strokeLinecap="round">
+      <path d="M100 300 C100 180 600 220 600 90" strokeWidth="1.6" strokeDasharray="6 8" vectorEffect="non-scaling-stroke" style="animation:flow 2.5s linear infinite"></path>
+      <path d="M300 300 C300 200 600 220 600 90" strokeWidth="1.6" strokeDasharray="6 8" vectorEffect="non-scaling-stroke" style="animation:flow 2.5s linear infinite"></path>
+      <path d="M500 300 C500 220 600 200 600 90" strokeWidth="1.6" strokeDasharray="6 8" vectorEffect="non-scaling-stroke" style="animation:flow 2.5s linear infinite"></path>
+      <path d="M700 300 C700 220 600 200 600 90" strokeWidth="1.6" strokeDasharray="6 8" vectorEffect="non-scaling-stroke" style="animation:flow 2.5s linear infinite"></path>
+      <path d="M900 300 C900 200 600 220 600 90" strokeWidth="1.6" strokeDasharray="6 8" vectorEffect="non-scaling-stroke" style="animation:flow 2.5s linear infinite"></path>
+      <path d="M1100 300 C1100 180 600 220 600 90" strokeWidth="1.6" strokeDasharray="6 8" vectorEffect="non-scaling-stroke" style="animation:flow 2.5s linear infinite"></path>
+    </svg>
+    <div style="position:absolute;left:50%;top:10px;transform:translateX(-50%);width:150px;height:150px;border-radius:50%;background:var(--surface);border:1.5px solid var(--deep);display:flex;align-items:center;justify-content:center;box-shadow:0 24px 48px -24px rgba(31,58,20,.45)"><img src="{{ logoSrc }}" alt="ZERO" style="width:96px;height:auto"></div>
+    <div style="position:absolute;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(6,1fr)">
+      <sc-for list="{{ sources }}" as="src" hint-placeholder-count="6"><div style="display:flex;justify-content:center"><span style="background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:12px 18px;font-weight:600;font-size:15px;color:var(--deep);white-space:nowrap">{{ src }}</span></div></sc-for>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="07 AI" style="background:var(--night);color:var(--nightInk);padding:120px 32px;margin-bottom:120px;position:relative;overflow:hidden">
+  <div style="position:absolute;right:-160px;top:-160px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(120,184,64,.22),transparent 65%)"></div>
+  <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:64px;position:relative">
+  <div style="display:flex;flex-wrap:wrap;gap:48px">
+    <div style="flex:1 1 320px;display:flex;flex-direction:column;gap:20px">
+      <span style="align-self:flex-start;display:flex;align-items:center;gap:8px;border:1px solid var(--nightLine);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600;color:var(--leaf)"><span style="width:8px;height:8px;border-radius:50%;background:var(--leaf)"></span>AI-powered carbon intelligence</span>
+      <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(36px,4vw,52px);line-height:1.04;letter-spacing:-.03em">Ask in plain words. Get answers with roots.</h2>
+      <p style="margin:0;font-size:18px;line-height:28px;color:var(--nightInk2)">Haathi, our in-house AI assistant, knows your footprint, explains what changed and simulates where your emissions are heading.</p>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+        <sc-for list="{{ hqTabs }}" as="h" hint-placeholder-count="3"><button onClick="{{ h.go }}" style="text-align:left;border:1px solid var(--nightLine);border-radius:18px;padding:14px 18px;background:{{ h.bg }};color:{{ h.col }};font:500 15px 'Figtree',sans-serif;cursor:pointer;transition:background .2s" style-hover="transform:translateX(4px)">{{ h.q }}</button></sc-for>
+      </div>
+    </div>
+    <div style="flex:1.2 1 400px;background:var(--surface);color:var(--ink);border-radius:36px;padding:28px;display:flex;flex-direction:column;gap:18px;box-shadow:0 40px 80px -40px rgba(0,0,0,.6);min-height:420px">
+      <span style="align-self:flex-end;background:var(--deep);color:var(--deepInk);border-radius:22px 22px 6px 22px;padding:14px 18px;max-width:80%;font-size:15px;line-height:22px">{{ ans.q }}</span>
+      <div style="display:flex;gap:12px;align-items:flex-start">
+        <span style="flex:none;width:36px;height:36px;border-radius:50%;background:var(--sage);color:var(--deep);display:flex;align-items:center;justify-content:center;font-weight:700">H</span>
+        <div style="background:var(--bg);border-radius:6px 22px 22px 22px;padding:18px;display:flex;flex-direction:column;gap:14px;flex:1">
+          <span style="font-size:15px;line-height:23px;color:var(--ink)">{{ ans.a }}</span>
+          <sc-for list="{{ ans.bars }}" as="b" hint-placeholder-count="3">
+            <div style="display:flex;flex-direction:column;gap:6px"><span style="display:flex;justify-content:space-between;font-size:13px;color:var(--ink2)"><span>{{ b.l }}</span><span style="font-weight:600;color:var(--ink)">{{ b.v }}</span></span><div style="height:12px;border-radius:999px;background:var(--line)"><div style="height:100%;width:{{ b.w }};border-radius:999px;background:{{ b.c }};transition:width .5s"></div></div></div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="margin-top:auto;display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:8px 8px 8px 20px"><span style="flex:1;font-size:15px;color:var(--ink2)">Ask Haathi about your emissions…</span><span style="width:40px;height:40px;border-radius:50%;background:var(--terra);color:#FFFFFF;display:flex;align-items:center;justify-content:center">↑</span></div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--nightLine);border:1px solid var(--nightLine);border-radius:32px;overflow:hidden">
+    <sc-for list="{{ aiFeats }}" as="f" hint-placeholder-count="4">
+      <div style="background:var(--night);padding:28px;display:flex;flex-direction:column;gap:10px"><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:600;color:var(--leaf)">{{ f.n }}</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:600">{{ f.t }}</span><span style="font-size:15px;line-height:23px;color:var(--nightInk2)">{{ f.d }}</span></div>
+    </sc-for>
+  </div>
+  </div>
+</section>
+
+<section data-screen-label="08 Process" style="max-width:1280px;margin:0 auto;padding:0 32px 120px;display:flex;flex-wrap:wrap;gap:56px;align-items:center">
+  <div style="flex:1 1 420px;position:relative;aspect-ratio:1;max-width:520px">
+    <svg viewBox="0 0 400 400" style="position:absolute;inset:0;width:100%;height:100%" fill="none"><circle cx="200" cy="200" r="150" stroke="var(--line)" strokeWidth="2"></circle><path d="M200 50 A150 150 0 1 1 50 200" stroke="var(--moss)" strokeWidth="3" strokeLinecap="round" strokeDasharray="8 10" style="animation:flow 3s linear infinite"></path></svg>
+    <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;display:flex;flex-direction:column;gap:6px"><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:28px;font-weight:600;color:var(--deep)">A regenerative cycle</span><span style="font-size:14px;color:var(--ink2)">repeated every month</span></div>
+    <span style="position:absolute;left:50%;top:12.5%;transform:translate(-50%,-50%);background:var(--deep);color:var(--deepInk);border-radius:999px;padding:12px 20px;font-weight:600">1 · Gather</span>
+    <span style="position:absolute;left:87.5%;top:50%;transform:translate(-50%,-50%);background:var(--surface);border:1.5px solid var(--deep);color:var(--deep);border-radius:999px;padding:12px 20px;font-weight:600">2 · Measure</span>
+    <span style="position:absolute;left:50%;top:87.5%;transform:translate(-50%,-50%);background:var(--surface);border:1.5px solid var(--deep);color:var(--deep);border-radius:999px;padding:12px 20px;font-weight:600">3 · Report</span>
+    <span style="position:absolute;left:12.5%;top:50%;transform:translate(-50%,-50%);background:var(--terra);color:#FFFFFF;border-radius:999px;padding:12px 20px;font-weight:600">4 · Decarbonize</span>
+  </div>
+  <div style="flex:1 1 360px;display:flex;flex-direction:column;gap:24px">
+    <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(36px,4vw,52px);line-height:1.04;letter-spacing:-.03em;color:var(--deep)">How it works</h2>
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <div style="display:flex;gap:16px"><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:var(--moss);font-size:20px;width:24px">1</span><span style="font-size:17px;line-height:26px;color:var(--ink)"><strong>Gather.</strong> Seamlessly collect and centralise sustainability data from every source across your business.</span></div>
+      <div style="display:flex;gap:16px"><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:var(--moss);font-size:20px;width:24px">2</span><span style="font-size:17px;line-height:26px;color:var(--ink)"><strong>Measure.</strong> Accurately calculate emissions with verified factors and AI precision.</span></div>
+      <div style="display:flex;gap:16px"><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:var(--moss);font-size:20px;width:24px">3</span><span style="font-size:17px;line-height:26px;color:var(--ink)"><strong>Report.</strong> Generate audit-ready ESG, Carbon and LCA reports aligned to global standards.</span></div>
+      <div style="display:flex;gap:16px"><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;color:var(--terra);font-size:20px;width:24px">4</span><span style="font-size:17px;line-height:26px;color:var(--ink)"><strong>Decarbonize.</strong> Turn insights into real action with guidance, strategies and measurable emission reduction.</span></div>
+    </div>
+  </div>
+</section>
+<section id="services" data-screen-label="09 Services" style="max-width:1280px;margin:0 auto;padding:0 32px 120px">
+  <div style="display:flex;flex-wrap:wrap;gap:48px;align-items:center">
+    <div style="flex:1 1 440px;position:relative;min-height:520px">
+      <div style="position:absolute;left:0;top:0;width:72%;height:88%;border-radius:200px 200px 40px 40px;overflow:hidden"><image-slot id="d2-svc-expert" placeholder="ZERO consultant with client team · real photo"></image-slot></div>
+      <div style="position:absolute;right:0;bottom:0;width:58%;background:var(--surface);border-radius:28px;padding:22px;box-shadow:0 30px 60px -30px rgba(31,58,20,.5);display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:13px;font-weight:600;color:var(--ink2)">Platform · live roadmap</span>
+        <div style="display:flex;flex-direction:column;gap:8px;font-size:14px">
+          <span style="display:flex;justify-content:space-between"><span>Solar PPA · Plant 2</span><span style="color:var(--moss);font-weight:600">−1,140 t</span></span>
+          <span style="display:flex;justify-content:space-between"><span>Fleet to EV · phase 1</span><span style="color:var(--moss);font-weight:600">−310 t</span></span>
+          <span style="display:flex;justify-content:space-between"><span>Supplier engagement</span><span style="color:var(--ink2)">in review</span></span>
+        </div>
+      </div>
+    </div>
+    <div style="flex:1 1 400px;display:flex;flex-direction:column;gap:24px">
+      <span style="font-size:14px;font-weight:600;color:var(--terra)">Services</span>
+      <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(36px,4vw,52px);line-height:1.04;letter-spacing:-.03em;color:var(--deep)">People who know the ground, software that knows the numbers.</h2>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <a href="ZERO%20Site%20Services.dc.html" style="background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:22px 24px;display:flex;flex-direction:column;gap:8px;color:var(--ink);transition:transform .2s,border-color .2s" style-hover="transform:translateY(-3px);border-color:var(--deep);color:var(--ink)"><span style="display:flex;justify-content:space-between;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:22px;color:var(--deep)">Sustainability Advisory<span style="color:var(--terra)">→</span></span><span style="font-size:15px;line-height:23px;color:var(--ink2)">Expert guidance to enhance your sustainability strategies and performance.</span></a>
+        <a href="ZERO%20Site%20Services.dc.html" style="background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:22px 24px;display:flex;flex-direction:column;gap:8px;color:var(--ink);transition:transform .2s,border-color .2s" style-hover="transform:translateY(-3px);border-color:var(--deep);color:var(--ink)"><span style="display:flex;justify-content:space-between;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:22px;color:var(--deep)">Product Lifecycle Analysis<span style="color:var(--terra)">→</span></span><span style="font-size:15px;line-height:23px;color:var(--ink2)">Know exactly how much emission is caused by your product. ISO 14040/44, EPD-ready.</span></a>
+        <a href="ZERO%20Site%20Services.dc.html" style="background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:22px 24px;display:flex;flex-direction:column;gap:8px;color:var(--ink);transition:transform .2s,border-color .2s" style-hover="transform:translateY(-3px);border-color:var(--deep);color:var(--ink)"><span style="display:flex;justify-content:space-between;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:22px;color:var(--deep)">ESG Reporting<span style="color:var(--terra)">→</span></span><span style="font-size:15px;line-height:23px;color:var(--ink2)">Comprehensive, accurate and compliant sustainability reports.</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="events" data-screen-label="10 Net Zero Events" style="background:var(--deep);color:var(--deepInk);padding:120px 32px;border-radius:64px 64px 0 0">
+  <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px">
+      <div style="display:flex;flex-direction:column;gap:14px;max-width:760px"><span style="font-size:14px;font-weight:600;color:var(--leaf)">Net Zero Events · Featured</span><h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(36px,4vw,56px);line-height:1.02;letter-spacing:-.03em;color:var(--deepInk)">YI WRCM Nashik 2025: a fully net-zero gathering.</h2></div>
+      <a href="ZERO%20Site%20Services.dc.html#events" style="color:var(--deepInk);font-weight:600;border-bottom:1.5px solid var(--deepInk)" style-hover="color:var(--leaf)">Plan a net-zero event →</a>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:stretch">
+      <figure style="flex:1.5 1 480px;margin:0;position:relative;border-radius:36px;overflow:hidden;min-height:420px"><img src="assets/event-nashik.png" alt="Keynote at YI WRCM Nashik 2025" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><figcaption style="position:absolute;left:20px;bottom:20px;background:rgba(14,36,20,.92);color:#F6FAF1;border-radius:16px;padding:10px 14px;font-size:14px;display:flex;gap:14px;flex-wrap:wrap"><span>14 Aug 2025</span><span>Nashik</span><span>2 days</span></figcaption></figure>
+      <div style="flex:1 1 340px;display:flex;flex-direction:column;gap:20px">
+        <p style="margin:0;font-size:17px;line-height:27px;color:var(--deepInk2)">Young Indians Nashik hosted its Annual Western Region Meet, bringing together 177 participants from 17 cities. ZERO measured every emission and reduced impact through EV transport, smart carpooling and a strict no-paper, no-plastic approach.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div style="background:rgba(232,245,220,.08);border:1px solid rgba(232,245,220,.18);border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:4px"><span style="font-size:13px;color:var(--deepInk2)">Event emissions</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:34px;font-weight:600">4.7 <span style="font-size:14px;font-weight:500;color:var(--deepInk2)">tCO₂e</span></span></div>
+          <div style="background:rgba(232,245,220,.08);border:1px solid rgba(232,245,220,.18);border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:4px"><span style="font-size:13px;color:var(--deepInk2)">Emissions avoided</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:34px;font-weight:600;color:#A6D97A">0.3 <span style="font-size:14px;font-weight:500;color:var(--deepInk2)">tCO₂e</span></span></div>
+          <div style="background:rgba(232,245,220,.08);border:1px solid rgba(232,245,220,.18);border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:4px"><span style="font-size:13px;color:var(--deepInk2)">Participants</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:34px;font-weight:600">177</span></div>
+          <div style="background:rgba(232,245,220,.08);border:1px solid rgba(232,245,220,.18);border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:4px"><span style="font-size:13px;color:var(--deepInk2)">Cities</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:34px;font-weight:600">17</span></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px"><span style="background:#F6FAF1;color:#1F3A14;border-radius:999px;padding:10px 16px;font-weight:600;font-size:14px">EV transport</span><span style="background:#F6FAF1;color:#1F3A14;border-radius:999px;padding:10px 16px;font-weight:600;font-size:14px">Smart carpooling</span><span style="background:#F6FAF1;color:#1F3A14;border-radius:999px;padding:10px 16px;font-weight:600;font-size:14px">No paper</span><span style="background:#F6FAF1;color:#1F3A14;border-radius:999px;padding:10px 16px;font-weight:600;font-size:14px">No plastic</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="11 Standards" style="background:var(--deep);padding:0 32px 80px">
+  <div style="max-width:1280px;margin:0 auto;border-top:1px solid rgba(232,245,220,.18);padding-top:40px;display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+    <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:600;color:var(--deepInk);margin-right:16px">We fully comply with</span>
+    <sc-for list="{{ standards }}" as="sd" hint-placeholder-count="10"><span style="border:1.5px solid rgba(232,245,220,.4);color:var(--deepInk);border-radius:999px;padding:10px 18px;font-weight:600;font-size:15px">{{ sd }}</span></sc-for>
+    
+  </div>
+</section>
+
+<section id="tools" data-screen-label="12 Free tools" style="max-width:1280px;margin:0 auto;padding:120px 32px;display:flex;flex-wrap:wrap;gap:24px">
+  <div style="flex:1.6 1 520px;background:var(--surface);border:1px solid var(--line);border-radius:48px;padding:48px;display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:14px;font-weight:600;color:var(--terra)">Free carbon calculator</span><h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(32px,3.4vw,44px);line-height:1.05;letter-spacing:-.03em;color:var(--deep)">Plant three numbers. See what grows.</h2></div>
+    <div style="display:flex;flex-wrap:wrap;gap:14px">
+      <label style="flex:1 1 160px;background:var(--bg);border-radius:24px;padding:16px 20px;display:flex;flex-direction:column;gap:4px"><span style="font-size:13px;color:var(--ink2);font-weight:500">Electricity · kWh/month</span><input type="number" value="{{ kwh }}" onChange="{{ setKwh }}" style="border:none;background:transparent;font:600 26px 'Bricolage Grotesque',sans-serif;color:var(--deep);outline:none;width:100%"></label>
+      <label style="flex:1 1 160px;background:var(--bg);border-radius:24px;padding:16px 20px;display:flex;flex-direction:column;gap:4px"><span style="font-size:13px;color:var(--ink2);font-weight:500">Diesel · litres/month</span><input type="number" value="{{ diesel }}" onChange="{{ setDiesel }}" style="border:none;background:transparent;font:600 26px 'Bricolage Grotesque',sans-serif;color:var(--deep);outline:none;width:100%"></label>
+      <label style="flex:1 1 160px;background:var(--bg);border-radius:24px;padding:16px 20px;display:flex;flex-direction:column;gap:4px"><span style="font-size:13px;color:var(--ink2);font-weight:500">Flights · trips/month</span><input type="number" value="{{ travel }}" onChange="{{ setTravel }}" style="border:none;background:transparent;font:600 26px 'Bricolage Grotesque',sans-serif;color:var(--deep);outline:none;width:100%"></label>
+    </div>
+    <div style="background:var(--deep);color:var(--deepInk);border-radius:32px;padding:28px;display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px"><span style="color:var(--deepInk2)">Your estimated footprint</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:48px;font-weight:600;letter-spacing:-.02em">{{ calcTotal }} <span style="font-size:16px;font-weight:500;color:var(--deepInk2)">tCO₂e/yr</span></span></div>
+      <div style="display:flex;height:16px;border-radius:999px;overflow:hidden;gap:3px"><div style="width:{{ w1 }};background:#78B840;transition:width .4s"></div><div style="width:{{ w2 }};background:#A6D97A;transition:width .4s"></div><div style="width:{{ w3 }};background:var(--s3);transition:width .4s"></div></div>
+      <div style="display:flex;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--deepInk2)"><span>Scope 1 · {{ calcS1 }} t</span><span>Scope 2 · {{ calcS2 }} t</span><span>Scope 3 travel · {{ calcS3 }} t</span></div>
+    </div>
+    <span style="font-size:13px;color:var(--ink2)">Indicative factors: grid 0.71 kgCO₂e/kWh, diesel 2.68 kg/L, 0.25 t per flight.</span>
+  </div>
+  <div style="flex:1 1 320px;background:var(--sage);border-radius:48px;padding:48px;display:flex;flex-direction:column;gap:20px">
+    <span style="font-size:14px;font-weight:600;color:var(--deep)">ESG readiness assessment</span>
+    <h3 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:34px;line-height:1.08;letter-spacing:-.02em;color:var(--deep)">Where are you on the path?</h3>
+    <div style="display:flex;gap:6px;align-items:flex-end;height:90px"><div style="flex:1;height:30%;border-radius:999px 999px 8px 8px;background:var(--moss)"></div><div style="flex:1;height:50%;border-radius:999px 999px 8px 8px;background:var(--moss)"></div><div style="flex:1;height:70%;border-radius:999px 999px 8px 8px;background:var(--moss)"></div><div style="flex:1;height:100%;border-radius:999px 999px 8px 8px;background:var(--surface);border:1.5px dashed var(--moss)"></div></div>
+    <p style="margin:0;font-size:16px;line-height:25px;color:var(--ink)">Understand your ESG readiness in minutes: a short questionnaire, a score, and where to start.</p>
+    <a href="ZERO%20Site%20Free%20Tools.dc.html#esg" style="margin-top:auto;height:52px;border-radius:999px;background:var(--deep);color:var(--deepInk);font:600 16px 'Figtree',sans-serif;display:flex;align-items:center;justify-content:center" style-hover="background:var(--moss);color:var(--deepInk)">Take the assessment</a>
+  </div>
+</section>
+
+<section data-screen-label="13 Testimonials" style="max-width:1280px;margin:0 auto;padding:0 32px 120px;display:flex;flex-direction:column;gap:32px">
+  <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(36px,4vw,52px);letter-spacing:-.03em;color:var(--deep)">What our customers say</h2>
+  <div style="display:flex;flex-wrap:wrap;gap:24px">
+  <div style="flex:2 1 560px;background:var(--surface);border:1px solid var(--line);border-radius:48px;padding:48px;display:flex;flex-wrap:wrap;gap:36px;align-items:center">
+    <div style="flex:0 0 160px;height:200px;position:relative;border-radius:46% 54% 42% 58% / 52% 44% 56% 48%;overflow:hidden"><image-slot id="d2-quote-jiwya" placeholder="Aishwarya photo"></image-slot></div>
+    <blockquote style="flex:1 1 300px;margin:0;display:flex;flex-direction:column;gap:20px">
+      <p style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-size:26px;line-height:1.3;font-weight:500;letter-spacing:-.015em;color:var(--deep);text-wrap:pretty">“We’re so glad we chose Team Zero for our LCA and impact reporting. They took the time to understand Jiwya’s unique model and built a credible ISO-aligned assessment from the ground up. Highly recommended.”</p>
+      <span style="font-size:15px;color:var(--ink2)"><strong style="color:var(--ink)">Aishwarya Lahariya</strong> · Co-Founder &amp; Designer, Jiwya®</span>
+    </blockquote>
+  </div>
+  <div style="flex:1 1 300px;background:var(--sage);border-radius:48px;padding:36px;display:flex;flex-direction:column;gap:20px">
+    <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:22px;line-height:1.35;font-weight:500;color:var(--deep)">“Team Zero combine rigorous standards with a deep understanding of novel business models to help teams move from fragmented data to clear impact insights.”</span>
+    <span style="margin-top:auto;font-size:15px;color:var(--ink)"><strong>Vedant Rathi</strong> · WRS Energy</span>
+  </div>
+  </div>
+</section>
+
+<section data-screen-label="14 Founder" style="max-width:1280px;margin:0 auto;padding:0 32px 120px">
+  <div style="background:var(--moss);color:#F6FAF1;border-radius:48px;padding:56px;display:flex;flex-wrap:wrap;gap:48px;align-items:center">
+    <div style="flex:0 0 220px;display:flex;flex-direction:column;align-items:center;gap:14px"><img src="assets/founder-karan.png" alt="Karan Racca, founder of ZERO" style="width:200px;height:200px;border-radius:50%;object-fit:cover;border:4px solid #F6FAF1"><span style="font-weight:600;font-size:18px">Karan Racca</span><span style="font-size:14px;color:#E8F5DC;margin-top:-10px">Founder · Tech &amp; Sustainability Lead</span></div>
+    <div style="flex:1 1 400px;display:flex;flex-direction:column;gap:20px">
+      <span style="font-size:14px;font-weight:600;color:#E8F5DC">Meet the founder</span>
+      <p style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(26px,2.8vw,36px);line-height:1.2;font-weight:500;letter-spacing:-.02em;text-wrap:pretty">“We’re a team of strategists, technologists and climate specialists driven by purpose, and united by optimism.”</p>
+      <p style="margin:0;font-size:17px;line-height:27px;color:#E8F5DC">Karan holds a Master’s in Information Systems and sharpened his skills with startups in Boston and San Francisco. Now back in India, he uses technology to drive sustainability and help build a net-zero future.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><a href="ZERO%20Site%20About.dc.html" style="background:#F6FAF1;color:#1F3A14;border-radius:999px;padding:12px 20px;font-weight:600" style-hover="background:#FFFFFF;color:#1F3A14">Our story →</a><a href="ZERO%20Site%20About.dc.html#careers" style="border:1.5px solid #F6FAF1;color:#F6FAF1;border-radius:999px;padding:12px 20px;font-weight:600" style-hover="background:#F6FAF1;color:#1F3A14">Join our mission</a></div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="15 FAQ" style="max-width:960px;margin:0 auto;padding:0 32px 120px;display:flex;flex-direction:column;gap:32px">
+  <h2 style="margin:0;text-align:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(36px,4vw,52px);letter-spacing:-.03em;color:var(--deep)">Frequently asked questions</h2>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="6">
+      <div style="border:1px solid var(--line);border-radius:28px;background:{{ q.bg }};overflow:hidden">
+        <button onClick="{{ q.toggle }}" style="width:100%;padding:22px 28px;border:none;background:transparent;display:flex;justify-content:space-between;gap:24px;text-align:left;cursor:pointer;font:600 18px/26px 'Figtree',sans-serif;color:var(--deep)"><span>{{ q.q }}</span><span style="width:32px;height:32px;flex:none;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center">{{ q.icon }}</span></button>
+        <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}"><p style="margin:0;padding:0 28px 24px;font-size:16px;line-height:26px;color:var(--ink2)">{{ q.a }}</p></sc-if>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section id="blog" data-screen-label="16 Blog" style="max-width:1280px;margin:0 auto;padding:0 32px 120px">
+  <div style="display:flex;justify-content:space-between;align-items:end;margin-bottom:32px;gap:24px;flex-wrap:wrap"><h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(36px,4vw,52px);letter-spacing:-.03em;color:var(--deep)">From the blog</h2><a href="ZERO%20Site%20Blog.dc.html" style="font-weight:600">All posts →</a></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
+    <sc-for list="{{ posts }}" as="po" hint-placeholder-count="3">
+      <a href="ZERO%20Site%20Blog%20Article.dc.html" style="background:var(--surface);border:1px solid var(--line);border-radius:36px;padding:12px;display:flex;flex-direction:column;color:var(--ink);transition:transform .2s" style-hover="transform:translateY(-4px);color:var(--ink)">
+        <div style="aspect-ratio:4/3;position:relative;border-radius:26px;overflow:hidden"><image-slot id="{{ po.slot }}" placeholder="Article cover"></image-slot></div>
+        <div style="padding:18px 12px 12px;display:flex;flex-direction:column;gap:10px"><span style="display:flex;gap:8px;font-size:13px"><span style="background:var(--sage);color:var(--deep);border-radius:999px;padding:4px 10px;font-weight:600">{{ po.tag }}</span><span style="color:var(--ink2);padding:4px 0">{{ po.r }} read</span></span><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:22px;line-height:1.2;font-weight:600;color:var(--deep)">{{ po.t }}</span></div>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<section data-screen-label="17 Final CTA" style="padding:0 32px 32px">
+  <div style="max-width:1280px;margin:0 auto;border-radius:56px;overflow:hidden;background:linear-gradient(180deg,var(--sky) 0%,#CFE8B8 45%,#1F5C2E 80%,var(--soil) 100%);padding:100px 48px 120px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px;position:relative">
+    <svg viewBox="0 0 200 160" style="width:120px;height:auto" fill="none" stroke="#1F3A14" strokeWidth="2.4" strokeLinecap="round"><path d="M100 160 C100 120 100 90 100 60"></path><path d="M100 90 C80 70 60 68 44 70 C52 88 74 96 100 90"></path><path d="M100 70 C120 50 142 46 160 50 C150 70 126 78 100 70"></path></svg>
+    <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(44px,5vw,72px);line-height:1;letter-spacing:-.035em;color:#1F3A14;max-width:820px">Let’s grow your net-zero story.</h2>
+    <p style="margin:0;font-size:19px;line-height:29px;color:#1F3A14;max-width:520px">See your footprint, your biggest levers and your first report in one demo.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:120px"><a href="ZERO%20Site%20Contact.dc.html" style="height:56px;padding:0 28px;border-radius:999px;background:#3D7A22;color:#FFFFFF;font:600 16px 'Figtree',sans-serif;display:flex;align-items:center" style-hover="background:#2F6119;color:#FFFFFF">Book a demo</a><a href="ZERO%20Site%20Free%20Tools.dc.html" style="height:56px;padding:0 28px;border:1.5px solid #F6FAF1;border-radius:999px;background:transparent;color:#F6FAF1;font:600 16px 'Figtree',sans-serif;display:flex;align-items:center" style-hover="background:#F6FAF1;color:#0E2414">Try the free carbon calculator</a></div>
+  </div>
+</section>
+</main>
+
+<dc-import name="ZERO Site Footer" hint-size="100%,520px"></dc-import>
+
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:0,&quot;max&quot;:100,&quot;step&quot;:5,&quot;default&quot;:70,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;},&quot;texture&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;mode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;light&quot;,&quot;tsType&quot;:&quot;'light'|'dark'&quot;}}">
+const D2_LIGHT={'--bg':'#F6FAF1','--surface':'#FFFFFF','--ink':'#1F3A14','--ink2':'#5A6B55','--moss':'#3D7A22','--deep':'#1F3A14','--deepInk':'#E8F5DC','--deepInk2':'#C5DDB3','--sage':'#E8F5DC','--sky':'#EEF7E6','--line':'#D3E6C1','--soil':'#0E2414','--s1':'#1F5C2E','--s2':'#78B840',grain:0,accMuted:'#8FA08A'};
+const D2_DARK={'--bg':'#0B1C10','--surface':'#12281A','--ink':'#E8F5DC','--ink2':'#A9C29A','--moss':'#A6D97A','--deep':'#163A1C','--deepInk':'#E8F5DC','--deepInk2':'#C5DDB3','--sage':'#163A1C','--sky':'#0E2414','--line':'#24452A','--soil':'#07140B','--s1':'#5E9A3A','--s2':'#78B840',grain:0,accMuted:'#6F8A68'};
+function mixHex(a,b,t){const p=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));const x=p(a),y=p(b);return '#'+x.map((v,i)=>Math.round(v+(y[i]-v)*t).toString(16).padStart(2,'0')).join('');}
+class Component extends DCLogic {
+  state={layer:0,tab:0,hq:0,faq:0,kwh:25000,diesel:1200,travel:40};
+  lr=[React.createRef(),React.createRef(),React.createRef(),React.createRef()];
+  componentDidMount(){ this.applyTheme(); this.onScroll=()=>{const mid=window.innerHeight*.5;let L=0;this.lr.forEach((r,i)=>{if(r.current&&r.current.getBoundingClientRect().top<mid)L=i;});if(L!==this.state.layer)this.setState({layer:L});}; window.addEventListener('scroll',this.onScroll,{passive:true}); }
+  componentWillUnmount(){ window.removeEventListener('scroll',this.onScroll); }
+  componentDidUpdate(p){ if(p.mode!==this.props.mode||p.accent!==this.props.accent||p.texture!==this.props.texture) this.applyTheme(); }
+  applyTheme(){
+    const dark=(this.props.mode??'light')==='dark',a=(this.props.accent??70)/100,th=dark?D2_DARK:D2_LIGHT,r=document.documentElement.style;
+    Object.keys(th).forEach(k=>k.startsWith('--')&&r.setProperty(k,th[k]));
+    r.setProperty('--terra','#3D7A22'); r.setProperty('--terrah','#2F6119');
+    r.setProperty('--s3','#D9763A'); r.setProperty('--leaf','#78B840');
+    const g=`url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.3  0 0 0 0 0.25  0 0 0 0 0.15  0 0 0 ${th.grain} 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>`).replace('%2523','%23')}")`;
+    r.setProperty('--tex',(this.props.texture??true)?g:'none');
+  }
+  renderVals(){
+    const s=this.state,dark=(this.props.mode??'light')==='dark';
+    const s1=s.diesel*12*2.68/1000,s2=s.kwh*12*0.71/1000,s3=s.travel*12*0.25,tot=s1+s2+s3;
+    const CLIENTS=[{name:'Bajajsons Limited',src:'assets/client-bajajsons.png',h:'52px'},{name:'Shree Krishna Paper Mills',src:'assets/client-sk.png',h:'60px'},{name:'KOSO',src:'assets/client-koso.png',h:'40px'},{name:'Jiwya',src:'assets/client-jiwya.png',h:'60px'},{name:'Mate Tree Free Paper',src:'assets/client-mate.png',h:'56px'}];
+    const tabs=[{k:'BRSR',title:'Business Responsibility & Sustainability Report',sub:'BRSR Core · 9 principles',pct:'86%',rows:['Principle 6 · Environment','Energy & emissions intensity','Value chain disclosures']},{k:'GRI',title:'GRI Sustainability Report',sub:'GRI 305 · Emissions',pct:'92%',rows:['305-1 Direct (Scope 1)','305-2 Energy indirect (Scope 2)','305-3 Other indirect (Scope 3)']},{k:'CSRD',title:'CSRD Sustainability Statement',sub:'ESRS E1 · Climate change',pct:'71%',rows:['E1-4 Targets','E1-6 Gross Scopes 1, 2, 3','E1-1 Transition plan']},{k:'CDP',title:'CDP Climate Change Response',sub:'Modules C4–C7',pct:'78%',rows:['C4 Targets & performance','C6 Emissions data','C7 Emissions breakdown']}];
+    const hq=[{q:'What are my top 3 emission sources this quarter?',a:'Q3 came to 36.1 tCO₂e. Three sources make up 77% of it:',bars:[{l:'Purchased goods',v:'12.2 t',w:'100%',c:'var(--s3)'},{l:'Purchased electricity',v:'11.1 t',w:'91%',c:'var(--s2)'},{l:'Upstream transport',v:'4.7 t',w:'39%',c:'var(--s3)'}]},{q:'Which supplier should we engage first?',a:'Supplier A (steel coils) accounts for 23% of purchased-goods emissions and has no primary data yet. Engaging them first gives the biggest data-quality gain.',bars:[{l:'Supplier A · steel',v:'8.8 t',w:'100%',c:'var(--s3)'},{l:'Supplier B · resin',v:'4.8 t',w:'54%',c:'var(--s3)'}]},{q:'How much would rooftop solar save?',a:'A rooftop system at the Nashik plant would cut Scope 2 by about 15 tCO₂e a year, roughly 10% of your total footprint.',bars:[{l:'Scope 2 today',v:'52.2 t',w:'100%',c:'var(--s2)'},{l:'With solar',v:'37.1 t',w:'71%',c:'var(--moss)'}]}];
+    const lca=[{l:'Raw materials',v:'1.84',x:'50%',y:'2%'},{l:'Manufacturing',v:'0.92',x:'94%',y:'36%'},{l:'Distribution',v:'0.31',x:'78%',y:'90%'},{l:'Use',v:'0.12',x:'22%',y:'90%'},{l:'End of life',v:'0.08',x:'6%',y:'36%'}];
+    return {
+      logoSrc: dark?'assets/zero-logo-white.png':'assets/zero-logo.png',
+      marquee:[...CLIENTS,...CLIENTS],
+      aiFeats:[{n:'01',t:'Long-term strategies',d:'Personalised long-term reduction strategies based on international standards.'},{n:'02',t:'Comprehensive reporting',d:'ESG reporting aligned with global frameworks: accurate, auditable and compliance-ready.'},{n:'03',t:'Data ingestion',d:'AI-powered ingestion that eliminates manual uploads and keeps data accurate and up to date.'},{n:'04',t:'Predictive analytics',d:'Simulate future emissions based on current trends.'}],
+      knots:[{t:'Scattered data',d:'Fuel, power and purchases live in different systems.',x:'2%',y:'4%',r:'-3deg'},{t:'Spreadsheet sprawl',d:'Copy-paste, mixed units, broken formulas.',x:'56%',y:'0%',r:'2deg'},{t:'Changing rules',d:'BRSR Core, CSRD, CBAM keep moving.',x:'6%',y:'64%',r:'2deg'},{t:'Supplier blind spots',d:'Scope 3 is the biggest share — and hardest to see.',x:'54%',y:'60%',r:'-2deg'}],
+      r0:this.lr[0],r1:this.lr[1],r2:this.lr[2],r3:this.lr[3],
+      rail:['Atmosphere','Operations','Roots','New growth'].map((t,i)=>({t,dot:s.layer===i?'var(--terra)':'var(--line)',w:s.layer===i?'36px':'10px',col:s.layer===i?'var(--ink)':'var(--ink2)'})),
+      trend:[1120,1080,1150,1095,1060,1010,1045,990,960,930,905,880].map((v,i)=>({h:(v/1150*100).toFixed(1)+'%',m:'AMJJASONDJFM'[i]})),
+      tabs:tabs.map((t,i)=>({k:t.k,go:()=>this.setState({tab:i}),bg:s.tab===i?'var(--deep)':'transparent',col:s.tab===i?'var(--deepInk)':'var(--ink)'})),
+      rep:tabs[s.tab],
+      lca,
+      sources:['ERP','CRM','Utility bills','Fleet & fuel','Travel','Spreadsheets'],
+      hqTabs:hq.map((h,i)=>({q:h.q,go:()=>this.setState({hq:i}),bg:s.hq===i?'var(--leaf)':'transparent',col:s.hq===i?'var(--night)':'var(--nightInk)'})),
+      ans:hq[s.hq],
+      standards:['GHG Protocol','ISO 14064','ISO 14040/44','GRI','SASB','TCFD','CSRD','CDP','SBTi','BRSR'],
+      kwh:s.kwh,diesel:s.diesel,travel:s.travel,
+      setKwh:e=>this.setState({kwh:Math.max(0,+e.target.value||0)}),setDiesel:e=>this.setState({diesel:Math.max(0,+e.target.value||0)}),setTravel:e=>this.setState({travel:Math.max(0,+e.target.value||0)}),
+      calcTotal:tot.toFixed(1),calcS1:s1.toFixed(1),calcS2:s2.toFixed(1),calcS3:s3.toFixed(1),
+      w1:(tot?s1/tot*100:0).toFixed(1)+'%',w2:(tot?s2/tot*100:0).toFixed(1)+'%',w3:(tot?s3/tot*100:0).toFixed(1)+'%',
+      faqs:[{q:'How does ZERO collect emissions data?',a:'AI-powered data ingestion pulls activity data from your business systems, utility bills, fuel records and spreadsheets in multiple formats, so there are no manual uploads. Every figure keeps a link back to its source.'},{q:'Which compliance standards does ZERO support?',a:'Calculations follow the GHG Protocol and ISO 14064; product footprints follow ISO 14040/14044 and are EPD-ready. Reports align with GRI, SASB, TCFD, CSRD, CDP, BRSR and SBTi targets.'},{q:'How accurate is the carbon accounting?',a:'Scope 1, 2 and 3 emissions are calculated with verified emission factors and globally recognised datasets, with an audit-ready trail on every number.'},{q:'Can ZERO help with setting reduction targets?',a:'Yes. ZERO sets targets based on the SBTi standard, builds personalised long-term reduction strategies and tracks progress against them. Our advisory team can help you act on them.'},{q:'How often is carbon emissions data updated?',a:'Dashboards update as new data is ingested. [confirm default refresh cadence]'},{q:'How is pricing structured?',a:'Plans scale with the modules you need (Carbon Accounting, ESG Reporting, Product LCA) and the number of sites. See the pricing page or book a demo for a quote.'}].map((f,i)=>({...f,open:s.faq===i,icon:s.faq===i?'−':'+',bg:s.faq===i?'var(--surface)':'transparent',toggle:()=>this.setState({faq:s.faq===i?-1:i})})),
+      posts:[{tag:'Regulation',t:'BRSR Core: what changes for FY 2025–26',r:'7 min',slot:'d2-blog-1'},{tag:'Scope 3',t:'Supplier emissions without the spreadsheet chase',r:'6 min',slot:'d2-blog-2'},{tag:'Trade',t:'CBAM for Indian exporters: a first-year checklist',r:'8 min',slot:'d2-blog-3'}]
+    };
+  }
+}
+</script>
+</body>
+</html>

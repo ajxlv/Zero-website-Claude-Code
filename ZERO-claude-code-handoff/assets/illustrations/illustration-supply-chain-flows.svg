@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" preserveAspectRatio="none" fill="none" stroke="#5E9A3A" stroke-linecap="round">
+            <path d="M200 0 C200 60 190 90 120 130 S40 200 30 290" stroke-width="2" stroke-dasharray="6 6"></path>
+            <path d="M200 0 C205 70 220 100 290 140 S370 210 380 290" stroke-width="2" stroke-dasharray="6 6"></path>
+            <path d="M200 0 C200 100 200 180 200 290" stroke-width="2.4"></path>
+            <path d="M120 130 C110 170 90 200 100 260" stroke-width="1.2"></path><path d="M290 140 C300 180 320 210 300 260" stroke-width="1.2"></path>
+            <path d="M200 160 C170 190 150 220 150 280" stroke-width="1"></path><path d="M200 170 C230 200 250 230 250 280" stroke-width="1"></path>
+          </svg>

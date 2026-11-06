@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6FAF1;--surface:#FFFFFF;--ink:#1F3A14;--ink2:#5A6B55;--moss:#3D7A22;--deep:#1F3A14;--deepInk:#E8F5DC;--deepInk2:#C5DDB3;--sage:#E8F5DC;--leaf:#78B840;--terra:#3D7A22;--terrah:#2F6119;--line:#D3E6C1;--s3:#D9763A;--night:#0E2414;--nightInk:#E8F5DC;--nightInk2:#A9C29A;--nightLine:rgba(166,217,122,.16)}
+body{margin:0;background:var(--bg);font-family:'Figtree',system-ui,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+a{color:var(--moss);text-decoration:none}
+a:hover{color:var(--terra)}
+*{box-sizing:border-box}
+input[type=number]::-webkit-inner-spin-button{opacity:.4}
+</style>
+</helmet>
+<div style="background:var(--bg);min-height:100vh">
+<dc-import name="ZERO Site Header" active="Free tools" hint-size="100%,80px"></dc-import>
+<main>
+<section data-screen-label="01 Tools hero" style="max-width:1280px;margin:0 auto;padding:72px 32px 48px;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;align-items:end">
+  <div style="flex:1 1 560px;display:flex;flex-direction:column;gap:20px">
+    <span style="align-self:flex-start;background:var(--sage);color:var(--deep);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600">Free tools · no sign-up</span>
+    <h1 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(44px,5vw,72px);line-height:1;letter-spacing:-.035em;color:var(--deep);text-wrap:balance">Curious about your footprint? Start <span style="color:var(--terra)">here.</span></h1>
+  </div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap"><a href="#calculator" style="border:1.5px solid var(--deep);color:var(--deep);border-radius:999px;padding:12px 18px;font-weight:600" style-hover="background:var(--deep);color:var(--deepInk)">Carbon calculator</a><a href="#esg" style="border:1.5px solid var(--deep);color:var(--deep);border-radius:999px;padding:12px 18px;font-weight:600" style-hover="background:var(--deep);color:var(--deepInk)">ESG assessment</a></div>
+</section>
+
+<section id="calculator" data-screen-label="02 Carbon calculator" style="max-width:1280px;margin:0 auto;padding:0 32px 96px">
+  <div style="background:var(--surface);border:1px solid var(--line);border-radius:48px;padding:48px;display:flex;flex-wrap:wrap;gap:40px">
+    <div style="flex:1.2 1 460px;display:flex;flex-direction:column;gap:24px">
+      <div style="display:flex;flex-direction:column;gap:10px"><span style="font-size:14px;font-weight:600;color:var(--terra)">Free carbon calculator</span><h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(30px,3.2vw,42px);line-height:1.05;letter-spacing:-.03em;color:var(--deep)">A quick estimate of your business emissions.</h2><p style="margin:0;font-size:16px;line-height:25px;color:var(--ink2)">Enter monthly figures. Results update as you type.</p></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+        <sc-for list="{{ fields }}" as="f" hint-placeholder-count="6">
+          <label style="background:var(--bg);border-radius:24px;padding:16px 20px;display:flex;flex-direction:column;gap:4px"><span style="display:flex;justify-content:space-between;font-size:13px;color:var(--ink2);font-weight:500"><span>{{ f.l }}</span><span style="color:{{ f.sc }};font-weight:700">{{ f.s }}</span></span><span style="display:flex;align-items:baseline;gap:6px"><input type="number" min="0" value="{{ f.v }}" onChange="{{ f.set }}" style="border:none;background:transparent;font:600 26px 'Bricolage Grotesque',sans-serif;color:var(--deep);outline:none;width:100%;min-width:0"><span style="font-size:13px;color:var(--ink2);white-space:nowrap">{{ f.u }}</span></span></label>
+        </sc-for>
+      </div>
+      <span style="font-size:13px;line-height:20px;color:var(--ink2)">Indicative factors for illustration: grid electricity 0.71 kgCO₂e/kWh, diesel 2.68 kg/L, petrol 2.31 kg/L, LPG 2.98 kg/kg, 0.25 t per return flight, 0.6 t per employee commuting per year. [confirm factors]</span>
+    </div>
+    <div style="flex:1 1 360px;background:var(--night);color:var(--nightInk);border-radius:36px;padding:32px;display:flex;flex-direction:column;gap:22px">
+      <span style="color:var(--nightInk2)">Your estimated footprint</span>
+      <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:64px;line-height:1;font-weight:600;letter-spacing:-.03em">{{ total }} <span style="font-size:18px;font-weight:500;color:var(--nightInk2)">tCO₂e / yr</span></span>
+      <div style="display:flex;height:16px;border-radius:999px;overflow:hidden;gap:3px;background:rgba(166,217,122,.06)"><div style="width:{{ w1 }};background:#5E9A3A;transition:width .4s"></div><div style="width:{{ w2 }};background:#78B840;transition:width .4s"></div><div style="width:{{ w3 }};background:#D9763A;transition:width .4s"></div></div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:15px">
+        <span style="display:flex;justify-content:space-between;border-bottom:1px solid var(--nightLine);padding-bottom:10px"><span style="display:flex;align-items:center;gap:8px"><span style="width:10px;height:10px;border-radius:50%;background:#5E9A3A"></span>Scope 1 · fuels</span><strong>{{ s1 }} t</strong></span>
+        <span style="display:flex;justify-content:space-between;border-bottom:1px solid var(--nightLine);padding-bottom:10px"><span style="display:flex;align-items:center;gap:8px"><span style="width:10px;height:10px;border-radius:50%;background:#78B840"></span>Scope 2 · electricity</span><strong>{{ s2 }} t</strong></span>
+        <span style="display:flex;justify-content:space-between"><span style="display:flex;align-items:center;gap:8px"><span style="width:10px;height:10px;border-radius:50%;background:#D9763A"></span>Scope 3 · travel &amp; commute</span><strong>{{ s3 }} t</strong></span>
+      </div>
+      <div style="background:rgba(120,184,64,.12);border-radius:20px;padding:16px 18px;font-size:15px;line-height:23px">{{ tip }}</div>
+      <a href="ZERO%20Site%20Contact.dc.html" style="margin-top:auto;height:52px;border-radius:999px;background:var(--terra);color:#FFFFFF;font-weight:600;display:flex;align-items:center;justify-content:center" style-hover="background:var(--terrah);color:#FFFFFF">Get a full, audit-ready footprint</a>
+    </div>
+  </div>
+</section>
+
+<section id="esg" data-screen-label="03 ESG assessment" style="max-width:1280px;margin:0 auto;padding:0 32px 120px">
+  <div style="background:var(--sage);border-radius:48px;padding:48px;display:flex;flex-wrap:wrap;gap:40px">
+    <div style="flex:1 1 320px;display:flex;flex-direction:column;gap:18px">
+      <span style="font-size:14px;font-weight:600;color:var(--deep)">ESG assessment</span>
+      <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(30px,3.2vw,42px);line-height:1.05;letter-spacing:-.03em;color:var(--deep)">Understand your ESG readiness in minutes.</h2>
+      <p style="margin:0;font-size:16px;line-height:25px;color:var(--ink)">Six questions. A readiness score and where to start.</p>
+      <div style="display:flex;gap:6px;margin-top:8px"><sc-for list="{{ dots }}" as="d" hint-placeholder-count="6"><span style="flex:1;height:8px;border-radius:999px;background:{{ d }};transition:background .3s"></span></sc-for></div>
+      <span style="font-size:14px;color:var(--ink2)">{{ progressLabel }}</span>
+    </div>
+    <div style="flex:1.4 1 460px;background:var(--surface);border-radius:36px;padding:36px;min-height:420px;display:flex;flex-direction:column;gap:20px">
+      <sc-if value="{{ asking }}" hint-placeholder-val="{{ true }}">
+        <span style="font-size:13px;font-weight:600;color:var(--moss)">{{ qCat }}</span>
+        <h3 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:28px;line-height:1.2;letter-spacing:-.02em;color:var(--deep)">{{ qText }}</h3>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <sc-for list="{{ opts }}" as="o" hint-placeholder-count="3"><button onClick="{{ o.go }}" style="text-align:left;border:1.5px solid {{ o.bd }};border-radius:20px;padding:16px 20px;background:{{ o.bg }};color:var(--ink);font:500 16px/24px 'Figtree',sans-serif;cursor:pointer" style-hover="border-color:var(--deep)">{{ o.t }}</button></sc-for>
+        </div>
+        <div style="margin-top:auto;display:flex;justify-content:space-between"><button onClick="{{ back }}" style="border:none;background:transparent;color:var(--ink2);font:600 15px 'Figtree',sans-serif;cursor:pointer;visibility:{{ backVis }}">← Back</button></div>
+      </sc-if>
+      <sc-if value="{{ done }}" hint-placeholder-val="{{ false }}">
+        <span style="font-size:13px;font-weight:600;color:var(--moss)">Your result</span>
+        <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+          <div style="width:140px;height:140px;border-radius:50%;background:{{ ring }};display:flex;align-items:center;justify-content:center"><div style="width:108px;height:108px;border-radius:50%;background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center"><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:36px;font-weight:600;color:var(--deep)">{{ score }}</span><span style="font-size:12px;color:var(--ink2)">of 100</span></div></div>
+          <div style="flex:1 1 200px;display:flex;flex-direction:column;gap:6px"><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:30px;font-weight:600;color:var(--deep)">{{ level }}</span><span style="font-size:15px;line-height:23px;color:var(--ink2)">{{ levelD }}</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--line);padding-top:16px"><span style="font-weight:600;color:var(--deep)">Where to start</span><sc-for list="{{ recs }}" as="r" hint-placeholder-count="3"><span style="display:flex;gap:10px;font-size:15px;line-height:23px"><span style="color:var(--terra);font-weight:700">→</span>{{ r }}</span></sc-for></div>
+        <div style="margin-top:auto;display:flex;gap:10px;flex-wrap:wrap"><a href="ZERO%20Site%20Contact.dc.html" style="height:48px;padding:0 22px;border-radius:999px;background:var(--deep);color:var(--deepInk);font-weight:600;display:flex;align-items:center" style-hover="background:var(--moss);color:var(--deepInk)">Get the full report</a><button onClick="{{ restart }}" style="height:48px;padding:0 22px;border-radius:999px;border:1.5px solid var(--deep);background:transparent;color:var(--deep);font:600 15px 'Figtree',sans-serif;cursor:pointer">Start again</button></div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+</main>
+<dc-import name="ZERO Site Footer" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const QS=[
+ {c:'Measurement',q:'Do you measure your greenhouse gas emissions today?',o:['Not yet','Scope 1 and 2 only','Scope 1, 2 and 3']},
+ {c:'Data',q:'Where does your sustainability data live?',o:['Scattered across teams and email','Spreadsheets with an owner','A central system with an audit trail']},
+ {c:'Targets',q:'Have you set emission reduction targets?',o:['No targets yet','Internal targets','Science-based (SBTi) targets']},
+ {c:'Reporting',q:'Which frameworks do you report to?',o:['None','One, on request from customers','BRSR, GRI, CSRD or CDP every year']},
+ {c:'Supply chain',q:'Do you collect sustainability data from suppliers?',o:['No','From a few key suppliers','From most suppliers, with primary data']},
+ {c:'Governance',q:'Who owns ESG in your organisation?',o:['No clear owner','A part-time owner','A board-level owner with a team']}
+];
+const RECS=['Start with a Scope 1 and 2 baseline using utility bills and fuel records.','Centralise data in one system so every figure can be traced.','Set SBTi-aligned targets once your baseline is stable.','Pick the framework your customers or regulator ask for first, usually BRSR in India.','Engage your top five suppliers by spend for primary data.','Name an ESG owner and review progress quarterly.'];
+class Component extends DCLogic {
+  state={kwh:25000,diesel:1200,petrol:300,lpg:200,flights:4,staff:80,step:0,ans:[]};
+  renderVals(){
+    const s=this.state;
+    const s1=(s.diesel*2.68+s.petrol*2.31+s.lpg*2.98)*12/1000,s2=s.kwh*0.71*12/1000,s3=s.flights*12*0.25+s.staff*0.6,tot=s1+s2+s3;
+    const set=k=>e=>this.setState({[k]:Math.max(0,+e.target.value||0)});
+    const F=[['kwh','Electricity','kWh / month','S2'],['diesel','Diesel','litres / month','S1'],['petrol','Petrol','litres / month','S1'],['lpg','LPG','kg / month','S1'],['flights','Business flights','return trips / month','S3'],['staff','Employees','people','S3']];
+    const big=Math.max(s1,s2,s3);
+    const tip=tot===0?'Enter some figures to see your estimate.':big===s2?'Electricity is your biggest source. Renewable power or a solar PPA is usually the fastest lever.':big===s1?'Fuel burned on site is your biggest source. Look at boiler efficiency, fuel switching and fleet electrification.':'Travel and commuting lead. A travel policy and commute programme can move this quickly.';
+    const n=QS.length,done=s.step>=n,score=Math.round(s.ans.reduce((a,b)=>a+b,0)/(n*2)*100);
+    const lv=score>=70?['Leading','You have the foundations. Focus on assurance and supply-chain depth.']:score>=40?['Developing','You are measuring, but gaps in data, targets or reporting will slow you down.']:['Getting started','Most companies start here. A baseline and a single data home make the biggest difference.'];
+    const weak=s.ans.map((v,i)=>({v,i})).sort((a,b)=>a.v-b.v).slice(0,3).map(x=>RECS[x.i]);
+    const q=QS[Math.min(s.step,n-1)];
+    return {
+      fields:F.map(([k,l,u,sc])=>({l,u,s:sc,sc:sc==='S1'?'#1F5C2E':sc==='S2'?'#3D7A22':'#3D7A22',v:s[k],set:set(k)})),
+      total:tot.toFixed(1),s1:s1.toFixed(1),s2:s2.toFixed(1),s3:s3.toFixed(1),
+      w1:(tot?s1/tot*100:0)+'%',w2:(tot?s2/tot*100:0)+'%',w3:(tot?s3/tot*100:0)+'%',tip,
+      asking:!done,done,qCat:'Question '+(s.step+1)+' of '+n+' · '+q.c,qText:q.q,
+      opts:q.o.map((t,i)=>({t,go:()=>this.setState(st=>{const a=st.ans.slice(0,st.step);a[st.step]=i;return {ans:a,step:st.step+1};}),bd:s.ans[s.step]===i?'var(--deep)':'var(--line)',bg:s.ans[s.step]===i?'var(--sage)':'transparent'})),
+      back:()=>this.setState(st=>({step:Math.max(0,st.step-1)})),backVis:s.step>0?'visible':'hidden',
+      dots:QS.map((_,i)=>i<s.step?'var(--deep)':i===s.step&&!done?'var(--terra)':'rgba(14,36,20,.18)'),
+      progressLabel:done?'Complete':(s.step+' of '+n+' answered'),
+      score,level:lv[0],levelD:lv[1],recs:weak,ring:'conic-gradient(var(--moss) '+score+'%, var(--line) 0)',
+      restart:()=>this.setState({step:0,ans:[]})
+    };
+  }
+}
+</script>
+</body>
+</html>

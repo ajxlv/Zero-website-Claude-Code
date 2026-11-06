@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+:root{--bg:#F6FAF1;--surface:#FFFFFF;--ink:#1F3A14;--ink2:#5A6B55;--moss:#3D7A22;--deep:#1F3A14;--deepInk:#E8F5DC;--deepInk2:#C5DDB3;--sage:#E8F5DC;--leaf:#78B840;--terra:#3D7A22;--terrah:#2F6119;--line:#D3E6C1;--night:#0E2414;--nightInk:#E8F5DC;--nightInk2:#A9C29A;--nightLine:rgba(166,217,122,.16)}
+body{margin:0;background:var(--bg);font-family:'Figtree',system-ui,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+a{color:var(--moss);text-decoration:none}
+a:hover{color:var(--terra)}
+*{box-sizing:border-box}
+</style>
+</helmet>
+<div style="background:var(--bg);min-height:100vh">
+<dc-import name="ZERO Site Header" active="Blog" hint-size="100%,80px"></dc-import>
+<main>
+<section data-screen-label="01 Blog hero" style="max-width:1280px;margin:0 auto;padding:72px 32px 40px;display:flex;flex-direction:column;gap:20px">
+  <span style="align-self:flex-start;background:var(--sage);color:var(--deep);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600">Blog</span>
+  <h1 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(44px,5vw,72px);line-height:1;letter-spacing:-.035em;color:var(--deep);max-width:900px;text-wrap:balance">Sustainability insights, regulatory updates and industry trends.</h1>
+</section>
+
+<section data-screen-label="02 Featured" style="max-width:1280px;margin:0 auto;padding:0 32px 56px">
+  <a href="ZERO%20Site%20Blog%20Article.dc.html" style="background:var(--night);color:var(--nightInk);border-radius:48px;padding:16px;display:flex;flex-wrap:wrap;gap:32px;align-items:stretch" style-hover="color:var(--nightInk)">
+    <div style="flex:1.2 1 460px;min-height:360px;border-radius:36px;overflow:hidden;position:relative"><image-slot id="blog-featured" placeholder="Featured article cover · 16:10"></image-slot></div>
+    <div style="flex:1 1 360px;padding:32px 24px;display:flex;flex-direction:column;gap:18px">
+      <span style="display:flex;gap:8px;font-size:13px"><span style="background:var(--leaf);color:var(--night);border-radius:999px;padding:5px 12px;font-weight:700">Featured · Basics</span><span style="color:var(--nightInk2);padding:5px 0">8 min read</span></span>
+      <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(30px,3vw,40px);line-height:1.1;font-weight:600;letter-spacing:-.02em">Scope 1, 2 and 3 emissions, explained for manufacturers</span>
+      <span style="font-size:17px;line-height:27px;color:var(--nightInk2)">What each scope covers, where the data comes from, and why Scope 3 is usually the biggest and hardest part of your footprint.</span>
+      <span style="margin-top:auto;font-weight:600;color:var(--leaf)">Read article →</span>
+    </div>
+  </a>
+</section>
+
+<section data-screen-label="03 Posts" style="max-width:1280px;margin:0 auto;padding:0 32px 120px;display:flex;flex-direction:column;gap:28px">
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <sc-for list="{{ cats }}" as="c" hint-placeholder-count="6"><button onClick="{{ c.go }}" style="border:1.5px solid {{ c.bd }};border-radius:999px;padding:10px 18px;background:{{ c.bg }};color:{{ c.col }};font:600 14px 'Figtree',sans-serif;cursor:pointer">{{ c.t }}</button></sc-for>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px">
+    <sc-for list="{{ posts }}" as="po" hint-placeholder-count="6">
+      <a href="ZERO%20Site%20Blog%20Article.dc.html" style="background:var(--surface);border:1px solid var(--line);border-radius:36px;padding:12px;display:flex;flex-direction:column;color:var(--ink);transition:transform .2s" style-hover="transform:translateY(-4px);color:var(--ink)">
+        <div style="aspect-ratio:4/3;position:relative;border-radius:26px;overflow:hidden"><image-slot id="{{ po.slot }}" placeholder="Article cover"></image-slot></div>
+        <div style="padding:18px 12px 12px;display:flex;flex-direction:column;gap:10px"><span style="display:flex;gap:8px;font-size:13px"><span style="background:var(--sage);color:var(--deep);border-radius:999px;padding:4px 10px;font-weight:600">{{ po.tag }}</span><span style="color:var(--ink2);padding:4px 0">{{ po.r }} read</span></span><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:22px;line-height:1.2;font-weight:600;color:var(--deep)">{{ po.t }}</span></div>
+      </a>
+    </sc-for>
+  </div>
+  <span style="font-size:13px;color:var(--ink2)">Titles are illustrative. [ADD real posts]</span>
+</section>
+
+<section data-screen-label="04 Newsletter" style="padding:0 32px 120px">
+  <div style="max-width:1280px;margin:0 auto;background:var(--moss);color:#F6FAF1;border-radius:48px;padding:56px;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;align-items:center">
+    <div style="flex:1 1 420px;display:flex;flex-direction:column;gap:10px"><h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(30px,3.4vw,44px);line-height:1.05;letter-spacing:-.03em">Stay future-ready.</h2><span style="font-size:17px;color:#E8F5DC">Carbon accounting insights in your inbox, once a month.</span></div>
+    <div style="flex:1 1 380px;display:flex;gap:8px;background:#F6FAF1;border-radius:999px;padding:6px"><input placeholder="name@email.com" aria-label="Email" style="flex:1;min-width:0;border:none;background:transparent;padding:0 18px;font:16px 'Figtree',sans-serif;color:#1F3A14;outline:none"><button style="height:52px;padding:0 24px;border:none;border-radius:999px;background:#3D7A22;color:#FFFFFF;font:600 15px 'Figtree',sans-serif;cursor:pointer" style-hover="background:#2F6119">Subscribe</button></div>
+  </div>
+</section>
+</main>
+<dc-import name="ZERO Site Footer" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const POSTS=[
+ {tag:'Regulation',t:'BRSR Core: what changes for FY 2025–26',r:'7 min'},
+ {tag:'Scope 3',t:'Supplier emissions without the spreadsheet chase',r:'6 min'},
+ {tag:'Trade',t:'CBAM for Indian exporters: a first-year checklist',r:'8 min'},
+ {tag:'LCA',t:'Cradle-to-grave in practice: an LCA for a fashion startup',r:'9 min'},
+ {tag:'Events',t:'How we ran a 177-person conference at net zero',r:'5 min'},
+ {tag:'Regulation',t:'CSRD and ESRS E1 for suppliers to EU brands',r:'7 min'},
+ {tag:'Scope 3',t:'Spend-based vs activity-based: picking a Scope 3 method',r:'6 min'},
+ {tag:'LCA',t:'What makes an EPD credible to buyers',r:'5 min'}
+];
+class Component extends DCLogic {
+  state={cat:'All'};
+  renderVals(){
+    const c=this.state.cat;
+    return {
+      cats:['All','Regulation','Scope 3','LCA','Trade','Events'].map(t=>({t,go:()=>this.setState({cat:t}),bd:c===t?'var(--deep)':'var(--line)',bg:c===t?'var(--deep)':'transparent',col:c===t?'var(--deepInk)':'var(--ink)'})),
+      posts:POSTS.map((p,i)=>({...p,slot:'blog-'+(i+1)})).filter(p=>c==='All'||p.tag===c)
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1240 @@
+{
+ "Home": {
+  "sections": [
+   {
+    "label": "01 Hero",
+    "text": [
+     "Sustainability Simplified · since 2020",
+     "Turn sustainability into a competitive",
+     "advantage.",
+     "Measure, reduce and report carbon emissions with ease — from the air above your plant to the roots of your supply chain.",
+     "Book a demo",
+     "Try the free carbon calculator",
+     "Trusted across 10+ domains in 3+ countries",
+     "Yearly carbon footprint",
+     "144.3",
+     "tCO₂e",
+     "Sample dashboard · 2024",
+     "Scope 1 · 20.9%",
+     "Scope 2 · 36.2%",
+     "Scope 3 · 42.9%"
+    ],
+    "comps": [
+     "link/CTA",
+     "image",
+     "svg illustration/icon"
+    ]
+   },
+   {
+    "label": "02 Clients",
+    "text": [
+     "Clients we have served.",
+     "Trusted by leading companies across domains.",
+     "10+",
+     "Domains served",
+     "15+",
+     "Years of experience",
+     "3+",
+     "Countries served",
+     "2020",
+     "Founded"
+    ],
+    "comps": [
+     "image"
+    ]
+   },
+   {
+    "label": "03 Problem",
+    "text": [
+     "The tangle",
+     "Right now, your carbon data grows in every direction.",
+     "Measuring carbon shouldn’t mean untangling it by hand every year.",
+     "Scattered data",
+     "Fuel, power and purchases live in different systems.",
+     "Spreadsheet sprawl",
+     "Copy-paste, mixed units, broken formulas.",
+     "Changing rules",
+     "BRSR Core, CSRD, CBAM keep moving.",
+     "Supplier blind spots",
+     "Scope 3 is the biggest share — and hardest to see."
+    ],
+    "comps": [
+     "svg illustration/icon"
+    ]
+   },
+   {
+    "label": "04 Sky to soil",
+    "text": [
+     "SKY TO SOIL",
+     "Atmosphere",
+     "Operations",
+     "Roots",
+     "New growth",
+     "How ZERO sees your business",
+     "From the air above your plant to the roots of your supply chain.",
+     "01 · Atmosphere",
+     "See every tonne you release.",
+     "ZERO turns activity data into one live footprint in tCO₂e, updated as data arrives.",
+     "Monthly emissions",
+     "↓ 21% this year",
+     "A",
+     "M",
+     "J",
+     "J",
+     "A",
+     "S",
+     "O",
+     "N",
+     "D",
+     "J",
+     "F",
+     "M",
+     "02 · Operations · Scope 1 & 2",
+     "What you burn and what you buy.",
+     "Boilers, generators, fleet and purchased electricity — collected automatically from meters, fuel cards and utility bills.",
+     "Scope 1 · direct",
+     "30.2",
+     "tCO₂e",
+     "Scope 2 · energy",
+     "52.2",
+     "tCO₂e",
+     "03 · Roots · Scope 3",
+     "Your supply chain is where most carbon hides.",
+     "Purchased goods, freight, travel and product end-of-life. ZERO maps every supplier and fills gaps with the best available data.",
+     "Purchased goods · 38.4 t",
+     "Freight · 14.1 t",
+     "61.9 tCO₂e · 43%",
+     "04 · New growth · Decarbonize",
+     "Then grow something better.",
+     "Set science-based targets, model reduction levers and watch the pathway bend toward net zero.",
+     "Reduction pathway",
+     "Illustrative",
+     "2030 · −42%",
+     "2050 · net zero"
+    ],
+    "comps": [
+     "svg illustration/icon"
+    ]
+   },
+   {
+    "label": "05 Platform",
+    "text": [
+     "Three tools, one living system.",
+     "Carbon Accounting, ESG Reporting and Product LCA share one data foundation.",
+     "Carbon Accounting",
+     "Scope 1, 2 and 3, gathered for you.",
+     "Automated data collection",
+     "Real-time dashboards",
+     "Every site, one view",
+     "ESG Reporting",
+     "Pick a framework. Watch it fill in.",
+     "BRSR",
+     "GRI",
+     "CSRD",
+     "CDP",
+     "Business Responsibility & Sustainability Report",
+     "BRSR Core · 9 principles",
+     "86%",
+     "Principle 6 · Environment",
+     "✓ traced",
+     "Energy & emissions intensity",
+     "✓ traced",
+     "Value chain disclosures",
+     "✓ traced",
+     "GRI, SASB, TCFD, CSRD, CDP and BRSR · audit-ready trail on every figure",
+     "Product Life Cycle Analysis",
+     "The whole life of a product, cradle to grave.",
+     "ISO 14040/44 models for every SKU, ready for an Environmental Product Declaration.",
+     "Cradle-to-grave",
+     "ISO 14040/44",
+     "EPD-ready",
+     "3.27",
+     "kgCO₂e per bag",
+     "Raw materials",
+     "1.84",
+     "Manufacturing",
+     "0.92",
+     "Distribution",
+     "0.31",
+     "Use",
+     "0.12",
+     "End of life",
+     "0.08"
+    ],
+    "comps": [
+     "button",
+     "image",
+     "svg illustration/icon"
+    ]
+   },
+   {
+    "label": "06 Data connections",
+    "text": [
+     "Data that flows by itself",
+     "Your systems feed ZERO like roots feed a tree.",
+     "AI-powered data ingestion from multiple business systems and formats. No manual uploads.",
+     "ERP",
+     "CRM",
+     "Utility bills",
+     "Fleet & fuel",
+     "Travel",
+     "Spreadsheets"
+    ],
+    "comps": [
+     "image",
+     "svg illustration/icon"
+    ]
+   },
+   {
+    "label": "07 AI",
+    "text": [
+     "AI-powered carbon intelligence",
+     "Ask in plain words. Get answers with roots.",
+     "Haathi, our in-house AI assistant, knows your footprint, explains what changed and simulates where your emissions are heading.",
+     "What are my top 3 emission sources this quarter?",
+     "Which supplier should we engage first?",
+     "How much would rooftop solar save?",
+     "What are my top 3 emission sources this quarter?",
+     "H",
+     "Q3 came to 36.1 tCO₂e. Three sources make up 77% of it:",
+     "Purchased goods",
+     "12.2 t",
+     "Purchased electricity",
+     "11.1 t",
+     "Upstream transport",
+     "4.7 t",
+     "Ask Haathi about your emissions…",
+     "↑",
+     "01",
+     "Long-term strategies",
+     "Personalised long-term reduction strategies based on international standards.",
+     "02",
+     "Comprehensive reporting",
+     "ESG reporting aligned with global frameworks: accurate, auditable and compliance-ready.",
+     "03",
+     "Data ingestion",
+     "AI-powered ingestion that eliminates manual uploads and keeps data accurate and up to date.",
+     "04",
+     "Predictive analytics",
+     "Simulate future emissions based on current trends."
+    ],
+    "comps": [
+     "button"
+    ]
+   },
+   {
+    "label": "08 Process",
+    "text": [
+     "A regenerative cycle",
+     "repeated every month",
+     "1 · Gather",
+     "2 · Measure",
+     "3 · Report",
+     "4 · Decarbonize",
+     "How it works",
+     "1",
+     "Gather.",
+     "Seamlessly collect and centralise sustainability data from every source across your business.",
+     "2",
+     "Measure.",
+     "Accurately calculate emissions with verified factors and AI precision.",
+     "3",
+     "Report.",
+     "Generate audit-ready ESG, Carbon and LCA reports aligned to global standards.",
+     "4",
+     "Decarbonize.",
+     "Turn insights into real action with guidance, strategies and measurable emission reduction."
+    ],
+    "comps": [
+     "svg illustration/icon"
+    ]
+   },
+   {
+    "label": "09 Services",
+    "text": [
+     "Platform · live roadmap",
+     "Solar PPA · Plant 2",
+     "−1,140 t",
+     "Fleet to EV · phase 1",
+     "−310 t",
+     "Supplier engagement",
+     "in review",
+     "Services",
+     "People who know the ground, software that knows the numbers.",
+     "Sustainability Advisory",
+     "→",
+     "Expert guidance to enhance your sustainability strategies and performance.",
+     "Product Lifecycle Analysis",
+     "→",
+     "Know exactly how much emission is caused by your product. ISO 14040/44, EPD-ready.",
+     "ESG Reporting",
+     "→",
+     "Comprehensive, accurate and compliant sustainability reports."
+    ],
+    "comps": [
+     "link/CTA"
+    ]
+   },
+   {
+    "label": "10 Net Zero Events",
+    "text": [
+     "Net Zero Events · Featured",
+     "YI WRCM Nashik 2025: a fully net-zero gathering.",
+     "Plan a net-zero event →",
+     "14 Aug 2025",
+     "Nashik",
+     "2 days",
+     "Young Indians Nashik hosted its Annual Western Region Meet, bringing together 177 participants from 17 cities. ZERO measured every emission and reduced impact through EV transport, smart carpooling and a strict no-paper, no-plastic approach.",
+     "Event emissions",
+     "4.7",
+     "tCO₂e",
+     "Emissions avoided",
+     "0.3",
+     "tCO₂e",
+     "Participants",
+     "177",
+     "Cities",
+     "17",
+     "EV transport",
+     "Smart carpooling",
+     "No paper",
+     "No plastic"
+    ],
+    "comps": [
+     "link/CTA",
+     "image"
+    ]
+   },
+   {
+    "label": "11 Standards",
+    "text": [
+     "We fully comply with",
+     "GHG Protocol",
+     "ISO 14064",
+     "ISO 14040/44",
+     "GRI",
+     "SASB",
+     "TCFD",
+     "CSRD",
+     "CDP",
+     "SBTi",
+     "BRSR"
+    ],
+    "comps": []
+   },
+   {
+    "label": "12 Free tools",
+    "text": [
+     "Free carbon calculator",
+     "Plant three numbers. See what grows.",
+     "Electricity · kWh/month",
+     "Diesel · litres/month",
+     "Flights · trips/month",
+     "Your estimated footprint",
+     "371.6",
+     "tCO₂e/yr",
+     "Scope 1 ·",
+     "38.6",
+     "t",
+     "Scope 2 ·",
+     "213.0",
+     "t",
+     "Scope 3 travel ·",
+     "120.0",
+     "t",
+     "Indicative factors: grid 0.71 kgCO₂e/kWh, diesel 2.68 kg/L, 0.25 t per flight.",
+     "ESG readiness assessment",
+     "Where are you on the path?",
+     "Understand your ESG readiness in minutes: a short questionnaire, a score, and where to start.",
+     "Take the assessment"
+    ],
+    "comps": [
+     "form field",
+     "link/CTA"
+    ]
+   },
+   {
+    "label": "13 Testimonials",
+    "text": [
+     "What our customers say",
+     "“We’re so glad we chose Team Zero for our LCA and impact reporting. They took the time to understand Jiwya’s unique model and built a credible ISO-aligned assessment from the ground up. Highly recommended.”",
+     "Aishwarya Lahariya",
+     "· Co-Founder & Designer, Jiwya®",
+     "“Team Zero combine rigorous standards with a deep understanding of novel business models to help teams move from fragmented data to clear impact insights.”",
+     "Vedant Rathi",
+     "· WRS Energy"
+    ],
+    "comps": []
+   },
+   {
+    "label": "14 Founder",
+    "text": [
+     "Karan Racca",
+     "Founder · Tech & Sustainability Lead",
+     "Meet the founder",
+     "“We’re a team of strategists, technologists and climate specialists driven by purpose, and united by optimism.”",
+     "Karan holds a Master’s in Information Systems and sharpened his skills with startups in Boston and San Francisco. Now back in India, he uses technology to drive sustainability and help build a net-zero future.",
+     "Our story →",
+     "Join our mission"
+    ],
+    "comps": [
+     "link/CTA",
+     "image"
+    ]
+   },
+   {
+    "label": "15 FAQ",
+    "text": [
+     "Frequently asked questions",
+     "How does ZERO collect emissions data?",
+     "−",
+     "AI-powered data ingestion pulls activity data from your business systems, utility bills, fuel records and spreadsheets in multiple formats, so there are no manual uploads. Every figure keeps a link back to its source.",
+     "Which compliance standards does ZERO support?",
+     "+",
+     "How accurate is the carbon accounting?",
+     "+",
+     "Can ZERO help with setting reduction targets?",
+     "+",
+     "How often is carbon emissions data updated?",
+     "+",
+     "How is pricing structured?",
+     "+"
+    ],
+    "comps": [
+     "button"
+    ]
+   },
+   {
+    "label": "16 Blog",
+    "text": [
+     "From the blog",
+     "All posts →",
+     "Regulation",
+     "7 min",
+     "read",
+     "BRSR Core: what changes for FY 2025–26",
+     "Scope 3",
+     "6 min",
+     "read",
+     "Supplier emissions without the spreadsheet chase",
+     "Trade",
+     "8 min",
+     "read",
+     "CBAM for Indian exporters: a first-year checklist"
+    ],
+    "comps": [
+     "link/CTA"
+    ]
+   },
+   {
+    "label": "17 Final CTA",
+    "text": [
+     "Let’s grow your net-zero story.",
+     "See your footprint, your biggest levers and your first report in one demo.",
+     "Book a demo",
+     "Try the free carbon calculator"
+    ],
+    "comps": [
+     "link/CTA",
+     "svg illustration/icon"
+    ]
+   }
+  ]
+ },
+ "Platform": {
+  "sections": [
+   {
+    "label": "01 Platform hero",
+    "text": [
+     "Our in-house AI-powered platform",
+     "Carbon, ESG and product impact in one",
+     "living system.",
+     "Three modules share one data foundation, so a number entered once shows up correctly in every report.",
+     "Carbon Accounting",
+     "ESG Reporting",
+     "Product LCA",
+     "app.zero · Carbon Accounting"
+    ],
+    "comps": [
+     "link/CTA",
+     "image"
+    ]
+   },
+   {
+    "label": "02 Carbon Accounting",
+    "text": [
+     "01 · Carbon Accounting",
+     "AI-powered, audit-ready carbon accounting.",
+     "Built for accuracy, scalability and compliance.",
+     "✓",
+     "Automated data ingestion from multiple business systems and formats",
+     "✓",
+     "Accurate Scope 1, 2 and 3 emissions calculation with verified factors",
+     "✓",
+     "Compliance-ready reports aligned to global standards (GHG Protocol, ISO 14064 and more)",
+     "Yearly carbon footprint · sample",
+     "144.3",
+     "tCO₂e",
+     "Scope 1 · 20.9%",
+     "Scope 2 · 36.2%",
+     "Scope 3 · 42.9%",
+     "Data sources",
+     "ERP, utility bills, fuel, travel, spreadsheets",
+     "Reports to",
+     "GHG Protocol, ISO 14064"
+    ],
+    "comps": []
+   },
+   {
+    "label": "03 ESG Reporting",
+    "text": [
+     "02 · ESG Reporting",
+     "Complex requirements, investor-ready reports.",
+     "Transform ESG requirements into structured, compliant reporting.",
+     "✓",
+     "Framework-aligned reporting for GRI, SASB, TCFD, CSRD and more",
+     "✓",
+     "Centralised ESG data hub to collect, validate and manage disclosures",
+     "✓",
+     "Automated reporting with audit-ready trails and documentation",
+     "✓",
+     "Performance benchmarking and KPI tracking across ESG pillars",
+     "GRI",
+     "SASB",
+     "TCFD",
+     "CSRD",
+     "BRSR",
+     "CDP"
+    ],
+    "comps": [
+     "image"
+    ]
+   },
+   {
+    "label": "04 Product LCA",
+    "text": [
+     "03 · Product Life Cycle Analysis",
+     "The whole life of a product, cradle to grave.",
+     "Scientific, data-backed LCA insights to measure product impact and drive sustainable decisions.",
+     "✓",
+     "Full cradle-to-grave product footprint analysis",
+     "✓",
+     "Database-backed modelling with globally recognised emission datasets",
+     "✓",
+     "Scenario comparison to evaluate design, material and supplier choices",
+     "✓",
+     "LCA output aligned to ISO 14040 / 14044 and EPD-ready",
+     "Footprint by life-cycle stage",
+     "Illustrative · one tote bag",
+     "Raw materials",
+     "Manufacturing",
+     "Distribution",
+     "Use",
+     "End of life",
+     "Raw materials",
+     "1.84",
+     "Manufacturing",
+     "0.92",
+     "Distribution",
+     "0.31",
+     "Use",
+     "0.12",
+     "End of life",
+     "0.08",
+     "Raw materials drive 56% of the footprint. Switching fibre supplier is the biggest lever.",
+     "3.27",
+     "kgCO₂e total"
+    ],
+    "comps": [
+     "button"
+    ]
+   },
+   {
+    "label": "05 AI predictive",
+    "text": [
+     "AI-powered carbon intelligence",
+     "See where your emissions are heading before you get there.",
+     "Predictive analytics simulates future emissions from current trends. Move the slider to try it.",
+     "Annual reduction rate ·",
+     "7",
+     "%",
+     "Off track · 10 t above target",
+     "SBTi 2030 · −42%",
+     "144",
+     "134",
+     "125",
+     "116",
+     "108",
+     "100",
+     "93",
+     "2024",
+     "2025",
+     "2026",
+     "2027",
+     "2028",
+     "2029",
+     "2030",
+     "Baseline 144.3 tCO₂e (2024, sample dashboard). Linear simulation for illustration.",
+     "Long-term strategies",
+     "Personalised reduction strategies based on international standards.",
+     "Comprehensive reporting",
+     "Accurate, auditable, compliance-ready ESG reporting.",
+     "Data ingestion",
+     "Eliminates manual uploads and keeps data current.",
+     "Predictive analytics",
+     "Simulate future emissions based on current trends."
+    ],
+    "comps": [
+     "form field"
+    ]
+   },
+   {
+    "label": "06 Data ingestion",
+    "text": [
+     "Data ingestion",
+     "Your systems feed ZERO like roots feed a tree.",
+     "AI-powered ingestion from multiple business systems and formats keeps sustainability data accurate and up to date, with no manual uploads.",
+     "ERP",
+     "Utility bills",
+     "Fuel & fleet",
+     "Business travel",
+     "Procurement",
+     "HR systems",
+     "Meters",
+     "Spreadsheets",
+     "[confirm connector list]"
+    ],
+    "comps": []
+   },
+   {
+    "label": "07 CTA",
+    "text": [
+     "See your own data in the platform.",
+     "Book a demo",
+     "See pricing"
+    ],
+    "comps": [
+     "link/CTA"
+    ]
+   }
+  ]
+ },
+ "Services": {
+  "sections": [
+   {
+    "label": "01 Services hero",
+    "text": [
+     "Our services",
+     "People who know the ground, software that knows the",
+     "numbers.",
+     "Everything you need for comprehensive carbon management, from a first footprint to a net-zero event."
+    ],
+    "comps": []
+   },
+   {
+    "label": "02 Service list",
+    "text": [
+     "01 · Sustainability Advisory",
+     "Sustainability Advisory",
+     "Get expert guidance to enhance your sustainability strategies and performance, from a first baseline to a net-zero roadmap.",
+     "Emissions baseline",
+     "SBTi-based targets",
+     "Long-term reduction strategy",
+     "Decarbonisation roadmap",
+     "Talk to an expert",
+     "Carbon Accounting platform →",
+     "02 · Product Lifecycle Analysis",
+     "Product Lifecycle Analysis",
+     "Know exactly how much emission is caused by your product. Scientific, data-backed LCA from first-time studies to ISO-aligned impact assessments.",
+     "Cradle-to-grave footprint",
+     "ISO 14040 / 14044",
+     "EPD-ready output",
+     "Scenario comparison",
+     "Talk to an expert",
+     "Product LCA module →",
+     "03 · ESG Reporting",
+     "ESG Reporting",
+     "Create comprehensive, accurate and compliant sustainability reports that regulators, investors and customers trust.",
+     "GRI, SASB, TCFD",
+     "CSRD and BRSR",
+     "Audit-ready trails",
+     "KPI benchmarking",
+     "Talk to an expert",
+     "ESG Reporting module →"
+    ],
+    "comps": [
+     "link/CTA",
+     "image"
+    ]
+   },
+   {
+    "label": "03 Process",
+    "text": [
+     "Our process",
+     "Four simple steps to carbon compliance.",
+     "1",
+     "Gather",
+     "Seamlessly collect and centralise sustainability data from every source across your business.",
+     "2",
+     "Measure",
+     "Accurately calculate emissions with verified factors and AI precision.",
+     "3",
+     "Report",
+     "Generate audit-ready ESG, Carbon and LCA reports aligned to global standards.",
+     "4",
+     "Decarbonize",
+     "Turn insights into real action with guidance, strategies and measurable emission reduction."
+    ],
+    "comps": []
+   },
+   {
+    "label": "04 Net Zero Events",
+    "text": [
+     "04 · Net Zero Events",
+     "Make your events matter beyond the moment.",
+     "From conferences to corporate gatherings, we help you design, measure and deliver truly net-zero events, so your impact is felt long after the applause fades.",
+     "Featured event",
+     "YI WRCM · Nashik 2025",
+     "14 Aug 2025",
+     "·",
+     "Nashik",
+     "·",
+     "200 participants",
+     "·",
+     "2 days",
+     "Young Indians Nashik hosted its Annual Western Region Meet with 177 participants from 17 cities. ZERO turned it into a fully net-zero event: every emission measured, impact cut through EV transport, smart carpooling and a strict no-paper, no-plastic approach. A new benchmark for climate-responsible events.",
+     "Measured",
+     "4.7",
+     "tCO₂e",
+     "Avoided",
+     "0.3",
+     "tCO₂e",
+     "Upcoming event: coming soon",
+     "We don’t have an upcoming event right now, but we’re already planning the next one. Planning your own? Let’s make it net zero.",
+     "Plan a net-zero event"
+    ],
+    "comps": [
+     "link/CTA",
+     "image"
+    ]
+   },
+   {
+    "label": "05 Quote",
+    "text": [
+     "“Their tailored approach is exactly what climate-impact startups need. Karan and Vedant balanced innovation with trusted datasets.”",
+     "Aishwarya Lahariya",
+     "· Co-Founder & Designer, Jiwya®"
+    ],
+    "comps": []
+   }
+  ]
+ },
+ "Pricing": {
+  "sections": [
+   {
+    "label": "01 Pricing hero",
+    "text": [
+     "Pricing",
+     "Plans that grow with your",
+     "footprint.",
+     "Start with the modules you need. Add sites, modules and expert support as you go.",
+     "Billed yearly",
+     "Billed monthly"
+    ],
+    "comps": [
+     "button"
+    ]
+   },
+   {
+    "label": "02 Plans",
+    "text": [
+     "Essentials",
+     "For companies measuring their footprint for the first time.",
+     "[₹X]",
+     "/ year",
+     "Get started",
+     "✓",
+     "Carbon Accounting · Scope 1 & 2",
+     "✓",
+     "1 site",
+     "✓",
+     "Real-time dashboards",
+     "✓",
+     "GHG Protocol-aligned report",
+     "✓",
+     "Email support",
+     "Growth",
+     "Most popular",
+     "For manufacturers reporting to customers, investors or regulators.",
+     "[₹Y]",
+     "/ year",
+     "Book a demo",
+     "✓",
+     "Everything in Essentials",
+     "✓",
+     "Scope 3 and supplier data",
+     "✓",
+     "ESG Reporting: GRI, BRSR, CSRD and more",
+     "✓",
+     "Haathi AI assistant",
+     "✓",
+     "Up to [N] sites",
+     "Enterprise",
+     "For groups with many sites, products and frameworks.",
+     "Custom",
+     "Talk to sales",
+     "✓",
+     "Everything in Growth",
+     "✓",
+     "Product LCA module",
+     "✓",
+     "Predictive analytics and SBTi targets",
+     "✓",
+     "Unlimited sites",
+     "✓",
+     "Dedicated sustainability advisor"
+    ],
+    "comps": [
+     "link/CTA"
+    ]
+   },
+   {
+    "label": "03 Compare",
+    "text": [
+     "Compare plans",
+     "Feature",
+     "Essentials",
+     "Growth",
+     "Enterprise",
+     "Scope 1 & 2 accounting",
+     "✓",
+     "✓",
+     "✓",
+     "Scope 3 accounting",
+     "—",
+     "✓",
+     "✓",
+     "AI data ingestion",
+     "✓",
+     "✓",
+     "✓",
+     "ESG Reporting frameworks",
+     "—",
+     "✓",
+     "✓",
+     "Haathi AI assistant",
+     "—",
+     "✓",
+     "✓",
+     "Product LCA",
+     "—",
+     "—",
+     "✓",
+     "Predictive analytics",
+     "—",
+     "—",
+     "✓",
+     "Sites",
+     "1",
+     "[N]",
+     "Unlimited",
+     "Advisory support",
+     "—",
+     "Add-on",
+     "Included"
+    ],
+    "comps": []
+   },
+   {
+    "label": "04 Add-ons",
+    "text": [
+     "Expert services, priced per project",
+     "Add to any plan, or engage on their own.",
+     "Product LCA study",
+     "ISO 14040/44 study for a product or range, EPD-ready.",
+     "Quote on request",
+     "Net Zero Event",
+     "Design, measure and deliver a net-zero conference or gathering.",
+     "Quote on request",
+     "Sustainability Advisory",
+     "Targets, strategy and a decarbonisation roadmap with our experts.",
+     "Quote on request",
+     "ESG report preparation",
+     "Our team prepares and reviews your disclosure end to end.",
+     "Quote on request"
+    ],
+    "comps": []
+   },
+   {
+    "label": "05 Pricing FAQ",
+    "text": [
+     "Pricing questions",
+     "How is pricing structured?",
+     "−",
+     "By the modules you use and the number of sites. Expert services are scoped per project. [confirm]",
+     "Is onboarding included?",
+     "+",
+     "Can we start with the free tools?",
+     "+",
+     "Can we change plans later?",
+     "+"
+    ],
+    "comps": [
+     "button"
+    ]
+   }
+  ]
+ },
+ "Free Tools": {
+  "sections": [
+   {
+    "label": "01 Tools hero",
+    "text": [
+     "Free tools · no sign-up",
+     "Curious about your footprint? Start",
+     "here.",
+     "Carbon calculator",
+     "ESG assessment"
+    ],
+    "comps": [
+     "link/CTA"
+    ]
+   },
+   {
+    "label": "02 Carbon calculator",
+    "text": [
+     "Free carbon calculator",
+     "A quick estimate of your business emissions.",
+     "Enter monthly figures. Results update as you type.",
+     "Electricity",
+     "S2",
+     "kWh / month",
+     "Diesel",
+     "S1",
+     "litres / month",
+     "Petrol",
+     "S1",
+     "litres / month",
+     "LPG",
+     "S1",
+     "kg / month",
+     "Business flights",
+     "S3",
+     "return trips / month",
+     "Employees",
+     "S3",
+     "people",
+     "Indicative factors for illustration: grid electricity 0.71 kgCO₂e/kWh, diesel 2.68 kg/L, petrol 2.31 kg/L, LPG 2.98 kg/kg, 0.25 t per return flight, 0.6 t per employee commuting per year. [confirm factors]",
+     "Your estimated footprint",
+     "327.1",
+     "tCO₂e / yr",
+     "Scope 1 · fuels",
+     "54.1",
+     "t",
+     "Scope 2 · electricity",
+     "213.0",
+     "t",
+     "Scope 3 · travel & commute",
+     "60.0",
+     "t",
+     "Electricity is your biggest source. Renewable power or a solar PPA is usually the fastest lever.",
+     "Get a full, audit-ready footprint"
+    ],
+    "comps": [
+     "form field",
+     "link/CTA"
+    ]
+   },
+   {
+    "label": "03 ESG assessment",
+    "text": [
+     "ESG assessment",
+     "Understand your ESG readiness in minutes.",
+     "Six questions. A readiness score and where to start.",
+     "0 of 6 answered",
+     "Question 1 of 6 · Measurement",
+     "Do you measure your greenhouse gas emissions today?",
+     "Not yet",
+     "Scope 1 and 2 only",
+     "Scope 1, 2 and 3",
+     "← Back"
+    ],
+    "comps": [
+     "button"
+    ]
+   }
+  ]
+ },
+ "Contact": {
+  "sections": [
+   {
+    "label": "01 Book a demo",
+    "text": [
+     "Get in touch",
+     "Book a 30-minute",
+     "demo.",
+     "See your footprint, your biggest levers and your first report, using your own data where possible.",
+     "1",
+     "Tell us what you need.",
+     "Modules, sites and the frameworks you report to.",
+     "2",
+     "Pick a time.",
+     "A ZERO specialist walks you through the platform.",
+     "3",
+     "Get a plan.",
+     "A scoped proposal within [ADD X] working days.",
+     "Prefer to write?",
+     "[ADD email]",
+     "[ADD phone]",
+     "[ADD office address], India",
+     "1",
+     "Details",
+     "2",
+     "Time",
+     "3",
+     "Done",
+     "What are you interested in?",
+     "Carbon Accounting",
+     "ESG Reporting",
+     "Product LCA",
+     "Sustainability Advisory",
+     "Net Zero Event",
+     "Not sure yet",
+     "Full name",
+     "Work email",
+     "Company",
+     "Role",
+     "Number of sites",
+     "1",
+     "2–5",
+     "6–20",
+     "20+",
+     "Choose a time →"
+    ],
+    "comps": [
+     "form field",
+     "button"
+    ]
+   }
+  ]
+ },
+ "Blog": {
+  "sections": [
+   {
+    "label": "01 Blog hero",
+    "text": [
+     "Blog",
+     "Sustainability insights, regulatory updates and industry trends."
+    ],
+    "comps": []
+   },
+   {
+    "label": "02 Featured",
+    "text": [
+     "Featured · Basics",
+     "8 min read",
+     "Scope 1, 2 and 3 emissions, explained for manufacturers",
+     "What each scope covers, where the data comes from, and why Scope 3 is usually the biggest and hardest part of your footprint.",
+     "Read article →"
+    ],
+    "comps": [
+     "link/CTA"
+    ]
+   },
+   {
+    "label": "03 Posts",
+    "text": [
+     "All",
+     "Regulation",
+     "Scope 3",
+     "LCA",
+     "Trade",
+     "Events",
+     "Regulation",
+     "7 min",
+     "read",
+     "BRSR Core: what changes for FY 2025–26",
+     "Scope 3",
+     "6 min",
+     "read",
+     "Supplier emissions without the spreadsheet chase",
+     "Trade",
+     "8 min",
+     "read",
+     "CBAM for Indian exporters: a first-year checklist",
+     "LCA",
+     "9 min",
+     "read",
+     "Cradle-to-grave in practice: an LCA for a fashion startup",
+     "Events",
+     "5 min",
+     "read",
+     "How we ran a 177-person conference at net zero",
+     "Regulation",
+     "7 min",
+     "read",
+     "CSRD and ESRS E1 for suppliers to EU brands",
+     "Scope 3",
+     "6 min",
+     "read",
+     "Spend-based vs activity-based: picking a Scope 3 method",
+     "LCA",
+     "5 min",
+     "read",
+     "What makes an EPD credible to buyers",
+     "Titles are illustrative. [ADD real posts]"
+    ],
+    "comps": [
+     "button",
+     "link/CTA"
+    ]
+   },
+   {
+    "label": "04 Newsletter",
+    "text": [
+     "Stay future-ready.",
+     "Carbon accounting insights in your inbox, once a month.",
+     "Subscribe"
+    ],
+    "comps": [
+     "form field",
+     "button"
+    ]
+   }
+  ]
+ },
+ "Blog Article": {
+  "sections": [
+   {
+    "label": "01 Article",
+    "text": [
+     "← All posts",
+     "Basics",
+     "8 min read · [ADD date]",
+     "Scope 1, 2 and 3 emissions, explained for manufacturers",
+     "What each scope covers, where the data comes from, and why Scope 3 is usually the biggest and hardest part of your footprint.",
+     "Karan Racca",
+     "Founder, ZERO",
+     "The Greenhouse Gas Protocol sorts a company’s emissions into three scopes. The split exists so that every tonne is counted once, by the right company, and so you can see which emissions you control directly and which you only influence.",
+     "Scope 1: what you burn",
+     "Direct emissions from sources you own or control: fuel in boilers and furnaces, diesel in generators, LPG in canteens and process heat, petrol and diesel in company vehicles, and refrigerant leaks. The data usually lives in fuel invoices, purchase records and maintenance logs.",
+     "Scope 2: what you buy to power the plant",
+     "Indirect emissions from purchased electricity, steam, heat or cooling. They happen at the power station, but your consumption causes them. Monthly utility bills are the main source, multiplied by a grid emission factor.",
+     "A sample footprint, by scope",
+     "Scope 1 · 20.9%",
+     "Scope 2 · 36.2%",
+     "Scope 3 · 42.9%",
+     "From the ZERO sample dashboard: 144.3 tCO₂e in a year.",
+     "Scope 3: everything else in your value chain",
+     "All other indirect emissions, upstream and downstream: purchased raw materials, packaging, inbound and outbound freight, business travel, employee commuting, waste, and the use and disposal of the products you sell. The GHG Protocol groups them into 15 categories.",
+     "For most manufacturers, Scope 3 is the largest share, and the one you can see least.",
+     "Scope 3 is hard because the data sits with suppliers. Most companies start with spend-based estimates, then replace the biggest categories with supplier-specific data over time.",
+     "Where to start",
+     "Build a Scope 1 and 2 baseline from a full year of fuel and utility records.",
+     "Screen all 15 Scope 3 categories and find the three that matter most.",
+     "Ask your top suppliers by spend for primary data.",
+     "Set targets, then report to the framework your customers or regulator ask for, such as BRSR, GRI or CDP.",
+     "Get a quick estimate of your own footprint.",
+     "Try the free calculator",
+     "Keep reading",
+     "Scope 3",
+     "Supplier emissions without the spreadsheet chase",
+     "Regulation",
+     "BRSR Core: what changes for FY 2025–26",
+     "LCA",
+     "What makes an EPD credible to buyers"
+    ],
+    "comps": [
+     "link/CTA",
+     "image"
+    ]
+   },
+   {
+    "label": "02 Related",
+    "text": [
+     "Keep reading",
+     "Scope 3",
+     "Supplier emissions without the spreadsheet chase",
+     "Regulation",
+     "BRSR Core: what changes for FY 2025–26",
+     "LCA",
+     "What makes an EPD credible to buyers"
+    ],
+    "comps": [
+     "link/CTA"
+    ]
+   }
+  ]
+ },
+ "About": {
+  "sections": [
+   {
+    "label": "01 Mission",
+    "text": [
+     "Our mission & vision",
+     "Every business, a climate-positive force.",
+     "Passionate experts driving sustainable innovation and building a net-zero future through technology, strategy and cleantech solutions."
+    ],
+    "comps": []
+   },
+   {
+    "label": "02 Future",
+    "text": [
+     "The future we’re working toward",
+     "We’re a team of strategists, technologists and climate specialists driven by purpose, and united by optimism.",
+     "ZERO was founded in 2020 with a strong mission: to transform every business into a climate-positive force. Turning scattered data into clear insight, insight into bold decarbonisation, and bold decarbonisation into a world that’s cleaner, fairer and unmistakably better than the one we inherited.",
+     "10+",
+     "Domains served",
+     "15+",
+     "Years of experience",
+     "3+",
+     "Countries served"
+    ],
+    "comps": []
+   },
+   {
+    "label": "03 Founder",
+    "text": [
+     "Meet the founder of ZERO",
+     "Karan Racca",
+     "Karan holds a Master’s in Information Systems and sharpened his skills with startups in Boston and San Francisco. Now back in India, he’s passionate about using technology to drive sustainability and help build a net-zero future. His global perspective and tech expertise fuel innovation at ZERO.",
+     "Technology",
+     "Sustainability",
+     "Innovation",
+     "LinkedIn",
+     "GitHub",
+     "Email",
+     "Founder",
+     "Tech & Sustainability Lead"
+    ],
+    "comps": [
+     "link/CTA",
+     "image"
+    ]
+   },
+   {
+    "label": "04 Clients",
+    "text": [
+     "Clients we have served",
+     "Trusted by leading companies across domains."
+    ],
+    "comps": [
+     "image"
+    ]
+   },
+   {
+    "label": "05 Careers",
+    "text": [
+     "Careers",
+     "Want to join our mission?",
+     "We’re always looking for passionate people who share our vision of building a sustainable future. Join us in making a difference.",
+     "View open positions",
+     "→"
+    ],
+    "comps": [
+     "link/CTA"
+    ]
+   }
+  ]
+ }
+}

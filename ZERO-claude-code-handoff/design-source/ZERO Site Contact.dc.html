@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6FAF1;--surface:#FFFFFF;--ink:#1F3A14;--ink2:#5A6B55;--moss:#3D7A22;--deep:#1F3A14;--deepInk:#E8F5DC;--deepInk2:#C5DDB3;--sage:#E8F5DC;--leaf:#78B840;--terra:#3D7A22;--terrah:#2F6119;--line:#D3E6C1;--night:#0E2414;--nightInk:#E8F5DC;--nightInk2:#A9C29A;--nightLine:rgba(166,217,122,.16)}
+body{margin:0;background:var(--bg);font-family:'Figtree',system-ui,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+a{color:var(--moss);text-decoration:none}
+a:hover{color:var(--terra)}
+*{box-sizing:border-box}
+</style>
+</helmet>
+<div style="background:var(--bg);min-height:100vh">
+<dc-import name="ZERO Site Header" active="" hint-size="100%,80px"></dc-import>
+<main data-screen-label="01 Book a demo" style="max-width:1280px;margin:0 auto;padding:64px 32px 120px;display:flex;flex-wrap:wrap;gap:40px;align-items:start">
+  <div style="flex:1 1 380px;display:flex;flex-direction:column;gap:28px">
+    <span style="align-self:flex-start;background:var(--sage);color:var(--deep);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600">Get in touch</span>
+    <h1 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(42px,4.6vw,66px);line-height:1;letter-spacing:-.035em;color:var(--deep);text-wrap:balance">Book a 30-minute <span style="color:var(--terra)">demo.</span></h1>
+    <p style="margin:0;font-size:18px;line-height:28px;color:var(--ink2)">See your footprint, your biggest levers and your first report, using your own data where possible.</p>
+    <div style="display:flex;flex-direction:column;gap:2px;border-top:1px solid var(--line)">
+      <div style="display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)"><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:20px;color:var(--moss);width:24px">1</span><span style="font-size:16px;line-height:25px"><strong>Tell us what you need.</strong> Modules, sites and the frameworks you report to.</span></div>
+      <div style="display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)"><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:20px;color:var(--moss);width:24px">2</span><span style="font-size:16px;line-height:25px"><strong>Pick a time.</strong> A ZERO specialist walks you through the platform.</span></div>
+      <div style="display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)"><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:20px;color:var(--terra);width:24px">3</span><span style="font-size:16px;line-height:25px"><strong>Get a plan.</strong> A scoped proposal within [ADD X] working days.</span></div>
+    </div>
+    <div style="background:var(--night);color:var(--nightInk);border-radius:32px;padding:28px;display:flex;flex-direction:column;gap:12px">
+      <span style="font-weight:600;color:var(--leaf)">Prefer to write?</span>
+      <span style="font-size:16px">[ADD email]</span><span style="font-size:16px">[ADD phone]</span><span style="font-size:14px;color:var(--nightInk2)">[ADD office address], India</span>
+    </div>
+  </div>
+
+  <div style="flex:1.3 1 480px;background:var(--surface);border:1px solid var(--line);border-radius:48px;padding:40px;display:flex;flex-direction:column;gap:28px;min-height:640px">
+    <div style="display:flex;gap:8px;align-items:center">
+      <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3"><span style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:{{ s.col }}"><span style="width:28px;height:28px;border-radius:50%;background:{{ s.bg }};color:{{ s.dotInk }};display:flex;align-items:center;justify-content:center;font-size:13px">{{ s.n }}</span>{{ s.t }}<span style="width:24px;height:1px;background:var(--line);display:{{ s.sep }}"></span></span></sc-for>
+    </div>
+
+    <sc-if value="{{ s0 }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;flex-direction:column;gap:12px"><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:24px;font-weight:600;color:var(--deep)">What are you interested in?</span>
+        <div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ interests }}" as="i" hint-placeholder-count="6"><button onClick="{{ i.go }}" style="border:1.5px solid {{ i.bd }};border-radius:999px;padding:10px 16px;background:{{ i.bg }};color:{{ i.col }};font:600 14px 'Figtree',sans-serif;cursor:pointer">{{ i.t }}</button></sc-for></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+        <sc-for list="{{ fields }}" as="f" hint-placeholder-count="4"><label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:600;color:var(--ink2)">{{ f.l }}</span><input value="{{ f.v }}" onChange="{{ f.set }}" placeholder="{{ f.p }}" type="{{ f.type }}" style="height:52px;border:1.5px solid var(--line);border-radius:16px;background:var(--bg);padding:0 16px;font:16px 'Figtree',sans-serif;color:var(--ink);outline:none"></label></sc-for>
+      </div>
+      <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:600;color:var(--ink2)">Number of sites</span><span style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ siteOpts }}" as="o" hint-placeholder-count="4"><button onClick="{{ o.go }}" style="flex:1;min-width:80px;height:48px;border-radius:14px;border:1.5px solid {{ o.bd }};background:{{ o.bg }};color:var(--ink);font:600 15px 'Figtree',sans-serif;cursor:pointer">{{ o.t }}</button></sc-for></span></label>
+      <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap"><span style="font-size:14px;color:var(--terra)">{{ err }}</span><button onClick="{{ next }}" style="height:56px;padding:0 28px;border:none;border-radius:999px;background:var(--terra);color:#FFFFFF;font:600 16px 'Figtree',sans-serif;cursor:pointer" style-hover="background:var(--terrah)">Choose a time →</button></div>
+    </sc-if>
+
+    <sc-if value="{{ s1 }}" hint-placeholder-val="{{ false }}">
+      <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:24px;font-weight:600;color:var(--deep)">Pick a day</span>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px"><sc-for list="{{ days }}" as="d" hint-placeholder-count="5"><button onClick="{{ d.go }}" style="border:1.5px solid {{ d.bd }};border-radius:20px;padding:14px 6px;background:{{ d.bg }};color:{{ d.col }};font:500 13px 'Figtree',sans-serif;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px"><span>{{ d.w }}</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:24px;font-weight:600">{{ d.n }}</span><span>{{ d.m }}</span></button></sc-for></div>
+      <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:600;color:var(--deep)">Times · IST</span>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px"><sc-for list="{{ slots }}" as="t" hint-placeholder-count="8"><button onClick="{{ t.go }}" style="height:48px;border-radius:14px;border:1.5px solid {{ t.bd }};background:{{ t.bg }};color:{{ t.col }};font:600 15px 'Figtree',sans-serif;cursor:pointer;opacity:{{ t.op }}">{{ t.t }}</button></sc-for></div>
+      <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap"><button onClick="{{ back }}" style="border:none;background:transparent;color:var(--ink2);font:600 15px 'Figtree',sans-serif;cursor:pointer">← Back</button><button onClick="{{ confirm }}" style="height:56px;padding:0 28px;border:none;border-radius:999px;background:{{ confirmBg }};color:#FFFFFF;font:600 16px 'Figtree',sans-serif;cursor:pointer">Confirm booking</button></div>
+    </sc-if>
+
+    <sc-if value="{{ s2 }}" hint-placeholder-val="{{ false }}">
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:18px;padding:24px 0">
+        <span style="width:88px;height:88px;border-radius:50%;background:var(--sage);color:var(--deep);display:flex;align-items:center;justify-content:center;font-size:40px">✓</span>
+        <span style="font-family:'Bricolage Grotesque',sans-serif;font-size:34px;font-weight:600;color:var(--deep);letter-spacing:-.02em">You’re booked, {{ firstName }}.</span>
+        <span style="font-size:17px;line-height:27px;color:var(--ink2);max-width:420px">{{ summary }}. A calendar invite is on its way to {{ email }}.</span>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center"><sc-for list="{{ picked }}" as="p" hint-placeholder-count="2"><span style="background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600">{{ p }}</span></sc-for></div>
+        <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;justify-content:center"><a href="ZERO%20Site%20Free%20Tools.dc.html" style="height:48px;padding:0 22px;border-radius:999px;background:var(--deep);color:var(--deepInk);font-weight:600;display:flex;align-items:center" style-hover="background:var(--moss);color:var(--deepInk)">Try the carbon calculator meanwhile</a><button onClick="{{ reset }}" style="height:48px;padding:0 22px;border-radius:999px;border:1.5px solid var(--deep);background:transparent;color:var(--deep);font:600 15px 'Figtree',sans-serif;cursor:pointer">Book another</button></div>
+      </div>
+    </sc-if>
+  </div>
+</main>
+<dc-import name="ZERO Site Footer" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state={step:0,int:['Carbon Accounting'],name:'',email:'',company:'',role:'',sites:'1',day:0,slot:-1,err:''};
+  renderVals(){
+    const s=this.state;
+    const I=['Carbon Accounting','ESG Reporting','Product LCA','Sustainability Advisory','Net Zero Event','Not sure yet'];
+    const F=[['name','Full name','Priya Sharma','text'],['email','Work email','priya@company.com','email'],['company','Company','Company name','text'],['role','Role','Head of Sustainability','text']];
+    const days=[];const d=new Date();while(days.length<5){d.setDate(d.getDate()+1);if(d.getDay()%6)days.push(new Date(d));}
+    const times=['10:00','10:30','11:30','12:00','14:00','15:00','16:00','17:30'];
+    const busy=[(s.day*3+1)%8,(s.day*5+4)%8];
+    const W=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const dd=days[s.day];
+    return {
+      s0:s.step===0,s1:s.step===1,s2:s.step===2,
+      steps:['Details','Time','Done'].map((t,i)=>({n:i<s.step?'✓':String(i+1),t,bg:i<=s.step?'var(--deep)':'var(--bg)',dotInk:i<=s.step?'var(--deepInk)':'var(--ink2)',col:i<=s.step?'var(--deep)':'var(--ink2)',sep:i<2?'block':'none'})),
+      interests:I.map(t=>{const on=s.int.includes(t);return {t,go:()=>this.setState(st=>({int:on?st.int.filter(x=>x!==t):[...st.int,t]})),bd:on?'var(--deep)':'var(--line)',bg:on?'var(--deep)':'transparent',col:on?'var(--deepInk)':'var(--ink)'};}),
+      fields:F.map(([k,l,p,type])=>({l,p,type,v:s[k],set:e=>this.setState({[k]:e.target.value,err:''})})),
+      siteOpts:['1','2–5','6–20','20+'].map(t=>({t,go:()=>this.setState({sites:t}),bd:s.sites===t?'var(--deep)':'var(--line)',bg:s.sites===t?'var(--sage)':'transparent'})),
+      err:s.err,
+      next:()=>{if(!s.name.trim()||!/.+@.+\..+/.test(s.email))return this.setState({err:'Add your name and a valid work email.'});this.setState({step:1,err:''});},
+      days:days.map((x,i)=>({w:W[x.getDay()],n:x.getDate(),m:M[x.getMonth()],go:()=>this.setState({day:i,slot:-1}),bd:s.day===i?'var(--deep)':'var(--line)',bg:s.day===i?'var(--deep)':'transparent',col:s.day===i?'var(--deepInk)':'var(--ink)'})),
+      slots:times.map((t,i)=>{const b=busy.includes(i);return {t,go:()=>!b&&this.setState({slot:i}),bd:s.slot===i?'var(--terra)':'var(--line)',bg:s.slot===i?'var(--terra)':'transparent',col:s.slot===i?'#FFFFFF':'var(--ink)',op:b?.35:1};}),
+      back:()=>this.setState({step:0}),
+      confirmBg:s.slot>=0?'var(--terra)':'#D3E6C1',
+      confirm:()=>s.slot>=0&&this.setState({step:2}),
+      firstName:(s.name.trim().split(' ')[0])||'there',email:s.email,
+      summary:dd?W[dd.getDay()]+' '+dd.getDate()+' '+M[dd.getMonth()]+' at '+(times[s.slot]||'')+' IST':'',
+      picked:[...s.int,s.sites+' site'+(s.sites==='1'?'':'s')],
+      reset:()=>this.setState({step:0,slot:-1})
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+:root{
+  --bg:#F6FAF1;
+  --surface:#FFFFFF;
+  --ink:#1F3A14;
+  --ink2:#5A6B55;
+  --deep:#1F3A14;
+  --deepInk:#E8F5DC;
+  --deepInk2:#C5DDB3;
+  --moss:#3D7A22;
+  --terrah:#2F6119;
+  --leaf:#78B840;
+  --sage:#E8F5DC;
+  --sky:#EEF7E6;
+  --line:#D3E6C1;
+  --night:#0E2414;
+  --night2:#163A1C;
+  --nightInk:#E8F5DC;
+  --nightInk2:#A9C29A;
+  --nightLine:rgba(166,217,122,.16);
+  --s1:#1F5C2E;
+  --s2:#78B840;
+  --s3:#D9763A;
+  --terra:#3D7A22;
+  --soil:#0E2414;
+  --leaf-light:#A6D97A;
+  --leaf-mid:#5E9A3A;
+  --offtrack:#FF8A3D;
+  --font-display:'Bricolage Grotesque',sans-serif;
+  --font-body:'Figtree',system-ui,sans-serif;
+}
