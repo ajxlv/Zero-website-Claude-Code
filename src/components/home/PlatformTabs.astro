@@ -1,0 +1,63 @@
+---
+const tabs = [
+  { k: 'BRSR', title: 'Business Responsibility & Sustainability Report', sub: 'BRSR Core · 9 principles', pct: 86, rows: ['Principle 6 · Environment', 'Energy & emissions intensity', 'Value chain disclosures'] },
+  { k: 'GRI', title: 'GRI Sustainability Report', sub: 'GRI 305 · Emissions', pct: 92, rows: ['305-1 Direct (Scope 1)', '305-2 Energy indirect (Scope 2)', '305-3 Other indirect (Scope 3)'] },
+  { k: 'CSRD', title: 'CSRD Sustainability Statement', sub: 'ESRS E1 · Climate change', pct: 71, rows: ['E1-4 Targets', 'E1-6 Gross Scopes 1, 2, 3', 'E1-1 Transition plan'] },
+  { k: 'CDP', title: 'CDP Climate Change Response', sub: 'Modules C4–C7', pct: 78, rows: ['C4 Targets & performance', 'C6 Emissions data', 'C7 Emissions breakdown'] },
+];
+---
+<div data-tabs>
+  <div class="tablist" role="tablist" aria-label="Reporting framework">
+    {tabs.map((t, i) => (
+      <button type="button" role="tab" id={`pt-${i}`} aria-controls="pt-panel" aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1} data-i={i}>{t.k}</button>
+    ))}
+  </div>
+  <div class="panel" role="tabpanel" id="pt-panel" aria-live="polite">
+    <div class="head">
+      <div class="t"><span class="title" data-f="title">{tabs[0].title}</span><span class="sub" data-f="sub">{tabs[0].sub}</span></div>
+      <span class="pct" data-f="pct">{tabs[0].pct}%</span>
+    </div>
+    <div class="track"><div class="fill" data-f="fill" style={`width:${tabs[0].pct}%`}></div></div>
+    {tabs[0].rows.map((r, i) => <span class="row"><span data-row={i}>{r}</span><span class="ok">✓ traced</span></span>)}
+  </div>
+  <script type="application/json" data-json set:html={JSON.stringify(tabs)}></script>
+</div>
+<style>
+  .tablist{display:flex;gap:6px;background:#E8F5DC;border-radius:999px;padding:5px;align-self:flex-start;width:max-content;max-width:100%;margin-bottom:20px}
+  .tablist button{border:none;border-radius:999px;padding:8px 16px;background:transparent;color:var(--ink);font:600 14px var(--font-body);cursor:pointer;transition:background .2s}
+  .tablist button[aria-selected='true']{background:var(--deep);color:var(--deepInk)}
+  .panel{background:#1F3A14;color:#F6FAF1;border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:14px}
+  .head{display:flex;justify-content:space-between;gap:12px}
+  .t{display:flex;flex-direction:column;gap:4px}
+  .title{font-family:var(--font-display);font-size:20px;font-weight:600;line-height:1.15}
+  .sub{font-size:13px;color:#C5DDB3}
+  .pct{font-family:var(--font-display);font-size:28px;font-weight:600;color:#A6D97A}
+  .track{height:8px;border-radius:999px;background:rgba(232,245,220,.15)}
+  .fill{height:100%;border-radius:999px;background:#A6D97A;transition:width .5s}
+  .row{display:flex;justify-content:space-between;font-size:14px;border-top:1px solid rgba(232,245,220,.15);padding-top:10px}
+  .ok{color:#A6D97A}
+</style>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-tabs]').forEach((root) => {
+    const data = JSON.parse(root.querySelector('[data-json]')!.textContent!);
+    const tabs = [...root.querySelectorAll<HTMLButtonElement>('[role=tab]')];
+    const select = (i: number, focus = false) => {
+      tabs.forEach((b, j) => { b.setAttribute('aria-selected', String(i === j)); b.tabIndex = i === j ? 0 : -1; });
+      const d = data[i];
+      root.querySelector('[data-f=title]')!.textContent = d.title;
+      root.querySelector('[data-f=sub]')!.textContent = d.sub;
+      root.querySelector('[data-f=pct]')!.textContent = d.pct + '%';
+      root.querySelector<HTMLElement>('[data-f=fill]')!.style.width = d.pct + '%';
+      d.rows.forEach((r: string, k: number) => (root.querySelector(`[data-row="${k}"]`)!.textContent = r));
+      root.querySelector('[role=tabpanel]')!.setAttribute('aria-labelledby', `pt-${i}`);
+      if (focus) tabs[i].focus();
+    };
+    tabs.forEach((b, i) => {
+      b.addEventListener('click', () => select(i));
+      b.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') { e.preventDefault(); select((i + 1) % tabs.length, true); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); select((i - 1 + tabs.length) % tabs.length, true); }
+      });
+    });
+  });
+</script>

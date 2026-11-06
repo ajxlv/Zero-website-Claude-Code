@@ -1,0 +1,220 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site } from '../config/site';
+import { interests, siteOptions, slotTimes, timezoneLabel, dayCount } from '../config/booking';
+---
+<Layout title="Book a demo | ZERO" description="Book a 30-minute demo with a ZERO specialist." active="">
+  <div class="container wrap">
+    <div class="left">
+      <span class="tag">Get in touch</span>
+      <h1 class="h-display" style="font-size:clamp(42px,4.6vw,66px)">Book a 30-minute <span style="color:var(--terra)">demo.</span></h1>
+      <p class="body-lg">See your footprint, your biggest levers and your first report, using your own data where possible.</p>
+      <ol class="how">
+        <li><span class="n">1</span><span><strong>Tell us what you need.</strong> Modules, sites and the frameworks you report to.</span></li>
+        <li><span class="n">2</span><span><strong>Pick a time.</strong> A ZERO specialist walks you through the platform.</span></li>
+        <li><span class="n" style="color:var(--terra)">3</span><span><strong>Get a plan.</strong> A scoped proposal within {site.contact.responseDays} working days.</span></li>
+      </ol>
+      <div class="write">
+        <span style="font-weight:600;color:var(--leaf)">Prefer to write?</span>
+        <span>{site.contact.email}</span><span>{site.contact.phone}</span><span style="font-size:14px;color:var(--nightInk2)">{site.contact.address}, India</span>
+      </div>
+    </div>
+
+    <div class="panel" data-book data-slots={JSON.stringify(slotTimes)} data-days={dayCount} data-tz={timezoneLabel}>
+      <ol class="stepper" aria-label="Progress">
+        <li data-st="0"><span class="dot">1</span>Details<span class="sep"></span></li>
+        <li data-st="1"><span class="dot">2</span>Time<span class="sep"></span></li>
+        <li data-st="2"><span class="dot">3</span>Done</li>
+      </ol>
+
+      <!-- Step 1: details -->
+      <form data-step="0" novalidate>
+        <fieldset class="chips"><legend>What are you interested in?</legend>
+          <div class="chiprow">{interests.map((t) => <button type="button" data-int={t} aria-pressed={t === 'Carbon Accounting' ? 'true' : 'false'}>{t}</button>)}</div>
+        </fieldset>
+        <div class="grid">
+          <label><span>Full name</span><input name="name" placeholder="Priya Sharma" autocomplete="name" /></label>
+          <label><span>Work email</span><input name="email" type="email" placeholder="priya@company.com" autocomplete="email" /></label>
+          <label><span>Company</span><input name="company" placeholder="Company name" autocomplete="organization" /></label>
+          <label><span>Role</span><input name="role" placeholder="Head of Sustainability" autocomplete="organization-title" /></label>
+        </div>
+        <fieldset class="sites"><legend>Number of sites</legend>
+          <div class="siterow">{siteOptions.map((t) => <button type="button" data-site={t} aria-pressed={t === '1' ? 'true' : 'false'}>{t}</button>)}</div>
+        </fieldset>
+        <div class="foot"><span class="err" role="alert" data-err></span><button type="submit" class="btn btn-primary">Choose a time →</button></div>
+      </form>
+
+      <!-- Step 2: time -->
+      <div data-step="1" hidden>
+        <span class="h2t">Pick a day</span>
+        <div class="days" data-days-list role="group" aria-label="Day"></div>
+        <span class="h3t">Times · {timezoneLabel}</span>
+        <div class="slots" data-slots-list role="group" aria-label="Time"></div>
+        <div class="foot"><button type="button" class="back" data-back>← Back</button><button type="button" class="btn btn-primary" data-confirm aria-disabled="true">Confirm booking</button></div>
+        <span class="err" role="alert" data-err2></span>
+      </div>
+
+      <!-- Step 3: done -->
+      <div data-step="2" hidden class="done">
+        <span class="check" aria-hidden="true">✓</span>
+        <h2 class="thanks" tabindex="-1" data-thanks></h2>
+        <span class="sum" data-summary></span>
+        <div class="picked" data-picked></div>
+        <span class="demo" data-demo hidden>Preview mode: the booking backend is not connected yet, so nothing was sent.</span>
+        <div class="acts"><a href="/free-tools#calculator" class="tbtn">Try the carbon calculator meanwhile</a><button type="button" class="again" data-reset>Book another</button></div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .wrap{padding-top:64px;padding-bottom:120px;display:flex;flex-wrap:wrap;gap:40px;align-items:start}
+  .left{flex:1 1 380px;display:flex;flex-direction:column;gap:28px}
+  .tag{align-self:flex-start;background:var(--sage);color:var(--deep);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600}
+  .how{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px;border-top:1px solid var(--line)}
+  .how li{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);font-size:16px;line-height:25px}
+  .n{font-family:var(--font-display);font-weight:600;font-size:20px;color:var(--moss);width:24px;flex:none}
+  .write{background:var(--night);color:var(--nightInk);border-radius:32px;padding:28px;display:flex;flex-direction:column;gap:12px;font-size:16px}
+  .panel{flex:1.3 1 480px;background:var(--surface);border:1px solid var(--line);border-radius:48px;padding:40px;display:flex;flex-direction:column;gap:28px;min-height:640px}
+  [data-step]{display:flex;flex-direction:column;gap:24px;flex:1}
+  [data-step][hidden]{display:none}
+  .stepper{list-style:none;margin:0;padding:0;display:flex;gap:8px;align-items:center}
+  .stepper li{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--ink2)}
+  .stepper li.on{color:var(--deep)}
+  .dot{width:28px;height:28px;border-radius:50%;background:var(--bg);color:var(--ink2);display:flex;align-items:center;justify-content:center;font-size:13px}
+  .stepper li.on .dot{background:var(--deep);color:var(--deepInk)}
+  .sep{width:24px;height:1px;background:var(--line)}
+  .stepper li:last-child .sep{display:none}
+  fieldset{border:0;margin:0;padding:0;min-width:0}
+  legend{font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--deep);margin-bottom:12px;padding:0}
+  .sites legend{font-family:var(--font-body);font-size:13px;font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .chiprow{display:flex;flex-wrap:wrap;gap:8px}
+  .chiprow button{border:1.5px solid var(--line);border-radius:999px;padding:10px 16px;background:transparent;color:var(--ink);font:600 14px var(--font-body);cursor:pointer}
+  .chiprow button[aria-pressed='true']{border-color:var(--deep);background:var(--deep);color:var(--deepInk)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+  label{display:flex;flex-direction:column;gap:6px}
+  label span{font-size:13px;font-weight:600;color:var(--ink2)}
+  input{height:52px;border:1.5px solid var(--line);border-radius:16px;background:var(--bg);padding:0 16px;font-size:16px;color:var(--ink);outline:none}
+  input:focus{border-color:var(--moss);box-shadow:0 0 0 3px rgba(61,122,34,.25)}
+  input[aria-invalid='true']{border-color:var(--terra);background:#fff}
+  .siterow{display:flex;gap:6px;flex-wrap:wrap}
+  .siterow button{flex:1;min-width:80px;height:48px;border-radius:14px;border:1.5px solid var(--line);background:transparent;color:var(--ink);font:600 15px var(--font-body);cursor:pointer}
+  .siterow button[aria-pressed='true']{border-color:var(--deep);background:var(--sage)}
+  .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .err{font-size:14px;color:var(--terra);font-weight:600}
+  .h2t{font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--deep)}
+  .h3t{font-family:var(--font-display);font-size:20px;font-weight:600;color:var(--deep)}
+  .days{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .days :global(button){border:1.5px solid var(--line);border-radius:20px;padding:14px 6px;background:transparent;color:var(--ink);font:500 13px var(--font-body);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px}
+  .days :global(button b){font-family:var(--font-display);font-size:24px;font-weight:600}
+  .days :global(button[aria-pressed='true']){border-color:var(--deep);background:var(--deep);color:var(--deepInk)}
+  .slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px}
+  .slots :global(button){height:48px;border-radius:14px;border:1.5px solid var(--line);background:transparent;color:var(--ink);font:600 15px var(--font-body);cursor:pointer}
+  .slots :global(button[aria-pressed='true']){border-color:var(--terra);background:var(--terra);color:#fff}
+  .slots :global(button:disabled){opacity:.35;cursor:not-allowed;text-decoration:line-through}
+  .back{border:none;background:transparent;color:var(--ink2);font:600 15px var(--font-body);cursor:pointer}
+  .done{align-items:center;justify-content:center;text-align:center;gap:18px;padding:24px 0}
+  .check{width:88px;height:88px;border-radius:50%;background:var(--sage);color:var(--deep);display:flex;align-items:center;justify-content:center;font-size:40px}
+  .thanks{font-size:34px;color:var(--deep);letter-spacing:-.02em}
+  .sum{font-size:17px;line-height:27px;color:var(--ink2);max-width:420px}
+  .picked{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+  .picked :global(span){background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600}
+  .demo{font-size:13px;color:var(--ink2);background:var(--bg);border-radius:12px;padding:8px 12px}
+  .acts{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;justify-content:center}
+  .tbtn{height:48px;padding:0 22px;border-radius:999px;background:var(--deep);color:var(--deepInk);font-weight:600;display:flex;align-items:center}
+  .tbtn:hover{background:var(--moss);color:var(--deepInk)}
+  .again{height:48px;padding:0 22px;border-radius:999px;border:1.5px solid var(--deep);background:transparent;color:var(--deep);font:600 15px var(--font-body);cursor:pointer}
+  @media (max-width:700px){ .panel{padding:24px;border-radius:32px} .days{gap:4px} .days :global(button){padding:10px 2px} }
+</style>
+
+<script>
+  import { submitForm } from '../scripts/forms';
+
+  const root = document.querySelector<HTMLElement>('[data-book]')!;
+  const times: string[] = JSON.parse(root.dataset.slots!);
+  const tz = root.dataset.tz!;
+  const dayCount = +root.dataset.days!;
+  const W = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const M = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const q = <T extends HTMLElement>(s: string) => root.querySelector<T>(s)!;
+
+  // Next five weekdays from tomorrow (Sat/Sun skipped)
+  const days: Date[] = [];
+  const d = new Date();
+  while (days.length < dayCount) { d.setDate(d.getDate() + 1); if (d.getDay() % 6) days.push(new Date(d)); }
+
+  let day = 0, slot = -1;
+  let interests = new Set(['Carbon Accounting']);
+  let sites = '1';
+  const form = q<HTMLFormElement>('[data-step="0"]');
+
+  const show = (n: number) => {
+    root.querySelectorAll<HTMLElement>('[data-step]').forEach((s) => (s.hidden = +s.dataset.step! !== n));
+    root.querySelectorAll<HTMLElement>('[data-st]').forEach((s) => s.classList.toggle('on', +s.dataset.st! <= n));
+    root.querySelectorAll<HTMLElement>('[data-st] .dot').forEach((dot, i) => (dot.textContent = i < n ? '✓' : String(i + 1)));
+  };
+
+  form.querySelectorAll<HTMLButtonElement>('[data-int]').forEach((b) => b.addEventListener('click', () => {
+    const t = b.dataset.int!;
+    interests.has(t) ? interests.delete(t) : interests.add(t);
+    b.setAttribute('aria-pressed', String(interests.has(t)));
+  }));
+  const siteBtns = [...form.querySelectorAll<HTMLButtonElement>('[data-site]')];
+  siteBtns.forEach((b) => b.addEventListener('click', () => { sites = b.dataset.site!; siteBtns.forEach((x) => x.setAttribute('aria-pressed', String(x === b))); }));
+
+  const val = (n: string) => form.querySelector<HTMLInputElement>(`[name=${n}]`)!;
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const ok = val('name').value.trim() && /.+@.+\..+/.test(val('email').value);
+    val('name').setAttribute('aria-invalid', String(!val('name').value.trim()));
+    val('email').setAttribute('aria-invalid', String(!/.+@.+\..+/.test(val('email').value)));
+    q('[data-err]').textContent = ok ? '' : 'Add your name and a valid work email.';
+    if (!ok) return;
+    day = 0; slot = -1; renderTime(); show(1);
+  });
+  form.addEventListener('input', () => { q('[data-err]').textContent = ''; });
+
+  // Two slots per day are shown unavailable: pseudo-random PLACEHOLDER until a scheduler is connected.
+  const renderTime = () => {
+    const dl = q('[data-days-list]'); dl.innerHTML = '';
+    days.forEach((x, i) => {
+      const b = document.createElement('button'); b.type = 'button';
+      b.setAttribute('aria-pressed', String(i === day));
+      b.innerHTML = `<span>${W[x.getDay()]}</span><b>${x.getDate()}</b><span>${M[x.getMonth()]}</span>`;
+      b.addEventListener('click', () => { day = i; slot = -1; renderTime(); });
+      dl.appendChild(b);
+    });
+    const busy = [(day * 3 + 1) % 8, (day * 5 + 4) % 8];
+    const sl = q('[data-slots-list]'); sl.innerHTML = '';
+    times.forEach((t, i) => {
+      const b = document.createElement('button'); b.type = 'button'; b.textContent = t;
+      b.disabled = busy.includes(i);
+      b.setAttribute('aria-pressed', String(i === slot));
+      b.addEventListener('click', () => { slot = i; renderTime(); });
+      sl.appendChild(b);
+    });
+    q('[data-confirm]').setAttribute('aria-disabled', String(slot < 0));
+  };
+  q('[data-back]').addEventListener('click', () => show(0));
+
+  q('[data-confirm]').addEventListener('click', async () => {
+    if (slot < 0) return;
+    const when = `${W[days[day].getDay()]} ${days[day].getDate()} ${M[days[day].getMonth()]} at ${times[slot]} ${tz}`;
+    const payload = {
+      interests: [...interests], name: val('name').value.trim(), email: val('email').value.trim(),
+      company: val('company').value.trim(), role: val('role').value.trim(), sites,
+      when, date: days[day].toISOString().slice(0, 10), time: times[slot], tz,
+      plan: new URLSearchParams(location.search).get('plan') ?? undefined,
+    };
+    const r = await submitForm('booking', payload);
+    if (r.connected && !r.ok) { q('[data-err2]').textContent = 'Something went wrong. Please try again.'; return; }
+    q('[data-thanks]').textContent = `You’re booked, ${payload.name.split(' ')[0] || 'there'}.`;
+    q('[data-summary]').textContent = r.connected ? `${when}. A calendar invite is on its way to ${payload.email}.` : `${when}.`;
+    const picked = q('[data-picked]'); picked.innerHTML = '';
+    [...interests, `${sites} site${sites === '1' ? '' : 's'}`].forEach((t) => { const s = document.createElement('span'); s.textContent = t; picked.appendChild(s); });
+    q('[data-demo]').hidden = r.connected;
+    show(2); q('[data-thanks]').focus();
+  });
+  q('[data-reset]').addEventListener('click', () => { slot = -1; show(0); });
+  show(0);
+</script>

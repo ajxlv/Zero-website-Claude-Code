@@ -1,0 +1,107 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import BlogCard from '../components/BlogCard.astro';
+
+const all = (await getCollection('blog')).sort((a, b) => a.data.order - b.data.order);
+const featured = all.find((p) => p.data.featured)!;
+const posts = all.filter((p) => !p.data.featured);
+const cats = ['All', 'Regulation', 'Scope 3', 'LCA', 'Trade', 'Events'];
+---
+<Layout title="Blog | ZERO" description="Sustainability insights, regulatory updates and industry trends." active="Blog">
+  <section class="container hero">
+    <span class="tag">Blog</span>
+    <h1 class="h-display" style="font-size:clamp(44px,5vw,72px);max-width:900px">Sustainability insights, regulatory updates and industry trends.</h1>
+  </section>
+
+  <section class="container feat">
+    <a href={`/blog/${featured.id}`} class="fcard">
+      <div class="fimg"><span class="ph" aria-hidden="true">Featured article cover · 16:10</span></div>
+      <div class="ftext">
+        <span style="display:flex;gap:8px;font-size:13px"><span class="fb">Featured · {featured.data.category}</span><span style="color:var(--nightInk2);padding:5px 0">{featured.data.readTime} read</span></span>
+        <span class="ft">{featured.data.title}</span>
+        <span class="fe">{featured.data.excerpt}</span>
+        <span class="fr">Read article →</span>
+      </div>
+    </a>
+  </section>
+
+  <section class="container list">
+    <div class="cats" role="group" aria-label="Filter by category" data-cats>
+      {cats.map((c, i) => <button type="button" data-cat={c} aria-pressed={i === 0 ? 'true' : 'false'}>{c}</button>)}
+    </div>
+    <div class="grid" data-grid>
+      {posts.map((p) => <div data-post-cat={p.data.category}><BlogCard href={`/blog/${p.id}`} category={p.data.category} readTime={p.data.readTime} title={p.data.title} cover={p.data.cover} /></div>)}
+    </div>
+    <p class="empty" data-empty hidden>No posts in this category yet.</p>
+    <span style="font-size:13px;color:var(--ink2)">Titles are illustrative. [ADD real posts]</span>
+  </section>
+
+  <section class="nl-wrap">
+    <div class="nl">
+      <div style="flex:1 1 420px;display:flex;flex-direction:column;gap:10px"><h2 class="h-lg" style="color:inherit;font-size:clamp(30px,3.4vw,44px);line-height:1.05">Stay future-ready.</h2><span style="font-size:17px;color:#E8F5DC">Carbon accounting insights in your inbox, once a month.</span></div>
+      <form class="nlf" data-newsletter novalidate>
+        <div class="field"><input type="email" name="email" placeholder="name@email.com" aria-label="Email" autocomplete="email" required /><button type="submit">Subscribe</button></div>
+        <span class="status" role="status" aria-live="polite"></span>
+      </form>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero{padding-top:72px;padding-bottom:40px;display:flex;flex-direction:column;gap:20px}
+  .tag{align-self:flex-start;background:var(--sage);color:var(--deep);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600}
+  .feat{padding-bottom:56px}
+  .fcard{background:var(--night);color:var(--nightInk);border-radius:48px;padding:16px;display:flex;flex-wrap:wrap;gap:32px;align-items:stretch}
+  .fcard:hover{color:var(--nightInk)}
+  .fimg{flex:1.2 1 460px;min-height:360px;border-radius:36px;overflow:hidden;position:relative;background:repeating-linear-gradient(135deg,var(--night2),var(--night2) 14px,#0E2414 14px,#0E2414 28px)}
+  .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--nightInk2)}
+  .ftext{flex:1 1 360px;padding:32px 24px;display:flex;flex-direction:column;gap:18px}
+  .fb{background:var(--leaf);color:var(--night);border-radius:999px;padding:5px 12px;font-weight:700}
+  .ft{font-family:var(--font-display);font-size:clamp(30px,3vw,40px);line-height:1.1;font-weight:600;letter-spacing:-.02em}
+  .fe{font-size:17px;line-height:27px;color:var(--nightInk2)}
+  .fr{margin-top:auto;font-weight:600;color:var(--leaf)}
+  .list{padding-bottom:120px;display:flex;flex-direction:column;gap:28px}
+  .cats{display:flex;gap:8px;flex-wrap:wrap}
+  .cats button{border:1.5px solid var(--line);border-radius:999px;padding:10px 18px;background:transparent;color:var(--ink);font:600 14px var(--font-body);cursor:pointer}
+  .cats button[aria-pressed='true']{border-color:var(--deep);background:var(--deep);color:var(--deepInk)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+  .grid>div[hidden]{display:none}
+  .empty{color:var(--ink2)}
+  .nl-wrap{padding:0 var(--gutter) 120px}
+  .nl{max-width:var(--maxw);margin:0 auto;background:var(--moss);color:#F6FAF1;border-radius:48px;padding:56px;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;align-items:center}
+  .nlf{flex:1 1 380px;display:flex;flex-direction:column;gap:8px}
+  .field{display:flex;gap:8px;background:#F6FAF1;border-radius:999px;padding:6px}
+  .field input{flex:1;min-width:0;border:none;background:transparent;padding:0 18px;font-size:16px;color:#1F3A14;outline:none}
+  .field:focus-within{outline:3px solid #A6D97A;outline-offset:2px}
+  .field button{height:52px;padding:0 24px;border:none;border-radius:999px;background:#3D7A22;color:#fff;font:600 15px var(--font-body);cursor:pointer}
+  .field button:hover{background:#2F6119}
+  .status{font-size:13px;color:#E8F5DC;min-height:18px}
+  @media (max-width:700px){ .fcard{border-radius:32px} .ftext{padding:16px 8px} .nl{padding:32px;border-radius:32px} .fimg{min-height:240px} }
+</style>
+
+<script>
+  import { submitForm } from '../scripts/forms';
+  // Category filter (client-side, single-select, All default)
+  const cats = [...document.querySelectorAll<HTMLButtonElement>('[data-cats] button')];
+  const cards = [...document.querySelectorAll<HTMLElement>('[data-post-cat]')];
+  cats.forEach((b) => b.addEventListener('click', () => {
+    cats.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    let n = 0;
+    cards.forEach((c) => { const show = b.dataset.cat === 'All' || c.dataset.postCat === b.dataset.cat; c.hidden = !show; if (show) n++; });
+    document.querySelector<HTMLElement>('[data-empty]')!.hidden = n > 0;
+  }));
+  // Newsletter (stub: see src/scripts/forms.ts)
+  document.querySelectorAll<HTMLFormElement>('form[data-newsletter]').forEach((form) => {
+    if (form.closest('footer')) return; // footer form is wired in Footer.astro
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = form.querySelector<HTMLElement>('.status')!;
+      const input = form.querySelector<HTMLInputElement>('input[type=email]')!;
+      if (!/.+@.+\..+/.test(input.value)) { status.textContent = 'Enter a valid email address.'; return; }
+      const r = await submitForm('newsletter', { email: input.value });
+      status.textContent = !r.connected ? 'Subscriptions are not connected yet.' : r.ok ? 'Thanks, you are subscribed.' : 'Something went wrong. Please try again.';
+      if (r.ok) form.reset();
+    });
+  });
+</script>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" preserveAspectRatio="none" fill="none" stroke="#3D7A22" stroke-linecap="round">
+      <path d="M100 300 C100 180 600 220 600 90" stroke-width="1.6" stroke-dasharray="6 8" vector-effect="non-scaling-stroke"></path>
+      <path d="M300 300 C300 200 600 220 600 90" stroke-width="1.6" stroke-dasharray="6 8" vector-effect="non-scaling-stroke"></path>
+      <path d="M500 300 C500 220 600 200 600 90" stroke-width="1.6" stroke-dasharray="6 8" vector-effect="non-scaling-stroke"></path>
+      <path d="M700 300 C700 220 600 200 600 90" stroke-width="1.6" stroke-dasharray="6 8" vector-effect="non-scaling-stroke"></path>
+      <path d="M900 300 C900 200 600 220 600 90" stroke-width="1.6" stroke-dasharray="6 8" vector-effect="non-scaling-stroke"></path>
+      <path d="M1100 300 C1100 180 600 220 600 90" stroke-width="1.6" stroke-dasharray="6 8" vector-effect="non-scaling-stroke"></path>
+    </svg>

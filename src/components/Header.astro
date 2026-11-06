@@ -1,0 +1,66 @@
+---
+import { nav } from '../config/site';
+const { active = '' } = Astro.props;
+---
+<header class="site-header">
+  <div class="bar">
+    <a href="/" aria-label="ZERO home" class="logo"><img src="/logo/zero-logo-color.svg" alt="ZERO" height="44" /></a>
+    <nav class="pill-nav" aria-label="Main">
+      {nav.map((n) => (
+        <a href={n.href} aria-current={active === n.label ? 'page' : undefined} class:list={[{ on: active === n.label }]}>{n.label}</a>
+      ))}
+    </nav>
+    <div class="actions">
+      <a href="/contact" class="btn btn-primary book">Book a demo</a>
+      <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav" id="burger">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile" hidden>
+    {nav.map((n) => (
+      <a href={n.href} aria-current={active === n.label ? 'page' : undefined} class:list={[{ on: active === n.label }]}>{n.label}</a>
+    ))}
+  </nav>
+</header>
+
+<style>
+  .site-header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+  .bar{max-width:var(--maxw);margin:0 auto;height:80px;padding:0 var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .logo{display:flex}
+  .logo img{height:44px;width:auto;display:block}
+  .pill-nav{display:none;gap:4px;font-size:15px;font-weight:500;white-space:nowrap;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px}
+  .pill-nav a,.mobile-nav a{color:var(--ink);padding:8px 16px;border-radius:999px}
+  .pill-nav a:hover{background:var(--sage);color:var(--ink)}
+  .pill-nav a.on,.mobile-nav a.on{background:var(--sage)}
+  .actions{display:flex;gap:10px;align-items:center}
+  .book{height:48px;padding:0 24px;font-size:15px}
+  .burger{width:48px;height:48px;border-radius:50%;background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer}
+  .burger span{width:18px;height:1.8px;background:var(--ink)}
+  .mobile-nav{border-top:1px solid var(--line);padding:16px var(--gutter) 24px;flex-direction:column;gap:4px;background:var(--bg)}
+  .mobile-nav:not([hidden]){display:flex}
+  .mobile-nav a{padding:14px 16px;border-radius:16px;font-size:18px;font-weight:600;color:var(--deep)}
+  @media (min-width:1080px){
+    .pill-nav{display:flex}
+    .burger{display:none}
+    .mobile-nav{display:none!important}
+  }
+  @media (max-width:420px){ .book{padding:0 16px} .logo img{height:36px} }
+</style>
+
+<script>
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('mobile-nav');
+  burger?.addEventListener('click', () => {
+    const open = burger.getAttribute('aria-expanded') === 'true';
+    burger.setAttribute('aria-expanded', String(!open));
+    if (menu) menu.hidden = open;
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && burger?.getAttribute('aria-expanded') === 'true') {
+      burger.setAttribute('aria-expanded', 'false');
+      if (menu) menu.hidden = true;
+      (burger as HTMLElement).focus();
+    }
+  });
+</script>

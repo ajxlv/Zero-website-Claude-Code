@@ -1,0 +1,46 @@
+---
+interface Props { items: { q: string; a: string }[] }
+const { items } = Astro.props;
+---
+<div class="faq" data-faq>
+  {items.map((f, i) => (
+    <div class="item" data-open={i === 0 ? 'true' : 'false'}>
+      <h3>
+        <button type="button" aria-expanded={i === 0 ? 'true' : 'false'} aria-controls={`faq-${i}`} id={`faq-btn-${i}`}>
+          <span>{f.q}</span><span class="ico" aria-hidden="true">{i === 0 ? '−' : '+'}</span>
+        </button>
+      </h3>
+      <div class="panel" id={`faq-${i}`} role="region" aria-labelledby={`faq-btn-${i}`} hidden={i !== 0}>
+        <p>{f.a}</p>
+      </div>
+    </div>
+  ))}
+</div>
+<style>
+  .faq{display:flex;flex-direction:column;gap:10px}
+  .item{border:1px solid var(--line);border-radius:28px;overflow:hidden;background:transparent}
+  .item[data-open='true']{background:var(--surface)}
+  h3{font-family:var(--font-body)}
+  button{width:100%;padding:22px 28px;border:none;background:transparent;display:flex;justify-content:space-between;gap:24px;text-align:left;cursor:pointer;font:600 18px/26px var(--font-body);color:var(--deep)}
+  .ico{width:32px;height:32px;flex:none;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center}
+  .panel p{padding:0 28px 24px;font-size:16px;line-height:26px;color:var(--ink2)}
+</style>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-faq]').forEach((root) => {
+    const items = [...root.querySelectorAll<HTMLElement>('.item')];
+    items.forEach((item) => {
+      const btn = item.querySelector('button')!;
+      btn.addEventListener('click', () => {
+        const willOpen = btn.getAttribute('aria-expanded') !== 'true';
+        items.forEach((o) => {
+          const b = o.querySelector('button')!;
+          const open = o === item && willOpen; // single-open
+          b.setAttribute('aria-expanded', String(open));
+          o.dataset.open = String(open);
+          o.querySelector<HTMLElement>('.ico')!.textContent = open ? '−' : '+';
+          o.querySelector<HTMLElement>('.panel')!.hidden = !open;
+        });
+      });
+    });
+  });
+</script>

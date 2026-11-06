@@ -1,0 +1,725 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import ClientMarquee from '../components/ClientMarquee.astro';
+import Faq from '../components/Faq.astro';
+import BlogCard from '../components/BlogCard.astro';
+import AskHaathi from '../components/AskHaathi.astro';
+import MiniCalc from '../components/home/MiniCalc.astro';
+import PlatformTabs from '../components/home/PlatformTabs.astro';
+
+const posts = (await getCollection('blog')).filter((p) => !p.data.featured).sort((a, b) => a.data.order - b.data.order).slice(0, 3);
+const event = (await getCollection('events')).map((e) => e.data).find((e) => !e.upcoming)!;
+const [feat, quote] = (await getCollection('testimonials')).map((t) => t.data);
+
+const knots = [
+  { t: 'Scattered data', d: 'Fuel, power and purchases live in different systems.', x: '2%', y: '4%', r: '-3deg' },
+  { t: 'Spreadsheet sprawl', d: 'Copy-paste, mixed units, broken formulas.', x: '56%', y: '0%', r: '2deg' },
+  { t: 'Changing rules', d: 'BRSR Core, CSRD, CBAM keep moving.', x: '6%', y: '64%', r: '2deg' },
+  { t: 'Supplier blind spots', d: 'Scope 3 is the biggest share — and hardest to see.', x: '54%', y: '60%', r: '-2deg' },
+];
+const trend = [1120, 1080, 1150, 1095, 1060, 1010, 1045, 990, 960, 930, 905, 880].map((v, i) => ({ h: ((v / 1150) * 100).toFixed(1) + '%', m: 'AMJJASONDJFM'[i] }));
+const lca = [
+  { l: 'Raw materials', v: '1.84', x: '50%', y: '2%' },
+  { l: 'Manufacturing', v: '0.92', x: '94%', y: '36%' },
+  { l: 'Distribution', v: '0.31', x: '78%', y: '90%' },
+  { l: 'Use', v: '0.12', x: '22%', y: '90%' },
+  { l: 'End of life', v: '0.08', x: '6%', y: '36%' },
+];
+// [confirm connector list] — open item
+const sources = ['ERP', 'CRM', 'Utility bills', 'Fleet & fuel', 'Travel', 'Spreadsheets'];
+const standards = ['GHG Protocol', 'ISO 14064', 'ISO 14040/44', 'GRI', 'SASB', 'TCFD', 'CSRD', 'CDP', 'SBTi', 'BRSR'];
+const aiFeats = [
+  { n: '01', t: 'Long-term strategies', d: 'Personalised long-term reduction strategies based on international standards.' },
+  { n: '02', t: 'Comprehensive reporting', d: 'ESG reporting aligned with global frameworks: accurate, auditable and compliance-ready.' },
+  { n: '03', t: 'Data ingestion', d: 'AI-powered ingestion that eliminates manual uploads and keeps data accurate and up to date.' },
+  { n: '04', t: 'Predictive analytics', d: 'Simulate future emissions based on current trends.' },
+];
+const faqs = [
+  { q: 'How does ZERO collect emissions data?', a: 'AI-powered data ingestion pulls activity data from your business systems, utility bills, fuel records and spreadsheets in multiple formats, so there are no manual uploads. Every figure keeps a link back to its source.' },
+  { q: 'Which compliance standards does ZERO support?', a: 'Calculations follow the GHG Protocol and ISO 14064; product footprints follow ISO 14040/14044 and are EPD-ready. Reports align with GRI, SASB, TCFD, CSRD, CDP, BRSR and SBTi targets.' },
+  { q: 'How accurate is the carbon accounting?', a: 'Scope 1, 2 and 3 emissions are calculated with verified emission factors and globally recognised datasets, with an audit-ready trail on every number.' },
+  { q: 'Can ZERO help with setting reduction targets?', a: 'Yes. ZERO sets targets based on the SBTi standard, builds personalised long-term reduction strategies and tracks progress against them. Our advisory team can help you act on them.' },
+  { q: 'How often is carbon emissions data updated?', a: 'Dashboards update as new data is ingested. [confirm default refresh cadence]' },
+  { q: 'How is pricing structured?', a: 'Plans scale with the modules you need (Carbon Accounting, ESG Reporting, Product LCA) and the number of sites. See the pricing page or book a demo for a quote.' },
+];
+const services = [
+  { t: 'Sustainability Advisory', d: 'Expert guidance to enhance your sustainability strategies and performance.' },
+  { t: 'Product Lifecycle Analysis', d: 'Know exactly how much emission is caused by your product. ISO 14040/44, EPD-ready.' },
+  { t: 'ESG Reporting', d: 'Comprehensive, accurate and compliant sustainability reports.' },
+];
+---
+
+<Layout title="ZERO | Sustainability Simplified" description="Measure, reduce and report carbon emissions with ease. Carbon accounting, ESG reporting and product LCA.">
+  <!-- 01 Hero -->
+  <section class="hero container">
+    <div class="hero-copy">
+      <span class="tag"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14z"/><path d="M5 19c3-4 6-7 10-9"/></svg>Sustainability Simplified · since 2020</span>
+      <h1 class="h-display">Turn sustainability into a competitive <span class="accent">advantage.</span></h1>
+      <p class="lede" style="max-width:520px">Measure, reduce and report carbon emissions with ease — from the air above your plant to the roots of your supply chain.</p>
+      <div class="btns">
+        <a href="/contact" class="btn btn-primary">Book a demo</a>
+        <a href="/free-tools#calculator" class="btn btn-outline">Try the free carbon calculator</a>
+      </div>
+      <span class="trust"><span class="dots" aria-hidden="true"><i style="background:var(--leaf)"></i><i style="background:var(--moss)"></i><i style="background:var(--s3)"></i></span>Trusted across 10+ domains in 3+ countries</span>
+    </div>
+    <div class="hero-art">
+      <div class="blob">
+        <svg viewBox="0 0 500 540" preserveAspectRatio="xMidYMid slice" fill="none" stroke="#E8F5DC" stroke-linecap="round" aria-hidden="true">
+          <path d="M250 560 C248 420 252 300 250 40" stroke-width="2.2"/>
+          <path d="M250 460 C200 420 150 400 80 400" stroke-width="1.4"/><path d="M250 460 C300 420 350 400 420 396" stroke-width="1.4"/>
+          <path d="M250 360 C200 320 150 290 90 280" stroke-width="1.2"/><path d="M250 350 C300 310 360 280 420 270" stroke-width="1.2"/>
+          <path d="M250 250 C210 220 170 190 130 160" stroke-width="1"/><path d="M250 240 C290 210 330 180 380 150" stroke-width="1"/>
+          <path d="M250 150 C230 120 210 100 190 70" stroke-width=".8"/><path d="M250 140 C270 110 290 90 320 60" stroke-width=".8"/>
+          <path d="M150 400 C140 380 130 370 110 360" stroke-width=".7"/><path d="M350 400 C360 380 375 370 395 362" stroke-width=".7"/>
+        </svg>
+      </div>
+      <div class="float f1">
+        <span class="fl">Yearly carbon footprint</span>
+        <span class="fv">144.3 <span class="fu">tCO₂e</span></span>
+        <span class="pill pill-sage" style="align-self:flex-start;padding:4px 10px">Sample dashboard · 2024</span>
+      </div>
+      <div class="float f2">
+        <svg viewBox="0 0 120 120" width="104" height="104" role="img" aria-label="Scope split: Scope 1 20.9%, Scope 2 36.2%, Scope 3 42.9%">
+          <circle cx="60" cy="60" r="44" fill="none" stroke="var(--s1)" stroke-width="16" stroke-dasharray="53.8 276.5" transform="rotate(-90 60 60)" stroke-linecap="round"/>
+          <circle cx="60" cy="60" r="44" fill="none" stroke="var(--s2)" stroke-width="16" stroke-dasharray="96.1 276.5" stroke-dashoffset="-57.8" transform="rotate(-90 60 60)" stroke-linecap="round"/>
+          <circle cx="60" cy="60" r="44" fill="none" stroke="var(--s3)" stroke-width="16" stroke-dasharray="114.6 276.5" stroke-dashoffset="-157.9" transform="rotate(-90 60 60)" stroke-linecap="round"/>
+        </svg>
+        <div class="legend">
+          <span><i style="background:var(--s1)"></i>Scope 1 · 20.9%</span>
+          <span><i style="background:var(--s2)"></i>Scope 2 · 36.2%</span>
+          <span><i style="background:var(--s3)"></i>Scope 3 · 42.9%</span>
+        </div>
+      </div>
+      <div class="float f3"><img src="/images/screenshot-dashboard-sbti@2x.webp" alt="ZERO dashboard: emission reduction targets based on SBTi" width="760" height="500" /></div>
+    </div>
+  </section>
+
+  <!-- 02 Clients -->
+  <section class="clients on-dark">
+    <div class="container ch">
+      <h2 class="h-lg" style="color:inherit;max-width:620px;font-size:clamp(34px,3.6vw,48px);line-height:1.05">Clients we have served.</h2>
+      <span class="sub">Trusted by leading companies across domains.</span>
+    </div>
+    <ClientMarquee duration={40} />
+    <!-- Stats to confirm (open item): 15+ years vs founded 2020 -->
+    <div class="container stats">
+      <div class="stat"><span class="n" style="color:var(--leaf)">10+</span><span>Domains served</span></div>
+      <div class="stat"><span class="n">15+</span><span>Years of experience</span></div>
+      <div class="stat"><span class="n">3+</span><span>Countries served</span></div>
+      <div class="stat solid"><span class="n">2020</span><span>Founded</span></div>
+    </div>
+  </section>
+
+  <!-- 03 Problem -->
+  <section class="container problem-wrap">
+    <div class="problem">
+      <div class="pc">
+        <span class="eyebrow">The tangle</span>
+        <h2 class="h-lg" style="font-size:clamp(38px,4vw,52px);line-height:1.05;text-wrap:balance">Right now, your carbon data grows in every direction.</h2>
+        <p class="body-lg">Measuring carbon shouldn’t mean untangling it by hand every year.</p>
+      </div>
+      <div class="tangle">
+        <svg viewBox="0 0 560 400" fill="none" stroke="var(--moss)" stroke-linecap="round" opacity=".55" aria-hidden="true">
+          <path d="M40 80 C160 20 220 240 300 160 S420 40 520 120 S380 340 260 300 S80 380 60 260 S200 120 340 220 S500 300 520 360" stroke-width="1.6"/>
+          <path d="M30 200 C120 120 200 320 290 230 S460 120 530 230 S340 390 220 340 S60 150 160 90 S400 60 480 40" stroke-width="1.3"/>
+          <path d="M80 360 C140 260 260 360 320 280 S300 80 200 120 S60 60 120 30 S340 20 400 100 S540 200 470 300" stroke-width="1"/>
+        </svg>
+        {knots.map((k) => (
+          <div class="knot" style={`left:${k.x};top:${k.y};transform:rotate(${k.r})`}>
+            <span class="kt">{k.t}</span><span class="kd">{k.d}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 Sky to soil -->
+  <section id="story" class="story">
+    <div class="container story-in">
+      <aside class="rail-col" aria-hidden="true">
+        <div class="rail">
+          <span class="rt">SKY TO SOIL</span>
+          {['Atmosphere', 'Operations', 'Roots', 'New growth'].map((t, i) => (
+            <span class="ri" data-rail={i}><span class="rd"></span>{t}</span>
+          ))}
+        </div>
+      </aside>
+      <div class="story-main">
+        <div class="story-head">
+          <span class="eyebrow">How ZERO sees your business</span>
+          <h2 class="h-xl">From the air above your plant to the roots of your supply chain.</h2>
+        </div>
+
+        <div class="layer" data-layer="0">
+          <div class="lc">
+            <span class="ln">01 · Atmosphere</span>
+            <h3>See every tonne you release.</h3>
+            <p>ZERO turns activity data into one live footprint in tCO₂e, updated as data arrives.</p>
+          </div>
+          <div class="lcard trendcard">
+            <div class="tc-h"><span style="font-weight:600">Monthly emissions</span><span class="pill pill-sage" style="padding:4px 12px">↓ 21% this year</span></div>
+            <div class="bars" role="img" aria-label="Monthly emissions trending down over 12 months">
+              {trend.map((t) => <div style={`flex:1;height:${t.h};border-radius:999px;background:linear-gradient(180deg,var(--leaf),var(--moss))`}></div>)}
+            </div>
+            <div class="months" aria-hidden="true">{trend.map((t) => <span>{t.m}</span>)}</div>
+          </div>
+        </div>
+
+        <div class="layer" data-layer="1">
+          <div class="lc">
+            <span class="ln">02 · Operations · Scope 1 &amp; 2</span>
+            <h3>What you burn and what you buy.</h3>
+            <p>Boilers, generators, fleet and purchased electricity — collected automatically from meters, fuel cards and utility bills.</p>
+          </div>
+          <div class="scopes">
+            <div class="scope">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="var(--deep)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 5c-5 7-8 11-8 16a8 8 0 0016 0c0-5-3-9-8-16z"/><path d="M15 23c0 2 1.5 3.5 3.5 3.5"/></svg>
+              <span class="sl">Scope 1 · direct</span><span class="sv">30.2 <span class="su">tCO₂e</span></span>
+            </div>
+            <div class="scope">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="var(--deep)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 4L9 20h9l-2 12 11-16h-9z"/></svg>
+              <span class="sl">Scope 2 · energy</span><span class="sv">52.2 <span class="su">tCO₂e</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade"></div>
+        <div class="soil">
+          <div class="layer" data-layer="2">
+            <div class="lc dark">
+              <span class="ln" style="color:#E8F5DC">03 · Roots · Scope 3</span>
+              <h3 style="color:#fff">Your supply chain is where most carbon hides.</h3>
+              <p style="color:#E8F5DC">Purchased goods, freight, travel and product end-of-life. ZERO maps every supplier and fills gaps with the best available data.</p>
+            </div>
+            <div class="roots">
+              <svg viewBox="0 0 400 300" preserveAspectRatio="none" fill="none" stroke="#5E9A3A" stroke-linecap="round" aria-hidden="true">
+                <path class="dash" d="M200 0 C200 60 190 90 120 130 S40 200 30 290" stroke-width="2" stroke-dasharray="6 6"/>
+                <path class="dash" d="M200 0 C205 70 220 100 290 140 S370 210 380 290" stroke-width="2" stroke-dasharray="6 6"/>
+                <path d="M200 0 C200 100 200 180 200 290" stroke-width="2.4"/>
+                <path d="M120 130 C110 170 90 200 100 260" stroke-width="1.2"/><path d="M290 140 C300 180 320 210 300 260" stroke-width="1.2"/>
+                <path d="M200 160 C170 190 150 220 150 280" stroke-width="1"/><path d="M200 170 C230 200 250 230 250 280" stroke-width="1"/>
+              </svg>
+              <span class="rtag" style="left:4%;bottom:10%;background:#fff;color:#1F3A14">Purchased goods · 38.4 t</span>
+              <span class="rtag" style="right:4%;bottom:24%;background:#fff;color:#1F3A14">Freight · 14.1 t</span>
+              <span class="rtag" style="left:34%;bottom:4%;background:var(--s3);color:#0E2414">61.9 tCO₂e · 43%</span>
+            </div>
+          </div>
+
+          <div class="layer last" data-layer="3">
+            <div class="lc dark">
+              <span class="ln" style="color:var(--leaf)">04 · New growth · Decarbonize</span>
+              <h3 style="color:#fff">Then grow something better.</h3>
+              <p style="color:#E8F5DC">Set science-based targets, model reduction levers and watch the pathway bend toward net zero.</p>
+            </div>
+            <div class="pathcard">
+              <div style="display:flex;justify-content:space-between;color:#1F3A14;font-weight:600"><span>Reduction pathway</span><span style="font-size:13px;color:#5A6B55;font-weight:500">Illustrative</span></div>
+              <svg viewBox="0 0 400 180" style="width:100%;height:auto" role="img" aria-label="Illustrative reduction pathway: 42% lower by 2030, net zero by 2050">
+                <path d="M0 30 C80 40 120 60 200 90 S340 160 400 172 L400 180 L0 180 Z" fill="#E8F5DC"/>
+                <path d="M0 30 C80 40 120 60 200 90 S340 160 400 172" fill="none" stroke="#3D7A22" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="200" cy="90" r="6" fill="#3D7A22"/>
+                <text x="210" y="84" font-family="Figtree" font-size="13" fill="#1F3A14">2030 · −42%</text>
+                <text x="320" y="150" font-family="Figtree" font-size="13" fill="#1F3A14">2050 · net zero</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 Platform -->
+  <section class="platform">
+    <div class="container wide pin">
+      <div class="ph">
+        <h2 class="h-lg" style="color:#fff;max-width:640px;font-size:clamp(38px,4vw,54px)">Three tools, one living system.</h2>
+        <span style="font-size:17px;color:#E8F5DC;max-width:380px">Carbon Accounting, ESG Reporting and Product LCA share one data foundation.</span>
+      </div>
+      <div class="prow">
+        <div class="pc1">
+          <span class="pill pill-sage" style="align-self:flex-start;padding:6px 14px">Carbon Accounting</span>
+          <h3 class="h-md">Scope 1, 2 and 3, gathered for you.</h3>
+          <div class="chips"><span class="chip">Automated data collection</span><span class="chip">Real-time dashboards</span><span class="chip">Every site, one view</span></div>
+          <div class="shot"><div class="shot-in"><img src="/images/screenshot-dashboard-carbon@2x.webp" alt="ZERO Carbon Accounting dashboard" loading="lazy" /></div></div>
+        </div>
+        <div class="pc2">
+          <span class="pill pill-sage" style="align-self:flex-start;padding:6px 14px">ESG Reporting</span>
+          <h3 class="h-md">Pick a framework. Watch it fill in.</h3>
+          <PlatformTabs />
+          <span style="font-size:14px;color:#5A6B55">GRI, SASB, TCFD, CSRD, CDP and BRSR · audit-ready trail on every figure</span>
+        </div>
+      </div>
+      <div class="lcawrap">
+        <div class="lcac">
+          <span class="pill pill-sage" style="align-self:flex-start;padding:6px 14px">Product Life Cycle Analysis</span>
+          <h3 class="h-md">The whole life of a product, cradle to grave.</h3>
+          <p style="font-size:17px;line-height:27px;color:#5A6B55">ISO 14040/44 models for every SKU, ready for an Environmental Product Declaration.</p>
+          <div class="chips"><span class="chip">Cradle-to-grave</span><span class="chip">ISO 14040/44</span><span class="chip">EPD-ready</span></div>
+        </div>
+        <div class="loop">
+          <svg viewBox="0 0 400 320" aria-hidden="true"><ellipse class="dash" cx="200" cy="160" rx="150" ry="118" fill="none" stroke="#A6D97A" stroke-width="2" stroke-dasharray="4 8"/></svg>
+          <div class="hub"><span style="font-family:var(--font-display);font-size:34px;font-weight:600">3.27</span><span style="font-size:12px;color:#C5DDB3">kgCO₂e per bag</span></div>
+          {lca.map((l) => (
+            <div class="stage" style={`left:${l.x};top:${l.y}`}><span style="display:block;font-size:13px;color:#5A6B55">{l.l}</span><span style="font-family:var(--font-display);font-weight:600;font-size:18px">{l.v}</span></div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 Data connections -->
+  <section class="container data">
+    <div class="dh">
+      <span class="eyebrow">Data that flows by itself</span>
+      <h2 class="h-lg" style="max-width:760px;font-size:clamp(36px,4vw,52px);line-height:1.05;letter-spacing:-.03em">Your systems feed ZERO like roots feed a tree.</h2>
+      <p class="body-lg" style="max-width:560px">AI-powered data ingestion from multiple business systems and formats. No manual uploads.</p>
+    </div>
+    <div class="flowbox">
+      <svg viewBox="0 0 1200 360" preserveAspectRatio="none" fill="none" stroke="var(--moss)" stroke-linecap="round" aria-hidden="true">
+        {[100, 300, 500, 700, 900, 1100].map((x, i) => (
+          <path class="dash2" d={`M${x} 300 C${x} ${[180, 200, 220, 220, 200, 180][i]} 600 ${[220, 220, 200, 200, 220, 220][i]} 600 90`} stroke-width="1.6" stroke-dasharray="6 8" vector-effect="non-scaling-stroke"/>
+        ))}
+      </svg>
+      <div class="zhub"><img src="/logo/zero-logo-color.svg" alt="ZERO" width="96" /></div>
+      <div class="srcs">{sources.map((s) => <div><span>{s}</span></div>)}</div>
+    </div>
+  </section>
+
+  <!-- 07 AI -->
+  <section class="ai on-dark">
+    <div class="glow" aria-hidden="true"></div>
+    <div class="container wide ai-in">
+      <AskHaathi>
+        <span class="aitag"><span class="ad"></span>AI-powered carbon intelligence</span>
+        <h2 class="h-lg" style="color:inherit;line-height:1.04">Ask in plain words. Get answers with roots.</h2>
+        <p style="font-size:18px;line-height:28px;color:var(--nightInk2)">Haathi, our in-house AI assistant, knows your footprint, explains what changed and simulates where your emissions are heading.</p>
+      </AskHaathi>
+      <div class="feats">
+        {aiFeats.map((f) => (
+          <div class="feat"><span class="fn">{f.n}</span><span class="ft">{f.t}</span><span class="fd">{f.d}</span></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 Process -->
+  <section class="container process">
+    <div class="cyc">
+      <svg viewBox="0 0 400 400" fill="none" aria-hidden="true"><circle cx="200" cy="200" r="150" stroke="var(--line)" stroke-width="2"/><path class="dash3" d="M200 50 A150 150 0 1 1 50 200" stroke="var(--moss)" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 10"/></svg>
+      <div class="cmid"><span style="font-family:var(--font-display);font-size:28px;font-weight:600;color:var(--deep)">A regenerative cycle</span><span style="font-size:14px;color:var(--ink2)">repeated every month</span></div>
+      <span class="cn" style="left:50%;top:12.5%;background:var(--deep);color:var(--deepInk)">1 · Gather</span>
+      <span class="cn" style="left:87.5%;top:50%;background:var(--surface);border:1.5px solid var(--deep);color:var(--deep)">2 · Measure</span>
+      <span class="cn" style="left:50%;top:87.5%;background:var(--surface);border:1.5px solid var(--deep);color:var(--deep)">3 · Report</span>
+      <span class="cn" style="left:12.5%;top:50%;background:var(--terra);color:#fff">4 · Decarbonize</span>
+    </div>
+    <div class="steps">
+      <h2 class="h-lg" style="font-size:clamp(36px,4vw,52px)">How it works</h2>
+      <ol>
+        <li><span class="sn">1</span><span><strong>Gather.</strong> Seamlessly collect and centralise sustainability data from every source across your business.</span></li>
+        <li><span class="sn">2</span><span><strong>Measure.</strong> Accurately calculate emissions with verified factors and AI precision.</span></li>
+        <li><span class="sn">3</span><span><strong>Report.</strong> Generate audit-ready ESG, Carbon and LCA reports aligned to global standards.</span></li>
+        <li><span class="sn" style="color:var(--terra)">4</span><span><strong>Decarbonize.</strong> Turn insights into real action with guidance, strategies and measurable emission reduction.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 09 Services -->
+  <section id="services" class="container services">
+    <div class="svc-art">
+      <div class="svc-photo"><img src="/images/photo-service-advisory.jpg" alt="ZERO consultant with a client team" loading="lazy" /></div>
+      <div class="roadmap">
+        <span style="font-size:13px;font-weight:600;color:var(--ink2)">Platform · live roadmap</span>
+        <div style="display:flex;flex-direction:column;gap:8px;font-size:14px">
+          <span class="rm"><span>Solar PPA · Plant 2</span><span style="color:var(--moss);font-weight:600">−1,140 t</span></span>
+          <span class="rm"><span>Fleet to EV · phase 1</span><span style="color:var(--moss);font-weight:600">−310 t</span></span>
+          <span class="rm"><span>Supplier engagement</span><span style="color:var(--ink2)">in review</span></span>
+        </div>
+      </div>
+    </div>
+    <div class="svc-list">
+      <span class="eyebrow">Services</span>
+      <h2 class="h-lg" style="font-size:clamp(36px,4vw,52px)">People who know the ground, software that knows the numbers.</h2>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        {services.map((s) => (
+          <a href="/services" class="scard"><span class="st">{s.t}<span style="color:var(--terra)" aria-hidden="true">→</span></span><span class="sd">{s.d}</span></a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 Net Zero Events (CMS: events) -->
+  <section id="events" class="events on-dark">
+    <div class="container wide ev-in">
+      <div class="evh">
+        <div style="display:flex;flex-direction:column;gap:14px;max-width:760px"><span style="font-size:14px;font-weight:600;color:var(--leaf)">Net Zero Events · Featured</span><h2 class="h-lg" style="color:var(--deepInk);font-size:clamp(36px,4vw,56px);line-height:1.02">{event.title}</h2></div>
+        <a href="/services#events" class="evlink">Plan a net-zero event →</a>
+      </div>
+      <div class="evbody">
+        <figure><img src={event.image} alt={event.imageAlt} loading="lazy" /><figcaption><span>{event.date}</span><span>{event.city}</span><span>{event.duration}</span></figcaption></figure>
+        <div class="evtext">
+          <p style="font-size:17px;line-height:27px;color:var(--deepInk2)">{event.summary}</p>
+          <div class="evstats">
+            {event.stats.map((s) => (
+              <div class="es"><span style="font-size:13px;color:var(--deepInk2)">{s.label}</span><span class="esv" style={s.accent ? 'color:#A6D97A' : ''}>{s.value}{s.unit && <span class="esu"> {s.unit}</span>}</span></div>
+            ))}
+          </div>
+          <div class="chips2">{event.tags.map((t) => <span>{t}</span>)}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 Standards -->
+  <section class="standards on-dark">
+    <div class="container wide sin">
+      <span class="sh">We fully comply with</span>
+      {standards.map((s) => <span class="sd2">{s}</span>)}
+    </div>
+  </section>
+
+  <!-- 12 Free tools -->
+  <section id="tools" class="container tools">
+    <div class="tcalc">
+      <div style="display:flex;flex-direction:column;gap:10px"><span class="eyebrow">Free carbon calculator</span><h2 class="h-lg" style="font-size:clamp(32px,3.4vw,44px);line-height:1.05">Plant three numbers. See what grows.</h2></div>
+      <MiniCalc />
+      <span style="font-size:13px;color:var(--ink2)">Indicative factors: grid 0.71 kgCO₂e/kWh, diesel 2.68 kg/L, 0.25 t per flight. <!-- [confirm factors] --></span>
+    </div>
+    <div class="tesg">
+      <span style="font-size:14px;font-weight:600;color:var(--deep)">ESG readiness assessment</span>
+      <h3 style="font-size:34px;line-height:1.08;letter-spacing:-.02em;color:var(--deep)">Where are you on the path?</h3>
+      <div class="steps4" aria-hidden="true"><div style="height:30%"></div><div style="height:50%"></div><div style="height:70%"></div><div class="dashed" style="height:100%"></div></div>
+      <p style="font-size:16px;line-height:25px;color:var(--ink)">Understand your ESG readiness in minutes: a short questionnaire, a score, and where to start.</p>
+      <a href="/free-tools#esg" class="tbtn">Take the assessment</a>
+    </div>
+  </section>
+
+  <!-- 13 Testimonials (CMS) -->
+  <section class="container testi">
+    <h2 class="h-lg">What our customers say</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:24px">
+      <div class="tbig">
+        <div class="tphoto" aria-hidden="true"></div>
+        <blockquote>
+          <p>“{feat.quote}”</p>
+          <span style="font-size:15px;color:var(--ink2)"><strong style="color:var(--ink)">{feat.name}</strong> · {feat.role}</span>
+        </blockquote>
+      </div>
+      <div class="tsmall">
+        <span class="tq">“{quote.quote}”</span>
+        <span style="margin-top:auto;font-size:15px;color:var(--ink)"><strong>{quote.name}</strong> · {quote.role}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 Founder -->
+  <section class="container founder-wrap">
+    <div class="founder">
+      <div class="fp"><img src="/images/photo-founder-karan.webp" alt="Karan Racca, founder of ZERO" width="200" height="200" loading="lazy" /><span style="font-weight:600;font-size:18px">Karan Racca</span><span style="font-size:14px;color:#E8F5DC;margin-top:-10px;text-align:center">Founder · Tech &amp; Sustainability Lead</span></div>
+      <div class="fc">
+        <span style="font-size:14px;font-weight:600;color:#E8F5DC">Meet the founder</span>
+        <p class="fq">“We’re a team of strategists, technologists and climate specialists driven by purpose, and united by optimism.”</p>
+        <p style="font-size:17px;line-height:27px;color:#E8F5DC">Karan holds a Master’s in Information Systems and sharpened his skills with startups in Boston and San Francisco. Now back in India, he uses technology to drive sustainability and help build a net-zero future.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap"><a href="/about" class="fb1">Our story →</a><a href="/about#careers" class="fb2">Join our mission</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15 FAQ -->
+  <section class="faq-sec">
+    <h2 class="h-lg" style="text-align:center">Frequently asked questions</h2>
+    <Faq items={faqs} />
+  </section>
+
+  <!-- 16 Blog (latest 3, from the blog collection) -->
+  <section id="blog" class="container blogsec">
+    <div class="bh"><h2 class="h-lg">From the blog</h2><a href="/blog" style="font-weight:600">All posts →</a></div>
+    <div class="bgrid">
+      {posts.map((p) => <BlogCard href={`/blog/${p.id}`} category={p.data.category} readTime={p.data.readTime} title={p.data.title} cover={p.data.cover} />)}
+    </div>
+  </section>
+
+  <!-- 17 Final CTA -->
+  <section class="cta-wrap">
+    <div class="cta">
+      <svg viewBox="0 0 200 160" width="120" fill="none" stroke="#1F3A14" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M100 160 C100 120 100 90 100 60"/><path d="M100 90 C80 70 60 68 44 70 C52 88 74 96 100 90"/><path d="M100 70 C120 50 142 46 160 50 C150 70 126 78 100 70"/></svg>
+      <h2 class="h-display" style="font-size:clamp(44px,5vw,72px);color:#1F3A14;max-width:820px">Let’s grow your net-zero story.</h2>
+      <p style="font-size:19px;line-height:29px;color:#1F3A14;max-width:520px">See your footprint, your biggest levers and your first report in one demo.</p>
+      <div class="btns on-dark" style="justify-content:center;margin-top:120px">
+        <a href="/contact" class="btn btn-primary">Book a demo</a>
+        <a href="/free-tools#calculator" class="btn btn-outline-light">Try the free carbon calculator</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* 01 Hero */
+  .hero{padding-top:56px;padding-bottom:88px;display:flex;flex-wrap:wrap;gap:48px;align-items:center}
+  .hero-copy{flex:1 1 420px;display:flex;flex-direction:column;gap:26px}
+  .tag{align-self:flex-start;display:flex;align-items:center;gap:10px;background:var(--sage);color:var(--deep);border-radius:999px;padding:8px 16px 8px 10px;font-size:14px;font-weight:600}
+  .accent{color:var(--terra)}
+  .btns{display:flex;flex-wrap:wrap;gap:12px}
+  .trust{font-size:14px;color:var(--ink2);display:flex;align-items:center;gap:10px}
+  .dots{display:flex}
+  .dots i{width:28px;height:28px;border-radius:50%;border:2px solid var(--bg);margin-left:-8px}
+  .dots i:first-child{margin-left:0}
+  .hero-art{flex:1 1 460px;position:relative;min-height:540px}
+  .blob{position:absolute;inset:0;border-radius:46% 54% 42% 58% / 52% 44% 56% 48%;background:radial-gradient(120% 90% at 30% 20%,#78B840 0%,#3D7A22 55%,#1F3A14 100%);overflow:hidden}
+  .blob svg{position:absolute;inset:0;width:100%;height:100%;opacity:.35;transform-origin:50% 100%;animation:sway 9s ease-in-out infinite}
+  .float{position:absolute;background:var(--surface);box-shadow:0 24px 48px -24px rgba(31,58,20,.45)}
+  .f1{left:6%;top:12%;border-radius:24px;padding:22px 24px;display:flex;flex-direction:column;gap:6px;min-width:230px}
+  .fl{font-size:13px;color:var(--ink2);font-weight:500}
+  .fv{font-family:var(--font-display);font-size:42px;font-weight:600;letter-spacing:-.02em;color:var(--deep)}
+  .fu{font-size:16px;color:var(--ink2);font-weight:500}
+  .f2{right:4%;top:40%;border-radius:24px;padding:20px;display:flex;gap:16px;align-items:center}
+  .legend{display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--ink)}
+  .legend span{display:flex;align-items:center;gap:8px}
+  .legend i{width:10px;height:10px;border-radius:50%}
+  .f3{left:14%;bottom:8%;width:min(320px,70%);border-radius:20px;overflow:hidden}
+  .f3 img{display:block;width:100%;height:auto}
+
+  /* 02 Clients */
+  .clients{background:var(--night);color:var(--nightInk);padding:88px 0 96px;margin-bottom:112px}
+  .ch{margin-bottom:48px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px}
+  .sub{font-size:17px;color:var(--nightInk2)}
+  .stats{margin-top:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .stat{border:1px solid var(--nightLine);background:rgba(166,217,122,.04);border-radius:32px;padding:28px 32px;display:flex;flex-direction:column;gap:4px;font-size:16px;color:var(--nightInk2)}
+  .stat .n{font-family:var(--font-display);font-size:60px;font-weight:600;letter-spacing:-.03em;color:var(--nightInk)}
+  .stat.solid{background:var(--leaf);color:var(--night);border-color:transparent}
+  .stat.solid .n{color:var(--night)}
+
+  /* 03 Problem */
+  .problem-wrap{padding-bottom:120px}
+  .problem{background:var(--surface);border-radius:48px;padding:64px;display:flex;flex-wrap:wrap;gap:48px;align-items:center;border:1px solid var(--line)}
+  .pc{flex:1 1 340px;display:flex;flex-direction:column;gap:20px}
+  .tangle{flex:1.3 1 420px;position:relative;height:400px}
+  .tangle>svg{position:absolute;inset:0;width:100%;height:100%}
+  .knot{position:absolute;background:var(--bg);border:1.5px solid var(--deep);border-radius:20px;padding:14px 18px;max-width:220px;box-shadow:0 16px 32px -20px rgba(31,58,20,.5)}
+  .kt{display:block;font-weight:600;font-size:16px;color:var(--deep)}
+  .kd{display:block;font-size:14px;line-height:20px;color:var(--ink2);margin-top:4px}
+
+  /* 04 Sky to soil */
+  .story{background:linear-gradient(180deg,var(--sky) 0%,var(--bg) 600px);position:relative}
+  .story-in{padding-top:120px;display:flex;gap:48px}
+  .rail-col{flex:0 0 180px;position:relative}
+  .rail{position:sticky;top:140px;display:flex;flex-direction:column;gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:20px}
+  .rt{font-size:12px;font-weight:600;color:var(--ink2);letter-spacing:.04em}
+  .ri{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--ink2)}
+  .rd{height:10px;width:10px;border-radius:6px;background:var(--line);transition:all .3s}
+  .ri.on{color:var(--ink)}
+  .ri.on .rd{width:36px;background:var(--terra)}
+  .story-main{flex:1;min-width:0;display:flex;flex-direction:column}
+  .story-head{display:flex;flex-direction:column;gap:16px;max-width:720px;margin-bottom:72px}
+  .layer{display:flex;flex-wrap:wrap;gap:40px;align-items:center;padding-bottom:120px}
+  .layer.last{padding-bottom:140px}
+  .lc{flex:1 1 300px;display:flex;flex-direction:column;gap:14px}
+  .ln{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--moss)}
+  .lc h3{font-size:38px;line-height:1.08;letter-spacing:-.025em;color:var(--deep)}
+  .lc p{font-size:17px;line-height:27px;color:var(--ink2)}
+  .lcard{flex:1 1 360px}
+  .trendcard{background:var(--surface);border-radius:36px;padding:32px;box-shadow:0 30px 60px -36px rgba(31,58,20,.4);display:flex;flex-direction:column;gap:18px}
+  .tc-h{display:flex;justify-content:space-between;align-items:baseline}
+  .bars{height:170px;display:flex;align-items:flex-end;gap:8px}
+  .months{display:flex;gap:8px;font-size:12px;color:var(--ink2)}
+  .months span{flex:1;text-align:center}
+  .scopes{flex:1 1 360px;display:flex;gap:16px;flex-wrap:wrap}
+  .scope{flex:1 1 160px;background:var(--surface);border-radius:32px;padding:28px;display:flex;flex-direction:column;gap:10px;box-shadow:0 30px 60px -36px rgba(31,58,20,.4)}
+  .sl{font-size:14px;color:var(--ink2)}
+  .sv{font-family:var(--font-display);font-size:36px;font-weight:600;color:var(--deep)}
+  .su{font-size:14px;font-weight:500;color:var(--ink2)}
+  .fade{height:220px;border-image:linear-gradient(180deg,transparent,var(--soil)) fill 0//0 100vmax}
+  .soil{display:flex;flex-direction:column;border-image:conic-gradient(var(--soil) 0 0) fill 0//0 100vmax}
+  .lc.dark h3,.lc.dark p{color:#fff}
+  .roots{flex:1 1 360px;position:relative;height:300px;border-radius:36px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);overflow:hidden}
+  .roots svg{position:absolute;inset:0;width:100%;height:100%}
+  .roots .dash{animation:flow 3s linear infinite}
+  .rtag{position:absolute;border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600}
+  .pathcard{flex:1 1 360px;background:#fff;border-radius:36px;padding:28px;display:flex;flex-direction:column;gap:12px}
+
+  /* 05 Platform */
+  .platform{background:var(--soil);padding:0 0 120px}
+  .pin{display:flex;flex-direction:column;gap:24px}
+  .ph{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:end;padding-bottom:24px}
+  .prow{display:flex;flex-wrap:wrap;gap:24px}
+  .pc1,.pc2,.lcawrap{background:#fff;color:#1F3A14;border-radius:40px;padding:40px}
+  .pc1{flex:1.4 1 480px;display:flex;flex-direction:column;gap:20px}
+  .pc2{flex:1 1 380px;display:flex;flex-direction:column;gap:20px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chips .chip{border-color:#D3E6C1}
+  .shot{margin-top:auto;border-radius:24px;overflow:hidden;background:#E8F5DC;padding:20px 20px 0}
+  .shot-in{aspect-ratio:16/9;position:relative;border-radius:14px 14px 0 0;overflow:hidden;box-shadow:0 20px 40px -24px rgba(31,58,20,.5)}
+  .shot-in img{display:block;width:100%;height:100%;object-fit:cover;object-position:top left}
+  .lcawrap{display:flex;flex-wrap:wrap;gap:40px;align-items:center}
+  .lcac{flex:1 1 320px;display:flex;flex-direction:column;gap:18px}
+  .loop{flex:1 1 380px;position:relative;aspect-ratio:1.25;max-width:520px}
+  .loop>svg{position:absolute;inset:0;width:100%;height:100%}
+  .loop .dash{animation:flow 4s linear infinite}
+  .hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:150px;height:150px;border-radius:50%;background:#1F3A14;color:#F6FAF1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+  .stage{position:absolute;transform:translate(-50%,0);background:#fff;border:1.5px solid #1F3A14;border-radius:18px;padding:8px 14px;text-align:center;white-space:nowrap}
+
+  /* 06 Data */
+  .data{padding-top:120px;padding-bottom:120px}
+  .dh{display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;margin-bottom:24px}
+  .flowbox{position:relative;height:360px}
+  .flowbox>svg{position:absolute;inset:0;width:100%;height:100%}
+  .dash2{animation:flow 2.5s linear infinite}
+  .zhub{position:absolute;left:50%;top:10px;transform:translateX(-50%);width:150px;height:150px;border-radius:50%;background:var(--surface);border:1.5px solid var(--deep);display:flex;align-items:center;justify-content:center;box-shadow:0 24px 48px -24px rgba(31,58,20,.45)}
+  .srcs{position:absolute;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(6,1fr)}
+  .srcs div{display:flex;justify-content:center}
+  .srcs span{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:12px 18px;font-weight:600;font-size:15px;color:var(--deep);white-space:nowrap}
+
+  /* 07 AI */
+  .ai{background:var(--night);color:var(--nightInk);padding:120px 0;margin-bottom:120px;position:relative;overflow:hidden}
+  .glow{position:absolute;right:-160px;top:-160px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(120,184,64,.22),transparent 65%)}
+  .ai-in{display:flex;flex-direction:column;gap:64px;position:relative}
+  .aitag{align-self:flex-start;display:flex;align-items:center;gap:8px;border:1px solid var(--nightLine);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600;color:var(--leaf)}
+  .ad{width:8px;height:8px;border-radius:50%;background:var(--leaf)}
+  .feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--nightLine);border:1px solid var(--nightLine);border-radius:32px;overflow:hidden}
+  .feat{background:var(--night);padding:28px;display:flex;flex-direction:column;gap:10px}
+  .fn{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--leaf)}
+  .ft{font-family:var(--font-display);font-size:22px;font-weight:600}
+  .fd{font-size:15px;line-height:23px;color:var(--nightInk2)}
+
+  /* 08 Process */
+  .process{padding-bottom:120px;display:flex;flex-wrap:wrap;gap:56px;align-items:center}
+  .cyc{flex:1 1 420px;position:relative;aspect-ratio:1;max-width:520px}
+  .cyc>svg{position:absolute;inset:0;width:100%;height:100%}
+  .dash3{animation:flow 3s linear infinite}
+  .cmid{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;display:flex;flex-direction:column;gap:6px;width:60%}
+  .cn{position:absolute;transform:translate(-50%,-50%);border-radius:999px;padding:12px 20px;font-weight:600;white-space:nowrap}
+  .steps{flex:1 1 360px;display:flex;flex-direction:column;gap:24px}
+  .steps ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:18px}
+  .steps li{display:flex;gap:16px;font-size:17px;line-height:26px;color:var(--ink)}
+  .sn{font-family:var(--font-display);font-weight:600;color:var(--moss);font-size:20px;width:24px;flex:none}
+
+  /* 09 Services */
+  .services{padding-bottom:120px;display:flex;flex-wrap:wrap;gap:48px;align-items:center}
+  .svc-art{flex:1 1 440px;position:relative;min-height:520px}
+  .svc-photo{position:absolute;left:0;top:0;width:72%;height:88%;border-radius:200px 200px 40px 40px;overflow:hidden;background:var(--sage)}
+  .svc-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .roadmap{position:absolute;right:0;bottom:0;width:58%;background:var(--surface);border-radius:28px;padding:22px;box-shadow:0 30px 60px -30px rgba(31,58,20,.5);display:flex;flex-direction:column;gap:12px}
+  .rm{display:flex;justify-content:space-between;gap:8px}
+  .svc-list{flex:1 1 400px;display:flex;flex-direction:column;gap:24px}
+  .scard{background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:22px 24px;display:flex;flex-direction:column;gap:8px;color:var(--ink);transition:transform .2s,border-color .2s}
+  .scard:hover{transform:translateY(-3px);border-color:var(--deep);color:var(--ink)}
+  .st{display:flex;justify-content:space-between;font-family:var(--font-display);font-weight:600;font-size:22px;color:var(--deep)}
+  .sd{font-size:15px;line-height:23px;color:var(--ink2)}
+
+  /* 10 Events */
+  .events{background:var(--deep);color:var(--deepInk);padding:120px 0;border-radius:64px 64px 0 0}
+  .ev-in{display:flex;flex-direction:column;gap:40px}
+  .evh{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px}
+  .evlink{color:var(--deepInk);font-weight:600;border-bottom:1.5px solid var(--deepInk)}
+  .evlink:hover{color:var(--leaf)}
+  .evbody{display:flex;flex-wrap:wrap;gap:24px;align-items:stretch}
+  .evbody figure{flex:1.5 1 480px;margin:0;position:relative;border-radius:36px;overflow:hidden;min-height:420px}
+  .evbody figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  figcaption{position:absolute;left:20px;bottom:20px;background:rgba(14,36,20,.92);color:#F6FAF1;border-radius:16px;padding:10px 14px;font-size:14px;display:flex;gap:14px;flex-wrap:wrap}
+  .evtext{flex:1 1 340px;display:flex;flex-direction:column;gap:20px}
+  .evstats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .es{background:rgba(232,245,220,.08);border:1px solid rgba(232,245,220,.18);border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:4px}
+  .esv{font-family:var(--font-display);font-size:34px;font-weight:600}
+  .esu{font-size:14px;font-weight:500;color:var(--deepInk2)}
+  .chips2{display:flex;flex-wrap:wrap;gap:8px}
+  .chips2 span{background:#F6FAF1;color:#1F3A14;border-radius:999px;padding:10px 16px;font-weight:600;font-size:14px}
+
+  /* 11 Standards */
+  .standards{background:var(--deep);padding:0 0 80px;color:var(--deepInk)}
+  .sin{border-top:1px solid rgba(232,245,220,.18);padding-top:40px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .sh{font-family:var(--font-display);font-size:22px;font-weight:600;margin-right:16px}
+  .sd2{border:1.5px solid rgba(232,245,220,.4);border-radius:999px;padding:10px 18px;font-weight:600;font-size:15px}
+
+  /* 12 Tools */
+  .tools{padding-top:120px;padding-bottom:120px;display:flex;flex-wrap:wrap;gap:24px}
+  .tcalc{flex:1.6 1 520px;background:var(--surface);border:1px solid var(--line);border-radius:48px;padding:48px;display:flex;flex-direction:column;gap:28px}
+  .tesg{flex:1 1 320px;background:var(--sage);border-radius:48px;padding:48px;display:flex;flex-direction:column;gap:20px}
+  .steps4{display:flex;gap:6px;align-items:flex-end;height:90px}
+  .steps4 div{flex:1;border-radius:999px 999px 8px 8px;background:var(--moss)}
+  .steps4 .dashed{background:var(--surface);border:1.5px dashed var(--moss)}
+  .tbtn{margin-top:auto;height:52px;border-radius:999px;background:var(--deep);color:var(--deepInk);font:600 16px var(--font-body);display:flex;align-items:center;justify-content:center}
+  .tbtn:hover{background:var(--moss);color:var(--deepInk)}
+
+  /* 13 Testimonials */
+  .testi{padding-bottom:120px;display:flex;flex-direction:column;gap:32px}
+  .tbig{flex:2 1 560px;background:var(--surface);border:1px solid var(--line);border-radius:48px;padding:48px;display:flex;flex-wrap:wrap;gap:36px;align-items:center}
+  .tphoto{flex:0 0 160px;height:200px;border-radius:46% 54% 42% 58% / 52% 44% 56% 48%;background:var(--sage)} /* TODO: headshot (open item) */
+  blockquote{flex:1 1 300px;margin:0;display:flex;flex-direction:column;gap:20px}
+  blockquote p{font-family:var(--font-display);font-size:26px;line-height:1.3;font-weight:500;letter-spacing:-.015em;color:var(--deep);text-wrap:pretty}
+  .tsmall{flex:1 1 300px;background:var(--sage);border-radius:48px;padding:36px;display:flex;flex-direction:column;gap:20px}
+  .tq{font-family:var(--font-display);font-size:22px;line-height:1.35;font-weight:500;color:var(--deep)}
+
+  /* 14 Founder */
+  .founder-wrap{padding-bottom:120px}
+  .founder{background:var(--moss);color:#F6FAF1;border-radius:48px;padding:56px;display:flex;flex-wrap:wrap;gap:48px;align-items:center}
+  .fp{flex:0 0 220px;display:flex;flex-direction:column;align-items:center;gap:14px}
+  .fp img{width:200px;height:200px;border-radius:50%;object-fit:cover;border:4px solid #F6FAF1}
+  .fc{flex:1 1 400px;display:flex;flex-direction:column;gap:20px}
+  .fq{font-family:var(--font-display);font-size:clamp(26px,2.8vw,36px);line-height:1.2;font-weight:500;letter-spacing:-.02em;text-wrap:pretty}
+  .fb1{background:#F6FAF1;color:#1F3A14;border-radius:999px;padding:12px 20px;font-weight:600}
+  .fb1:hover{background:#fff;color:#1F3A14}
+  .fb2{border:1.5px solid #F6FAF1;color:#F6FAF1;border-radius:999px;padding:12px 20px;font-weight:600}
+  .fb2:hover{background:#F6FAF1;color:#1F3A14}
+
+  /* 15 FAQ */
+  .faq-sec{max-width:960px;margin:0 auto;padding:0 var(--gutter) 120px;display:flex;flex-direction:column;gap:32px}
+
+  /* 16 Blog */
+  .blogsec{padding-bottom:120px}
+  .bh{display:flex;justify-content:space-between;align-items:end;margin-bottom:32px;gap:24px;flex-wrap:wrap}
+  .bgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+
+  /* 17 CTA */
+  .cta-wrap{padding:0 var(--gutter) 32px}
+  .cta{max-width:var(--maxw);margin:0 auto;border-radius:56px;overflow:hidden;background:linear-gradient(180deg,var(--sky) 0%,#CFE8B8 45%,#1F5C2E 80%,var(--soil) 100%);padding:100px 48px 120px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px}
+
+  /* Responsive (not in the approved design: derived, see docs/OPEN-ITEMS.md) */
+  @media (max-width:1100px){ .rail-col{display:none} .story-in{gap:0} }
+  @media (max-width:900px){
+    .problem,.tcalc,.tesg,.founder,.tbig{padding:32px}
+    .pc1,.pc2,.lcawrap{padding:28px}
+    .events{border-radius:40px 40px 0 0}
+    .layer{padding-bottom:72px}
+    .lc h3{font-size:32px}
+    .cta{padding:72px 24px 80px}
+    .cta .btns{margin-top:64px!important}
+    .hero-art{min-height:480px}
+  }
+  @media (max-width:700px){
+    .srcs{grid-template-columns:repeat(2,1fr);gap:10px;position:static;margin-top:150px}
+    .flowbox{height:auto;padding-bottom:0}
+    .flowbox>svg{height:150px;bottom:auto}
+    .zhub{top:0}
+    .f1{left:2%;top:6%;min-width:0;padding:16px 18px}
+    .fv{font-size:32px}
+    .f2{right:2%;top:36%}
+    .f3{left:6%;width:64%}
+    .stat .n{font-size:44px}
+    .loop{aspect-ratio:auto;min-height:400px}
+    .cn{font-size:14px;padding:10px 14px}
+    .cmid span:first-child{font-size:22px!important}
+    .evstats{grid-template-columns:1fr 1fr}
+    .svc-art{min-height:440px}
+    .roadmap{width:72%}
+    .rtag{font-size:12px;padding:6px 10px}
+    .tphoto{flex-basis:100%;height:160px}
+    .problem{padding:24px}
+    .tangle{height:540px}
+    .knot{max-width:80%}
+    .knot:nth-of-type(odd){left:2%!important}
+    .knot:nth-of-type(even){left:14%!important}
+  }
+</style>
+
+<script>
+  // Sky-to-soil rail: a layer is active once its top has passed 50% of the viewport.
+  const layers = [...document.querySelectorAll<HTMLElement>('[data-layer]')];
+  const rail = [...document.querySelectorAll<HTMLElement>('[data-rail]')];
+  const update = () => {
+    const mid = window.innerHeight * 0.5;
+    let active = 0;
+    layers.forEach((l, i) => { if (l.getBoundingClientRect().top < mid) active = i; });
+    rail.forEach((r, i) => r.classList.toggle('on', i === active));
+  };
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+</script>

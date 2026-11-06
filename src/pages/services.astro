@@ -1,0 +1,137 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+const events = (await getCollection('events')).map((e) => e.data);
+const featured = events.find((e) => !e.upcoming)!;
+const upcoming = events.find((e) => e.upcoming);
+const stat = (label: string) => featured.stats.find((s) => s.label === label)!;
+
+const services = [
+  { n: '01 · Sustainability Advisory', t: 'Sustainability Advisory', img: '/images/photo-service-advisory.jpg', d: 'Get expert guidance to enhance your sustainability strategies and performance, from a first baseline to a net-zero roadmap.', pts: ['Emissions baseline', 'SBTi-based targets', 'Long-term reduction strategy', 'Decarbonisation roadmap'], link: '/platform#carbon', linkT: 'Carbon Accounting platform →' },
+  { n: '02 · Product Lifecycle Analysis', t: 'Product Lifecycle Analysis', img: '/images/photo-service-lca.jpg', d: 'Know exactly how much emission is caused by your product. Scientific, data-backed LCA from first-time studies to ISO-aligned impact assessments.', pts: ['Cradle-to-grave footprint', 'ISO 14040 / 14044', 'EPD-ready output', 'Scenario comparison'], link: '/platform#lca', linkT: 'Product LCA module →' },
+  { n: '03 · ESG Reporting', t: 'ESG Reporting', img: '/images/photo-service-esg.jpg', d: 'Create comprehensive, accurate and compliant sustainability reports that regulators, investors and customers trust.', pts: ['GRI, SASB, TCFD', 'CSRD and BRSR', 'Audit-ready trails', 'KPI benchmarking'], link: '/platform#esg', linkT: 'ESG Reporting module →' },
+];
+const steps = [
+  { n: '1', t: 'Gather', d: 'Seamlessly collect and centralise sustainability data from every source across your business.' },
+  { n: '2', t: 'Measure', d: 'Accurately calculate emissions with verified factors and AI precision.' },
+  { n: '3', t: 'Report', d: 'Generate audit-ready ESG, Carbon and LCA reports aligned to global standards.' },
+  { n: '4', t: 'Decarbonize', d: 'Turn insights into real action with guidance, strategies and measurable emission reduction.' },
+];
+const [testimonial] = (await getCollection('testimonials')).map((t) => t.data);
+---
+<Layout title="Services | ZERO" description="Sustainability advisory, product lifecycle analysis, ESG reporting and net-zero events." active="Services">
+  <section class="container hero">
+    <div class="hl">
+      <span class="tag">Our services</span>
+      <h1 class="h-display" style="font-size:clamp(46px,5.4vw,76px)">People who know the ground, software that knows the <span style="color:var(--terra)">numbers.</span></h1>
+    </div>
+    <p class="lede" style="flex:0 1 380px;font-size:19px;line-height:29px">Everything you need for comprehensive carbon management, from a first footprint to a net-zero event.</p>
+  </section>
+
+  <section class="container list">
+    {services.map((s) => (
+      <article>
+        <div class="img"><img src={s.img} alt={s.t} loading="lazy" /></div>
+        <div class="body">
+          <span class="num">{s.n}</span>
+          <h2 class="h-lg" style="font-size:clamp(30px,3vw,42px);line-height:1.05">{s.t}</h2>
+          <p class="body-lg" style="max-width:560px">{s.d}</p>
+          <div class="pts">{s.pts.map((p) => <span>{p}</span>)}</div>
+          <div class="acts"><a href="/contact" class="talk">Talk to an expert</a><a href={s.link} class="lnk">{s.linkT}</a></div>
+        </div>
+      </article>
+    ))}
+  </section>
+
+  <section class="process on-dark">
+    <div class="container wide pin">
+      <div class="ph"><h2 class="h-lg" style="color:inherit;font-size:clamp(36px,4vw,54px)">Our process</h2><span style="font-size:18px;color:#E8F5DC">Four simple steps to carbon compliance.</span></div>
+      <div class="steps">
+        {steps.map((s, i) => (
+          <div class="step"><span class="sn" style={i === 3 ? 'background:#3D7A22;color:#fff' : 'background:#F6FAF1;color:#1F3A14'}>{s.n}</span><span class="st">{s.t}</span><span class="sd">{s.d}</span></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="events" class="events on-dark">
+    <div class="container wide ein">
+      <div class="eh">
+        <div style="flex:1 1 560px;display:flex;flex-direction:column;gap:18px"><span style="font-size:14px;font-weight:600;color:var(--leaf)">04 · Net Zero Events</span><h2 class="h-xl" style="color:inherit;font-size:clamp(40px,4.6vw,64px);line-height:1">Make your events matter beyond the moment.</h2></div>
+        <p style="flex:0 1 420px;font-size:18px;line-height:28px;color:var(--nightInk2)">From conferences to corporate gatherings, we help you design, measure and deliver truly net-zero events, so your impact is felt long after the applause fades.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:24px">
+        <div class="eimg"><img src={featured.image} alt={featured.imageAlt} loading="lazy" /><span class="badge">Featured event</span></div>
+        <div class="ecard">
+          <h3 style="font-size:32px;letter-spacing:-.02em">YI WRCM · Nashik 2025</h3>
+          <!-- Design said "200 participants" here but 177 everywhere else: using the CMS value. See docs/OPEN-ITEMS.md -->
+          <div class="meta"><span>{featured.date}</span><span>·</span><span>{featured.city}</span><span>·</span><span>{stat('Participants').value} participants</span><span>·</span><span>{featured.duration}</span></div>
+          <p style="font-size:16px;line-height:26px;color:var(--nightInk2)">Young Indians Nashik hosted its Annual Western Region Meet with 177 participants from 17 cities. ZERO turned it into a fully net-zero event: every emission measured, impact cut through EV transport, smart carpooling and a strict no-paper, no-plastic approach. A new benchmark for climate-responsible events.</p>
+          <div class="es">
+            <div><span style="display:block;font-size:13px;color:var(--nightInk2)">Measured</span><span class="ev">{stat('Event emissions').value} <span class="eu">tCO₂e</span></span></div>
+            <div><span style="display:block;font-size:13px;color:var(--nightInk2)">Avoided</span><span class="ev" style="color:var(--leaf)">{stat('Emissions avoided').value} <span class="eu">tCO₂e</span></span></div>
+          </div>
+        </div>
+      </div>
+      {upcoming ? (
+        <div class="ecard" style="flex-direction:row;flex-wrap:wrap">
+          <h3 style="font-size:28px">{upcoming.title}</h3><span style="color:var(--nightInk2)">{upcoming.date} · {upcoming.city}</span>
+        </div>
+      ) : (
+        <div class="empty">
+          <div style="display:flex;flex-direction:column;gap:8px;max-width:640px"><span style="font-family:var(--font-display);font-size:26px;font-weight:600">Upcoming event: coming soon</span><span style="font-size:16px;line-height:25px;color:var(--nightInk2)">We don’t have an upcoming event right now, but we’re already planning the next one. Planning your own? Let’s make it net zero.</span></div>
+          <a href="/contact" class="btn btn-primary" style="height:52px;padding:0 24px">Plan a net-zero event</a>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="quote">
+    <p>“Their tailored approach is exactly what climate-impact startups need. Karan and Vedant balanced innovation with trusted datasets.”</p>
+    <span style="font-size:15px;color:var(--ink2)"><strong style="color:var(--ink)">{testimonial.name}</strong> · {testimonial.role}</span>
+  </section>
+</Layout>
+
+<style>
+  .tag{align-self:flex-start;background:var(--sage);color:var(--deep);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600}
+  .hero{padding-top:72px;padding-bottom:64px;display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:end}
+  .hl{flex:1 1 600px;display:flex;flex-direction:column;gap:22px}
+  .list{padding-bottom:120px;display:flex;flex-direction:column;gap:24px}
+  article{background:var(--surface);border:1px solid var(--line);border-radius:48px;padding:24px;display:flex;flex-wrap:wrap;gap:40px;align-items:stretch}
+  .img{flex:0 1 380px;min-height:320px;border-radius:32px;overflow:hidden;position:relative;background:var(--sage)}
+  .img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .body{flex:1 1 420px;padding:24px 16px;display:flex;flex-direction:column;gap:18px}
+  .num{font-family:var(--font-display);font-size:15px;font-weight:600;color:var(--moss)}
+  .pts{display:flex;flex-wrap:wrap;gap:8px}
+  .pts span{background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px;color:var(--ink)}
+  .acts{margin-top:auto;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .talk{background:var(--deep);color:var(--deepInk);border-radius:999px;padding:12px 22px;font-weight:600}
+  .talk:hover{background:var(--moss);color:var(--deepInk)}
+  .lnk{font-weight:600;color:var(--deep);border-bottom:1.5px solid var(--deep)}
+  .lnk:hover{color:var(--terra)}
+  .process{background:var(--moss);color:#F6FAF1;padding:110px 0}
+  .pin{display:flex;flex-direction:column;gap:56px}
+  .ph{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+  .step{background:rgba(232,245,220,.1);border:1px solid rgba(232,245,220,.22);border-radius:32px;padding:28px;display:flex;flex-direction:column;gap:14px}
+  .sn{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:20px}
+  .st{font-family:var(--font-display);font-size:26px;font-weight:600}
+  .sd{font-size:16px;line-height:25px;color:#E8F5DC}
+  .events{background:var(--night);color:var(--nightInk);padding:120px 0}
+  .ein{display:flex;flex-direction:column;gap:56px}
+  .eh{display:flex;flex-wrap:wrap;gap:40px;align-items:end;justify-content:space-between}
+  .eimg{flex:1.4 1 520px;border-radius:40px;overflow:hidden;position:relative;min-height:460px}
+  .eimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .badge{position:absolute;left:24px;top:24px;background:var(--leaf);color:var(--night);border-radius:999px;padding:8px 14px;font-weight:700;font-size:13px}
+  .ecard{flex:1 1 380px;background:rgba(166,217,122,.04);border:1px solid var(--nightLine);border-radius:40px;padding:36px;display:flex;flex-direction:column;gap:20px}
+  .meta{display:flex;flex-wrap:wrap;gap:16px;font-size:14px;color:var(--nightInk2)}
+  .es{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:auto}
+  .es>div{border:1px solid var(--nightLine);border-radius:24px;padding:18px}
+  .ev{font-family:var(--font-display);font-size:32px;font-weight:600}
+  .eu{font-size:14px;color:var(--nightInk2)}
+  .empty{border:1.5px dashed var(--nightLine);border-radius:40px;padding:36px;display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:center}
+  .quote{max-width:1080px;margin:0 auto;padding:120px var(--gutter);display:flex;flex-direction:column;gap:24px;align-items:center;text-align:center}
+  .quote p{font-family:var(--font-display);font-size:clamp(26px,3vw,38px);line-height:1.25;font-weight:500;letter-spacing:-.02em;color:var(--deep);text-wrap:balance}
+  @media (max-width:700px){ article{padding:16px;border-radius:36px;gap:16px} .img{flex-basis:100%;min-height:240px} .ecard,.empty{padding:24px;border-radius:32px} .eimg{min-height:320px} .process{padding:72px 0} .events{padding:80px 0} }
+</style>

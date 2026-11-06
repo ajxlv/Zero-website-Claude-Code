@@ -1,0 +1,33 @@
+[
+  {
+    "id": "pricing",
+    "plans": [
+      { "name": "Essentials", "description": "For companies measuring their footprint for the first time.", "price": "[₹X]", "cta": "Get started", "features": ["Carbon Accounting · Scope 1 & 2", "1 site", "Real-time dashboards", "GHG Protocol-aligned report", "Email support"] },
+      { "name": "Growth", "description": "For manufacturers reporting to customers, investors or regulators.", "price": "[₹Y]", "cta": "Book a demo", "popular": true, "features": ["Everything in Essentials", "Scope 3 and supplier data", "ESG Reporting: GRI, BRSR, CSRD and more", "Haathi AI assistant", "Up to [N] sites"] },
+      { "name": "Enterprise", "description": "For groups with many sites, products and frameworks.", "price": "Custom", "custom": true, "cta": "Talk to sales", "features": ["Everything in Growth", "Product LCA module", "Predictive analytics and SBTi targets", "Unlimited sites", "Dedicated sustainability advisor"] }
+    ],
+    "compare": [
+      { "feature": "Scope 1 & 2 accounting", "essentials": "✓", "growth": "✓", "enterprise": "✓" },
+      { "feature": "Scope 3 accounting", "essentials": "—", "growth": "✓", "enterprise": "✓" },
+      { "feature": "AI data ingestion", "essentials": "✓", "growth": "✓", "enterprise": "✓" },
+      { "feature": "ESG Reporting frameworks", "essentials": "—", "growth": "✓", "enterprise": "✓" },
+      { "feature": "Haathi AI assistant", "essentials": "—", "growth": "✓", "enterprise": "✓" },
+      { "feature": "Product LCA", "essentials": "—", "growth": "—", "enterprise": "✓" },
+      { "feature": "Predictive analytics", "essentials": "—", "growth": "—", "enterprise": "✓" },
+      { "feature": "Sites", "essentials": "1", "growth": "[N]", "enterprise": "Unlimited" },
+      { "feature": "Advisory support", "essentials": "—", "growth": "Add-on", "enterprise": "Included" }
+    ],
+    "addons": [
+      { "title": "Product LCA study", "description": "ISO 14040/44 study for a product or range, EPD-ready." },
+      { "title": "Net Zero Event", "description": "Design, measure and deliver a net-zero conference or gathering." },
+      { "title": "Sustainability Advisory", "description": "Targets, strategy and a decarbonisation roadmap with our experts." },
+      { "title": "ESG report preparation", "description": "Our team prepares and reviews your disclosure end to end." }
+    ],
+    "faqs": [
+      { "q": "How is pricing structured?", "a": "By the modules you use and the number of sites. Expert services are scoped per project. [confirm]" },
+      { "q": "Is onboarding included?", "a": "[ADD onboarding terms]" },
+      { "q": "Can we start with the free tools?", "a": "Yes. The carbon calculator and ESG readiness assessment are free and need no account." },
+      { "q": "Can we change plans later?", "a": "[ADD upgrade / downgrade terms]" }
+    ]
+  }
+]

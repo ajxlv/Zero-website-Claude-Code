@@ -1,0 +1,85 @@
+---
+import { haathi } from '../config/haathi';
+const uid = Math.random().toString(36).slice(2, 7);
+---
+<div class="ask" data-haathi>
+  <div class="left">
+    <slot />
+  <div class="qs" role="tablist" aria-label="Sample questions" aria-orientation="vertical">
+    {haathi.map((h, i) => (
+      <button type="button" role="tab" id={`hq-${uid}-${i}`} aria-controls={`hp-${uid}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1}>{h.q}</button>
+    ))}
+  </div>
+  </div>
+  <div class="chat" role="tabpanel" id={`hp-${uid}`} aria-live="polite" aria-labelledby={`hq-${uid}-0`}>
+    <span class="me" data-f="q">{haathi[0].q}</span>
+    <div class="reply">
+      <span class="av" aria-hidden="true">H</span>
+      <div class="bubble">
+        <span class="txt" data-f="a">{haathi[0].a}</span>
+        <div data-f="bars">
+          {haathi[0].bars.map((b) => (
+            <div class="b"><span class="bl"><span>{b.l}</span><span class="bv">{b.v}</span></span><div class="bt"><div style={`width:${b.w};background:${b.c}`}></div></div></div>
+          ))}
+        </div>
+      </div>
+    </div>
+    <div class="input" aria-hidden="true"><span>Ask Haathi about your emissions…</span><span class="send">↑</span></div>
+  </div>
+  <script type="application/json" data-json set:html={JSON.stringify(haathi)}></script>
+</div>
+<style>
+  .ask{display:flex;flex-wrap:wrap;gap:48px}
+  .left{flex:1 1 320px;display:flex;flex-direction:column;gap:20px}
+  .qs{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+  .qs button{text-align:left;border:1px solid var(--nightLine);border-radius:18px;padding:14px 18px;background:transparent;color:var(--nightInk);font:500 15px var(--font-body);cursor:pointer;transition:background .2s,transform .2s}
+  .qs button:hover{transform:translateX(4px)}
+  .qs button[aria-selected='true']{background:var(--leaf);color:var(--night)}
+  .chat{flex:1.2 1 400px;background:var(--surface);color:var(--ink);border-radius:36px;padding:28px;display:flex;flex-direction:column;gap:18px;box-shadow:0 40px 80px -40px rgba(0,0,0,.6);min-height:420px}
+  .me{align-self:flex-end;background:var(--deep);color:var(--deepInk);border-radius:22px 22px 6px 22px;padding:14px 18px;max-width:80%;font-size:15px;line-height:22px}
+  .reply{display:flex;gap:12px;align-items:flex-start}
+  .av{flex:none;width:36px;height:36px;border-radius:50%;background:var(--sage);color:var(--deep);display:flex;align-items:center;justify-content:center;font-weight:700}
+  .bubble{background:var(--bg);border-radius:6px 22px 22px 22px;padding:18px;display:flex;flex-direction:column;gap:14px;flex:1}
+  .txt{font-size:15px;line-height:23px;color:var(--ink)}
+  [data-f=bars]{display:flex;flex-direction:column;gap:14px}
+  [data-f=bars] :global(.b){display:flex;flex-direction:column;gap:6px}
+  [data-f=bars] :global(.bl){display:flex;justify-content:space-between;font-size:13px;color:var(--ink2)}
+  [data-f=bars] :global(.bv){font-weight:600;color:var(--ink)}
+  [data-f=bars] :global(.bt){height:12px;border-radius:999px;background:var(--line)}
+  [data-f=bars] :global(.bt div){height:100%;border-radius:999px;transition:width .5s}
+  .input{margin-top:auto;display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:8px 8px 8px 20px}
+  .input span:first-child{flex:1;font-size:15px;color:var(--ink2)}
+  .send{width:40px;height:40px;border-radius:50%;background:var(--terra);color:#fff;display:flex;align-items:center;justify-content:center}
+</style>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-haathi]').forEach((root) => {
+    const data = JSON.parse(root.querySelector('[data-json]')!.textContent!);
+    const tabs = [...root.querySelectorAll<HTMLButtonElement>('[role=tab]')];
+    const panel = root.querySelector<HTMLElement>('[role=tabpanel]')!;
+    const select = (i: number, focus = false) => {
+      tabs.forEach((b, j) => { b.setAttribute('aria-selected', String(i === j)); b.tabIndex = i === j ? 0 : -1; });
+      const d = data[i];
+      root.querySelector('[data-f=q]')!.textContent = d.q;
+      root.querySelector('[data-f=a]')!.textContent = d.a;
+      const bars = root.querySelector('[data-f=bars]')!;
+      bars.innerHTML = '';
+      d.bars.forEach((b: any) => {
+        const el = document.createElement('div'); el.className = 'b';
+        el.innerHTML = `<span class="bl"><span></span><span class="bv"></span></span><div class="bt"><div></div></div>`;
+        el.querySelector('.bl span')!.textContent = b.l;
+        el.querySelector('.bv')!.textContent = b.v;
+        const fill = el.querySelector<HTMLElement>('.bt div')!; fill.style.width = b.w; fill.style.background = b.c;
+        bars.appendChild(el);
+      });
+      panel.setAttribute('aria-labelledby', tabs[i].id);
+      if (focus) tabs[i].focus();
+    };
+    tabs.forEach((b, i) => {
+      b.addEventListener('click', () => select(i));
+      b.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown') { e.preventDefault(); select((i + 1) % tabs.length, true); }
+        if (e.key === 'ArrowUp') { e.preventDefault(); select((i - 1 + tabs.length) % tabs.length, true); }
+      });
+    });
+  });
+</script>

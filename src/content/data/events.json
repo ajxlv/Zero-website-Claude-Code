@@ -1,0 +1,20 @@
+[
+  {
+    "id": "yi-wrcm-nashik-2025",
+    "title": "YI WRCM Nashik 2025: a fully net-zero gathering.",
+    "date": "14 Aug 2025",
+    "city": "Nashik",
+    "duration": "2 days",
+    "image": "/images/photo-event-yi-wrcm-nashik.webp",
+    "imageAlt": "Keynote at YI WRCM Nashik 2025",
+    "summary": "Young Indians Nashik hosted its Annual Western Region Meet, bringing together 177 participants from 17 cities. ZERO measured every emission and reduced impact through EV transport, smart carpooling and a strict no-paper, no-plastic approach.",
+    "stats": [
+      { "label": "Event emissions", "value": "4.7", "unit": "tCO₂e" },
+      { "label": "Emissions avoided", "value": "0.3", "unit": "tCO₂e", "accent": true },
+      { "label": "Participants", "value": "177" },
+      { "label": "Cities", "value": "17" }
+    ],
+    "tags": ["EV transport", "Smart carpooling", "No paper", "No plastic"],
+    "upcoming": false
+  }
+]

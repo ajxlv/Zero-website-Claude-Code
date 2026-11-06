@@ -1,0 +1,98 @@
+---
+import { site } from '../config/site';
+---
+<footer class="site-footer on-dark">
+  <div class="wrap">
+    <div class="cols">
+      <div class="brand">
+        <img src="/logo/zero-logo-ink.svg" alt="ZERO" class="logo-white" />
+        <span class="tag">{site.tagline}</span>
+        <span class="addr">{site.contact.email} · {site.contact.phone}<br />{site.contact.address}, India</span>
+        <div class="social"><a href={site.social.linkedin} aria-label="LinkedIn">in</a></div>
+      </div>
+      <div class="col">
+        <span class="h">Platform</span>
+        <a href="/platform#carbon">Carbon Accounting</a>
+        <a href="/platform#esg">ESG Reporting</a>
+        <a href="/platform#lca">Product LCA</a>
+        <a href="/pricing">Pricing</a>
+      </div>
+      <div class="col">
+        <span class="h">Company</span>
+        <a href="/about">About</a>
+        <a href="/services">Services</a>
+        <a href="/services#events">Net Zero Events</a>
+        <!-- TODO: Careers page does not exist yet (open item) -->
+        <a href="/about#careers">Careers</a>
+        <a href="/contact">Contact</a>
+      </div>
+      <div class="col">
+        <span class="h">Free tools</span>
+        <a href="/free-tools#calculator">Carbon calculator</a>
+        <a href="/free-tools#esg">ESG assessment</a>
+        <span class="h h2">Resources</span>
+        <a href="/blog">Blog</a>
+      </div>
+      <form class="news" data-newsletter novalidate>
+        <span class="nt">Stay future-ready</span>
+        <span class="nd">Sustainability insights, regulatory updates and industry trends, straight to your inbox.</span>
+        <div class="field">
+          <input type="email" name="email" placeholder="name@email.com" aria-label="Email" autocomplete="email" required />
+          <button type="submit">Subscribe</button>
+        </div>
+        <span class="status" role="status" aria-live="polite"></span>
+      </form>
+    </div>
+    <div class="legal">
+      <span>© 2026 ZERO · A WRS Solutions company</span>
+      <!-- TODO: Privacy and Terms pages do not exist yet (open item) -->
+      <span class="links"><a href="#">Privacy</a><a href="#">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer{background:#0E2414;color:#E8F5DC;padding:88px var(--gutter) 32px}
+  .wrap{max-width:var(--maxw);margin:0 auto;display:flex;flex-direction:column;gap:56px}
+  .cols{display:flex;flex-wrap:wrap;gap:48px}
+  .brand{flex:1.4 1 280px;display:flex;flex-direction:column;gap:16px}
+  .logo-white{height:48px;width:auto;align-self:flex-start;filter:brightness(0) invert(1)}
+  .tag{font-family:var(--font-display);font-size:24px;font-weight:600}
+  .addr{font-size:14px;line-height:22px;color:#A9C29A}
+  .social{display:flex;gap:8px}
+  .social a{width:40px;height:40px;border-radius:50%;background:rgba(232,245,220,.08);color:#E8F5DC;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+  .social a:hover{background:#3D7A22;color:#fff}
+  .col{flex:1 1 140px;display:flex;flex-direction:column;gap:10px;font-size:15px}
+  .col a{color:#E8F5DC}
+  .col a:hover{color:#A6D97A}
+  .h{font-weight:600;color:#A6D97A;margin-bottom:4px}
+  .h2{margin:10px 0 4px}
+  .news{flex:1.6 1 300px;background:rgba(232,245,220,.05);border:1px solid rgba(166,217,122,.16);border-radius:32px;padding:28px;display:flex;flex-direction:column;gap:12px}
+  .nt{font-weight:600;font-size:18px}
+  .nd{font-size:14px;line-height:22px;color:#A9C29A}
+  .field{display:flex;gap:8px;background:#E8F5DC;border-radius:999px;padding:6px}
+  .field input{flex:1;min-width:0;border:none;background:transparent;padding:0 14px;font-size:16px;color:#1F3A14;outline:none}
+  .field:focus-within{outline:3px solid #A6D97A;outline-offset:2px}
+  .field button{height:44px;padding:0 18px;border:none;border-radius:999px;background:#3D7A22;color:#fff;font:600 14px var(--font-body);cursor:pointer}
+  .field button:hover{background:#2F6119}
+  .status{font-size:13px;color:#C5DDB3;min-height:18px}
+  .legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;border-top:1px solid rgba(166,217,122,.16);padding-top:24px;font-size:13px;color:#A9C29A}
+  .links{display:flex;gap:20px}
+  .links a{color:#A9C29A}
+  .links a:hover{color:#A6D97A}
+</style>
+
+<script>
+  import { submitForm } from '../scripts/forms';
+  document.querySelectorAll<HTMLFormElement>('form[data-newsletter]').forEach((form) => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = form.querySelector<HTMLElement>('.status');
+      const input = form.querySelector<HTMLInputElement>('input[type=email]')!;
+      if (!/.+@.+\..+/.test(input.value)) { if (status) status.textContent = 'Enter a valid email address.'; return; }
+      const r = await submitForm('newsletter', { email: input.value });
+      if (status) status.textContent = !r.connected ? 'Subscriptions are not connected yet.' : r.ok ? 'Thanks, you are subscribed.' : 'Something went wrong. Please try again.';
+      if (r.ok) form.reset();
+    });
+  });
+</script>

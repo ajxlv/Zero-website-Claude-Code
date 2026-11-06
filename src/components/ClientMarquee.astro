@@ -1,0 +1,20 @@
+---
+import { getCollection } from 'astro:content';
+interface Props { duration?: number; bordered?: boolean }
+const { duration = 40, bordered = true } = Astro.props;
+const clients = (await getCollection('clients')).map((c) => c.data);
+const loop = [...clients, ...clients];
+---
+<div class:list={["marquee-wrap", { bordered }]}>
+  <div class="track" style={`animation-duration:${duration}s`}>
+    {loop.map((c, i) => (
+      <img src={c.src} alt={i < clients.length ? c.name : ''} aria-hidden={i < clients.length ? undefined : 'true'} style={`height:${c.height}px`} loading="lazy" />
+    ))}
+  </div>
+</div>
+<style>
+  .marquee-wrap{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+  .marquee-wrap.bordered{padding:20px 0;border-top:1px solid var(--nightLine);border-bottom:1px solid var(--nightLine)}
+  .track{display:flex;gap:72px;align-items:center;width:max-content;animation:marquee 40s linear infinite;padding-right:72px}
+  .track img{width:auto;flex:none;opacity:.82}
+</style>

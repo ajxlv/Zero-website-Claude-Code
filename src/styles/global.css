@@ -1,0 +1,74 @@
+@import './fonts.css';
+@import './tokens.css';
+
+/* Aliases used by the approved design */
+:root{
+  --terra:#3D7A22;
+  --terrah:#2F6119;
+  --soil:#0E2414;
+  --maxw:1280px;
+  --gutter:32px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:clip}
+img,svg{max-width:100%}
+a{color:var(--moss);text-decoration:none}
+a:hover{color:var(--terra)}
+button,input,select,textarea{font:inherit}
+h1,h2,h3,h4,p{margin:0}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:600}
+
+/* Accessibility */
+:focus-visible{outline:3px solid var(--moss);outline-offset:3px;border-radius:6px}
+.on-dark :focus-visible,.dark :focus-visible{outline-color:var(--leaf-light)}
+.skip-link{position:absolute;left:16px;top:-80px;z-index:100;background:var(--deep);color:var(--deepInk);padding:12px 20px;border-radius:999px;font-weight:600}
+.skip-link:focus{top:12px;color:var(--deepInk)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Layout */
+.container{max-width:var(--maxw);margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter)}
+/* Sections whose outer element carries the 32px padding and inner content is a full 1280 (as in the design) */
+.container.wide{max-width:calc(var(--maxw) + var(--gutter)*2)}
+
+/* Type */
+.eyebrow{font-size:14px;font-weight:600;color:var(--terra)}
+.h-display{font-size:clamp(50px,5.6vw,80px);line-height:1;letter-spacing:-.035em;color:var(--deep);text-wrap:balance}
+.h-xl{font-size:clamp(40px,4.4vw,60px);line-height:1.02;letter-spacing:-.035em;color:var(--deep);text-wrap:balance}
+.h-lg{font-size:clamp(36px,4vw,52px);line-height:1.04;letter-spacing:-.03em;color:var(--deep)}
+.h-md{font-size:34px;line-height:1.1;letter-spacing:-.02em}
+.lede{font-size:20px;line-height:31px;color:var(--ink2);text-wrap:pretty}
+.body-lg{font-size:18px;line-height:28px;color:var(--ink2)}
+
+/* Buttons: white text only on #3D7A22 (hover #2F6119), never on #78B840 / #D9763A */
+.btn{display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 28px;border-radius:999px;font:600 16px var(--font-body);cursor:pointer;border:1.5px solid transparent;transition:background .2s,color .2s,border-color .2s;white-space:nowrap}
+.btn-primary{background:var(--terra);color:#fff}
+.btn-primary:hover{background:var(--terrah);color:#fff}
+.btn-outline{border-color:var(--deep);background:transparent;color:var(--deep)}
+.btn-outline:hover{background:var(--deep);color:var(--deepInk)}
+.btn-outline-light{border-color:#F6FAF1;background:transparent;color:#F6FAF1}
+.btn-outline-light:hover{background:#F6FAF1;color:#0E2414}
+.btn[disabled],.btn[aria-disabled="true"]{background:var(--line);color:var(--ink2);cursor:not-allowed;border-color:transparent}
+.btn:active{transform:translateY(1px)}
+
+/* Pills / chips */
+.pill{display:inline-flex;align-items:center;border-radius:999px;font-weight:600}
+.pill-sage{background:var(--sage);color:var(--deep);padding:4px 12px;font-size:13px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px;white-space:nowrap}
+
+.card{background:var(--surface);border:1px solid var(--line)}
+
+/* Motion */
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes sway{0%,100%{transform:rotate(-1.5deg)}50%{transform:rotate(1.5deg)}}
+@keyframes flow{to{stroke-dashoffset:-40}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+
+/* Small-screen safety: stack wide paddings */
+@media (max-width:640px){
+  :root{--gutter:20px}
+}

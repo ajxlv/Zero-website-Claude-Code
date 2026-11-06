@@ -1,0 +1,17 @@
+[
+  {
+    "id": "jiwya",
+    "quote": "We’re so glad we chose Team Zero for our LCA and impact reporting. They took the time to understand Jiwya’s unique model and built a credible ISO-aligned assessment from the ground up. Highly recommended.",
+    "name": "Aishwarya Lahariya",
+    "role": "Co-Founder & Designer, Jiwya®",
+    "featured": true,
+    "page": ["home"]
+  },
+  {
+    "id": "wrs",
+    "quote": "Team Zero combine rigorous standards with a deep understanding of novel business models to help teams move from fragmented data to clear impact insights.",
+    "name": "Vedant Rathi",
+    "role": "WRS Energy",
+    "page": ["home"]
+  }
+]

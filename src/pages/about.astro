@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ClientMarquee from '../components/ClientMarquee.astro';
+import { site } from '../config/site';
+---
+<Layout title="About | ZERO" description="ZERO was founded in 2020 to transform every business into a climate-positive force." active="About">
+  <section class="mission on-dark">
+    <div class="ring" aria-hidden="true"></div><div class="glow" aria-hidden="true"></div>
+    <div class="min">
+      <span style="font-size:14px;font-weight:600;color:var(--leaf)">Our mission &amp; vision</span>
+      <h1 class="h-display" style="color:inherit;font-size:clamp(44px,5.6vw,80px)">Every business, a climate-positive force.</h1>
+      <p style="font-size:20px;line-height:31px;color:var(--nightInk2);max-width:720px">Passionate experts driving sustainable innovation and building a net-zero future through technology, strategy and cleantech solutions.</p>
+    </div>
+  </section>
+
+  <section class="container future">
+    <div style="flex:1 1 420px;display:flex;flex-direction:column;gap:24px">
+      <span class="eyebrow">The future we’re working toward</span>
+      <h2 class="h-lg" style="font-size:clamp(32px,3.6vw,48px);line-height:1.08;text-wrap:pretty">We’re a team of strategists, technologists and climate specialists driven by purpose, and united by optimism.</h2>
+    </div>
+    <div style="flex:1 1 420px;display:flex;flex-direction:column;gap:28px">
+      <p style="font-size:19px;line-height:31px;color:var(--ink2)">ZERO was founded in 2020 with a strong mission: to transform every business into a climate-positive force. Turning scattered data into clear insight, insight into bold decarbonisation, and bold decarbonisation into a world that’s cleaner, fairer and unmistakably better than the one we inherited.</p>
+      <!-- Stats to confirm (open item): "15+ years" vs founded 2020 -->
+      <div class="stats">
+        <div><span class="sv" style="color:var(--terra)">10+</span><span class="sl">Domains served</span></div>
+        <div><span class="sv">15+</span><span class="sl">Years of experience</span></div>
+        <div><span class="sv">3+</span><span class="sl">Countries served</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" style="padding-bottom:120px">
+    <div class="founder">
+      <div style="flex:1 1 440px;display:flex;flex-direction:column;gap:22px">
+        <span style="font-size:14px;font-weight:600;color:#E8F5DC">Meet the founder of ZERO</span>
+        <h2 class="h-lg" style="color:inherit;font-size:clamp(36px,4vw,54px);line-height:1.02">Karan Racca</h2>
+        <p style="font-size:18px;line-height:29px;color:#E8F5DC">Karan holds a Master’s in Information Systems and sharpened his skills with startups in Boston and San Francisco. Now back in India, he’s passionate about using technology to drive sustainability and help build a net-zero future. His global perspective and tech expertise fuel innovation at ZERO.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px" class="tags"><span>Technology</span><span>Sustainability</span><span>Innovation</span></div>
+        <!-- TODO: real founder URLs (open item) -->
+        <div style="display:flex;gap:10px;flex-wrap:wrap"><a href={site.founder.linkedin} class="l1">LinkedIn</a><a href={site.founder.github} class="l2">GitHub</a><a href="/contact" class="l2">Email</a></div>
+      </div>
+      <div class="fp">
+        <div class="ph"><img src="/images/photo-founder-karan.webp" alt="Karan Racca" width="206" height="206" /></div>
+        <span style="font-family:var(--font-display);font-size:22px;font-weight:600">Founder</span>
+        <span style="font-size:16px;color:#E8F5DC;margin-top:-10px">Tech &amp; Sustainability Lead</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="clients on-dark">
+    <div class="container ch"><h2 class="h-lg" style="color:inherit;font-size:clamp(30px,3.4vw,44px)">Clients we have served</h2><span style="color:var(--nightInk2)">Trusted by leading companies across domains.</span></div>
+    <ClientMarquee duration={36} bordered={false} />
+  </section>
+
+  <!-- TODO: Careers/open positions page does not exist yet (open item) -->
+  <section id="careers" class="container careers">
+    <div class="team" aria-hidden="true"><span>Team photo · ZERO office or field visit</span></div>
+    <div style="flex:1 1 400px;display:flex;flex-direction:column;gap:22px">
+      <span class="eyebrow">Careers</span>
+      <h2 class="h-lg" style="font-size:clamp(36px,4vw,54px);line-height:1.02">Want to join our mission?</h2>
+      <p class="body-lg">We’re always looking for passionate people who share our vision of building a sustainable future. Join us in making a difference.</p>
+      <a href="#" class="open">View open positions <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .mission{background:var(--night);color:var(--nightInk);padding:120px var(--gutter) 140px;position:relative;overflow:hidden}
+  .ring{position:absolute;left:50%;top:60%;transform:translate(-50%,-50%);width:900px;height:900px;border-radius:50%;border:1px solid var(--nightLine)}
+  .glow{position:absolute;left:50%;top:60%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(120,184,64,.2),transparent 70%)}
+  .min{max-width:960px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px;position:relative}
+  .future{padding-top:120px;padding-bottom:120px;display:flex;flex-wrap:wrap;gap:56px;align-items:start}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .stats>div{background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:22px;display:flex;flex-direction:column;gap:2px}
+  .sv{font-family:var(--font-display);font-size:44px;font-weight:600;color:var(--deep)}
+  .sl{font-size:14px;color:var(--ink2)}
+  .founder{background:var(--moss);color:#F6FAF1;border-radius:56px;padding:64px;display:flex;flex-wrap:wrap;gap:56px;align-items:center}
+  .tags span{background:rgba(232,245,220,.16);border-radius:999px;padding:10px 18px;font-weight:600}
+  .l1{height:44px;padding:0 18px;border-radius:999px;background:#F6FAF1;color:#1F3A14;font-weight:600;display:flex;align-items:center}
+  .l1:hover{background:#fff;color:#1F3A14}
+  .l2{height:44px;padding:0 18px;border-radius:999px;border:1.5px solid #F6FAF1;color:#F6FAF1;font-weight:600;display:flex;align-items:center}
+  .l2:hover{background:#F6FAF1;color:#1F3A14}
+  .fp{flex:0 1 360px;display:flex;flex-direction:column;align-items:center;gap:16px;margin:0 auto}
+  .ph{width:300px;height:300px;max-width:100%;border-radius:50%;overflow:hidden;border:6px solid #F6FAF1;box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+  .ph img{width:100%;height:100%;object-fit:cover;transform:scale(1.04)}
+  .clients{background:var(--night);color:var(--nightInk);padding:88px 0}
+  .ch{margin-bottom:40px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px}
+  .careers{padding-top:120px;padding-bottom:120px;display:flex;flex-wrap:wrap;gap:48px;align-items:center}
+  /* TODO: replace with the real team photo (open item) */
+  .team{flex:1 1 420px;aspect-ratio:4/3;border-radius:200px 200px 40px 40px;overflow:hidden;min-width:280px;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;font-size:14px;color:var(--ink2);background:repeating-linear-gradient(135deg,var(--sage),var(--sage) 14px,var(--sky) 14px,var(--sky) 28px)}
+  .open{align-self:flex-start;height:56px;padding:0 28px;border-radius:999px;background:var(--deep);color:var(--deepInk);font-weight:600;display:flex;align-items:center;gap:10px}
+  .open:hover{background:var(--moss);color:var(--deepInk)}
+  @media (max-width:700px){ .founder{padding:32px;border-radius:36px} .ph{width:240px;height:240px} .ring{width:560px;height:560px} .mission{padding:80px var(--gutter) 96px} .stats{grid-template-columns:1fr} .future,.careers{padding-top:72px;padding-bottom:72px} }
+</style>

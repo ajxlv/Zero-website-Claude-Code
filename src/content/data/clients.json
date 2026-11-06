@@ -1,0 +1,7 @@
+[
+  { "id": "bajajsons", "name": "Bajajsons Limited", "src": "/clients/client-bajajsons.png", "height": 52 },
+  { "id": "sk", "name": "Shree Krishna Paper Mills", "src": "/clients/client-sk.png", "height": 60 },
+  { "id": "koso", "name": "KOSO", "src": "/clients/client-koso.png", "height": 40 },
+  { "id": "jiwya", "name": "Jiwya", "src": "/clients/client-jiwya.png", "height": 60 },
+  { "id": "mate", "name": "Mate Tree Free Paper", "src": "/clients/client-mate.png", "height": 56 }
+]

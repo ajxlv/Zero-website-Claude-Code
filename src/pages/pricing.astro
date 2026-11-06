@@ -1,0 +1,117 @@
+---
+import { getEntry } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import Faq from '../components/Faq.astro';
+
+const { data } = (await getEntry('pricing', 'pricing'))!;
+const cell = (v: string) => (v === '—' ? 'no' : 'yes');
+---
+<Layout title="Pricing | ZERO" description="Plans that grow with your footprint. Carbon accounting, ESG reporting and product LCA." active="Pricing">
+  <section class="container hero">
+    <span class="tag">Pricing</span>
+    <h1 class="h-display" style="font-size:clamp(44px,5vw,72px);max-width:860px">Plans that grow with your <span style="color:var(--terra)">footprint.</span></h1>
+    <p class="lede" style="font-size:19px;line-height:29px;max-width:600px">Start with the modules you need. Add sites, modules and expert support as you go.</p>
+    <!-- Billing toggle: design shows only the suffix changing; no discount logic is decided (open item) -->
+    <div class="cycle" role="group" aria-label="Billing period" data-cycle>
+      <button type="button" aria-pressed="true" data-v="year">Billed yearly</button>
+      <button type="button" aria-pressed="false" data-v="month">Billed monthly</button>
+    </div>
+  </section>
+
+  <section class="container plans">
+    {data.plans.map((p) => (
+      <div class:list={['plan', { hi: p.popular }]}>
+        <div class="ph"><h2>{p.name}</h2>{p.popular && <span class="pop">Most popular</span>}</div>
+        <span class="pd">{p.description}</span>
+        <div class="price"><span class="pv">{p.price}</span>{!p.custom && <span class="per" data-per>/ year</span>}</div>
+        <a href={`/contact?plan=${p.name.toLowerCase()}`} class="pcta">{p.cta}</a>
+        <ul>{p.features.map((f) => <li><span class="ck" aria-hidden="true">✓</span>{f}</li>)}</ul>
+      </div>
+    ))}
+  </section>
+  <p class="foot container">Plan names, inclusions and prices are a proposed structure. [ADD real pricing]</p>
+
+  <section class="compare">
+    <h2 class="h-lg" style="font-size:clamp(32px,3.6vw,46px)">Compare plans</h2>
+    <div class="tbl" role="table" aria-label="Compare plans">
+      <div class="tr head" role="row"><span role="columnheader">Feature</span><span role="columnheader" class="c">Essentials</span><span role="columnheader" class="c">Growth</span><span role="columnheader" class="c">Enterprise</span></div>
+      {data.compare.map((r) => (
+        <div class="tr" role="row">
+          <span role="rowheader">{r.feature}</span>
+          <span role="cell" class={`c ${cell(r.essentials)}`}>{r.essentials}</span>
+          <span role="cell" class={`c ${cell(r.growth)}`}>{r.growth}</span>
+          <span role="cell" class={`c ${cell(r.enterprise)}`}>{r.enterprise}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="addons on-dark">
+    <div class="container wide ain">
+      <div class="ah"><h2 class="h-lg" style="color:inherit;font-size:clamp(32px,3.6vw,48px)">Expert services, priced per project</h2><span style="font-size:17px;color:var(--nightInk2);max-width:400px">Add to any plan, or engage on their own.</span></div>
+      <div class="agrid">
+        {data.addons.map((a) => <div class="addon"><span class="at">{a.title}</span><span class="ad">{a.description}</span><span class="aq">Quote on request</span></div>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="faqs">
+    <h2 class="h-lg" style="font-size:clamp(32px,3.6vw,46px);text-align:center">Pricing questions</h2>
+    <Faq items={data.faqs} />
+  </section>
+</Layout>
+
+<style>
+  .hero{padding-top:72px;padding-bottom:48px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px}
+  .tag{background:var(--sage);color:var(--deep);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600}
+  .cycle{display:flex;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px;margin-top:8px}
+  .cycle button{border:none;border-radius:999px;padding:10px 20px;background:transparent;color:var(--ink);font:600 15px var(--font-body);cursor:pointer}
+  .cycle button[aria-pressed='true']{background:var(--deep);color:var(--deepInk)}
+  .plans{padding-bottom:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;align-items:stretch}
+  .plan{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:40px;padding:36px;display:flex;flex-direction:column;gap:22px}
+  .plan.hi{background:var(--deep);color:var(--deepInk);border-color:rgba(232,245,220,.18)}
+  .ph{display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .ph h2{font-size:26px}
+  .pop{background:var(--leaf);color:var(--night);border-radius:999px;padding:6px 12px;font-size:12px;font-weight:700}
+  .pd{font-size:15px;line-height:23px;color:var(--ink2);min-height:46px}
+  .hi .pd,.hi .per{color:var(--deepInk2)}
+  .price{display:flex;align-items:baseline;gap:8px}
+  .pv{font-family:var(--font-display);font-size:44px;font-weight:600;letter-spacing:-.03em}
+  .per{font-size:15px;color:var(--ink2)}
+  .pcta{height:52px;border-radius:999px;background:var(--deep);color:#fff;font-weight:600;display:flex;align-items:center;justify-content:center}
+  .pcta:hover{background:var(--moss);color:#fff}
+  .hi .pcta{background:var(--terra)}
+  .hi .pcta:hover{background:var(--terrah)}
+  .plan ul{list-style:none;margin:0;padding:22px 0 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:12px}
+  .hi ul{border-color:rgba(232,245,220,.18)}
+  .plan li{display:flex;gap:10px;font-size:15px;line-height:22px}
+  .ck{color:var(--leaf);font-weight:700}
+  .foot{padding-bottom:100px;font-size:13px;color:var(--ink2);text-align:center}
+  .compare{max-width:1080px;margin:0 auto;padding:0 var(--gutter) 120px;display:flex;flex-direction:column;gap:28px}
+  .tbl{background:var(--surface);border:1px solid var(--line);border-radius:32px;overflow-x:auto}
+  .tr{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;padding:16px 28px;border-top:1px solid var(--line);font-size:15px;gap:12px;align-items:center;min-width:560px}
+  .tr.head{background:var(--deep);color:var(--deepInk);font-weight:600;border-top:none;padding:18px 28px}
+  .c{text-align:center;font-weight:600}
+  .tr:not(.head) .c.yes{color:var(--moss)}
+  .tr:not(.head) .c.no{color:var(--ink2)} /* AA: design used --line for dashes (fails contrast) */
+  .addons{background:var(--night);color:var(--nightInk);padding:110px 0}
+  .ain{display:flex;flex-direction:column;gap:40px}
+  .ah{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px}
+  .agrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .addon{border:1px solid var(--nightLine);background:rgba(166,217,122,.04);border-radius:32px;padding:28px;display:flex;flex-direction:column;gap:10px}
+  .at{font-family:var(--font-display);font-size:22px;font-weight:600}
+  .ad{font-size:15px;line-height:23px;color:var(--nightInk2)}
+  .aq{margin-top:auto;padding-top:12px;font-weight:600;color:var(--leaf)}
+  .faqs{max-width:960px;margin:0 auto;padding:110px var(--gutter) 120px;display:flex;flex-direction:column;gap:28px}
+  @media (max-width:700px){ .plan{padding:28px;border-radius:32px} .addons{padding:72px 0} .tr{padding:14px 16px} }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-cycle]').forEach((root) => {
+    const btns = [...root.querySelectorAll<HTMLButtonElement>('button')];
+    btns.forEach((b) => b.addEventListener('click', () => {
+      btns.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      document.querySelectorAll('[data-per]').forEach((e) => (e.textContent = b.dataset.v === 'year' ? '/ year' : '/ month'));
+    }));
+  });
+</script>
