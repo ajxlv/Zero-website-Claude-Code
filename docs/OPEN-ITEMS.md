@@ -62,7 +62,7 @@ Behaviour worth knowing: the Platform SBTi simulator defaults to a 7% reduction 
 ## Verified
 
 - `npm run check`: 0 errors, 0 warnings.
-- Page heights at 1440 are within ~1% of the design captures on Home, Platform, Services, Pricing, Blog, About and Contact (Free Tools and Blog Article were compared visually).
+- Page heights at 1440 are within 2% of the design captures on every page (Contact is the largest gap, 1430 vs 1404 px). Side-by-side visual comparison against the 1440 captures was done on all nine pages except Blog Article; the differences seen are the deliberate ones listed above.
 - No horizontal scroll at 1440, 768 and 390 on any page.
 - axe-core (WCAG 2.0/2.1 A and AA): 0 violations on all nine pages in their default state.
 - Interaction tests pass: calculators, ESG scoring (best = 100 Leading, worst = 0 Getting started), Platform tabs, Haathi tabs, FAQ single-open, billing toggle, blog filter, reading progress, booking flow.
